@@ -13,4 +13,5 @@ export enum Color {
   WHITE_BACKGROUND = "var(--white-bg)",
   BTN_COLOR = "var(--grey-btn)",
   FONT_COLOR = "var(--grey-font)",
+  FOOTER_FONT_COLOR = "var(--grey-font-footer)",
 }

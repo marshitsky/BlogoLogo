@@ -7,11 +7,13 @@ export const Footer = () => {
   return (
     <StyledFooter>
       <CopyRight>©2022 Blogolog</CopyRight>
+      <>
+        <Link to={ROUTE.ACCOUNT}>Acc</Link>
+        <Link to={ROUTE.FAVS}>Favorites</Link>
+        <Link to={ROUTE.SEARCH}>Search</Link>
+        <Link to={ROUTE.SIGN_IN}>Auth</Link>
+      </>
 
-      <Link to={ROUTE.ACCOUNT}>Acc</Link>
-      <Link to={ROUTE.FAVS}>Favorites</Link>
-      <Link to={ROUTE.SEARCH}>Search</Link>
-      <Link to={ROUTE.SIGN_IN}>Auth</Link>
       <ThemeToggler />
     </StyledFooter>
   );

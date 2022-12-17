@@ -4,12 +4,14 @@ import { Color } from "../../ui/colors";
 const StyledFooter = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  width: 1120px;
   padding: 24px 0;
-  margin: 0 15px;
+  margin: 0 auto;
 `;
 
 const CopyRight = styled.h3`
-  color: ${Color.MEDIUM};
+  color: ${Color.FOOTER_FONT_COLOR};
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
