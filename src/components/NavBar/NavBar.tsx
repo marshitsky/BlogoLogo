@@ -1,13 +1,15 @@
 import React from "react";
 import { UserAccount } from "../UserAccount/UserAccount";
-import { Navigation } from "./styles";
-import { StyledLogo, Text } from "./styles";
+import { Navigation, StyledSearch } from "./styles";
+import { StyledLogo } from "./styles";
 
 export const NavBar = () => {
   return (
     <Navigation>
-      <StyledLogo />
-      <Text>NAV BAR</Text>
+      <>
+        <StyledLogo />
+        <StyledSearch />
+      </>
       <UserAccount />
     </Navigation>
   );

@@ -1,23 +1,23 @@
 import styled from "styled-components";
 import { Color } from "../../ui/colors";
 import { ReactComponent as Logo } from "../../assets/img/logo.svg";
-import { H2 } from "../../ui/typography";
+import { Search } from "../Search/Search";
 
 const Navigation = styled.div`
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 5fr 1fr 1fr;
   align-items: center;
   height: 96px;
   padding: 0 5px;
   background-color: ${Color.WHITE_HEADER};
 `;
 
-const Text = styled.p`
-  ${H2}
-`;
-
 const StyledLogo = styled(Logo)`
   max-width: 157px;
 `;
 
-export { Navigation, StyledLogo, Text };
+const StyledSearch = styled(Search)`
+  justify-self: end;
+`;
+
+export { Navigation, StyledLogo, StyledSearch };
