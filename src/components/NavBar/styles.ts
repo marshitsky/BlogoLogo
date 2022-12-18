@@ -17,7 +17,7 @@ const Text = styled.p`
 `;
 
 const StyledLogo = styled(Logo)`
-  width: 157px;
+  max-width: 157px;
 `;
 
 export { Navigation, StyledLogo, Text };
