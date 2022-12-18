@@ -1,10 +1,12 @@
 {
   "files": {
-    "main.js": "/BlogoLogo/static/js/main.e9eaa188.js",
+    "main.js": "/BlogoLogo/static/js/main.a1356e9a.js",
+    "static/media/logo.svg": "/BlogoLogo/static/media/logo.12b7b8562ff9d9f11892d5338ef00ebc.svg",
     "index.html": "/BlogoLogo/index.html",
-    "main.e9eaa188.js.map": "/BlogoLogo/static/js/main.e9eaa188.js.map"
+    "static/media/search.svg": "/BlogoLogo/static/media/search.7f0947de943e2eef52a15b039a4ae707.svg",
+    "main.a1356e9a.js.map": "/BlogoLogo/static/js/main.a1356e9a.js.map"
   },
   "entrypoints": [
-    "static/js/main.e9eaa188.js"
+    "static/js/main.a1356e9a.js"
   ]
 }
