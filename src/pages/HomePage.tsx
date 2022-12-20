@@ -1,5 +1,5 @@
 import React from "react";
-import { CustomSelect } from "../components/CustomSelect/CustomSelect";
+import { CustomSelect } from "../components";
 
 export const HomePage = () => {
   return (
