@@ -1,7 +1,6 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import { Footer } from "../Footer/Footer";
-import { NavBar } from "../NavBar/NavBar";
+import { Footer, NavBar } from "../../components";
 import { StyledMainTemplate, StyledOutlet } from "./styles";
 
 export const MainTemplate = () => {

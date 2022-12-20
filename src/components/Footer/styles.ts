@@ -6,7 +6,6 @@ const StyledFooter = styled.div`
   justify-content: space-between;
   align-items: center;
   height: 91px;
-  max-width: 1120px;
   width: clamp(320px, 1120px, 100%);
   padding: 24px 11px;
   margin: 0 auto;
