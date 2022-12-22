@@ -1,16 +1,21 @@
-import React, { useEffect } from "react";
+import React, { ChangeEvent, HTMLInputTypeAttribute, useEffect } from "react";
 import { useToggle } from "../../hooks";
 import { ReactComponent as SerchIcon } from "../../assets/icons/search.svg";
 import { StyledInput } from "./styles";
 
-export const Search = () => {
-  const [isSearchActive, toogleIsSearchActive] = useToggle(true);
+interface IProps {
+  placeholder: string;
+  type: HTMLInputTypeAttribute;
+  value?: string;
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+}
+
+export const Search = (props: IProps) => {
+  const [isSearchActive, toogleIsSearchActive] = useToggle(false);
 
   const handleSearch = () => toogleIsSearchActive();
 
-  useEffect(() => {
-    handleSearch();
-  }, []);
+  useEffect(() => {}, []);
 
-  return <>{isSearchActive ? <StyledInput /> : <SerchIcon onClick={handleSearch} />}</>;
+  return <>{isSearchActive ? <StyledInput {...props} /> : <SerchIcon onClick={handleSearch} />}</>;
 };
