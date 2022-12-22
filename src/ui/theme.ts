@@ -1,8 +1,8 @@
 import { css } from "styled-components";
 
 const lightTheme = css`
-  --white: #ffffff;
-  --white-bg: #f3f3f3;
+  --white: #f3f3f3;
+  --white-bg: #ffffff;
   --grey-btn: #e0dfe0;
   --grey-font: #323537;
   --grey-font-footer: rgba(49, 48, 55, 0.5);
