@@ -1,6 +1,6 @@
 import { Switch } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import { Color } from "../../ui/colors";
+import { Color } from "../../ui";
 
 export const CustomSwitch = styled(Switch)({
   "& .MuiSwitch-thumb": {

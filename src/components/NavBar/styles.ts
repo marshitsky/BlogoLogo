@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Color } from "../../ui/colors";
+import { Color } from "../../ui";
 import { ReactComponent as Logo } from "../../assets/img/logo.svg";
 import { Search } from "../Search/Search";
 
