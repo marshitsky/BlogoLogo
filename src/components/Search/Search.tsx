@@ -1,29 +1,28 @@
 import { SearchIcon } from "assets/icons";
-import { useToggle } from "hooks";
-import React, { ChangeEvent, HTMLInputTypeAttribute, useEffect } from "react";
-import { StyledInput } from "./styles";
+import { useOnClickOutside } from "hooks/useOnClickOutside";
+import React, { ChangeEvent, HTMLInputTypeAttribute, useRef, useState } from "react";
+import { InputWrapper, StyledInput } from "./styles";
 
 interface IProps {
   placeholder: string;
-  type: Pick<HTMLInputTypeAttribute, "search">;
+  type: HTMLInputTypeAttribute;
   value?: string;
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
 export const Search = (props: IProps) => {
-  const [isSearchActive, toogleIsSearchActive] = useToggle(false);
+  const ref = useRef<HTMLDivElement>(null);
+  const [isModalOpen, setModalOpen] = useState(false);
+  useOnClickOutside(ref, () => setModalOpen(false));
 
-  const handleSearch = () => toogleIsSearchActive();
-
-  useEffect(() => {}, []);
-
-  // eslint-disable-next-line max-len
   return (
     <>
-      {isSearchActive ? (
-        <StyledInput type="search" placeholder="Search ..." />
+      {isModalOpen ? (
+        <InputWrapper ref={ref}>
+          <StyledInput type="search" placeholder="Search ..." />
+        </InputWrapper>
       ) : (
-        <SearchIcon onClick={handleSearch} />
+        <SearchIcon onClick={() => setModalOpen(true)} />
       )}
     </>
   );
