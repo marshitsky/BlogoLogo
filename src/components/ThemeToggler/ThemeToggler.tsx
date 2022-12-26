@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { FormControlLabel } from "@mui/material";
 import { CustomSwitch } from "./styles";
-
-type Theme = "dark" | "light";
+import { setTheme, toggleTheme, useAppDispatch, useAppSelector } from "store";
 
 export const ThemeToggler = () => {
-  const [theme, setTheme] = useState<Theme>("light");
+  const { theme } = useAppSelector(setTheme);
+  const dispatch = useAppDispatch();
 
   const handleTheme = () => {
-    setTheme((theme) => (theme === "dark" ? "light" : "dark"));
+    dispatch(toggleTheme());
   };
 
   useEffect(() => {

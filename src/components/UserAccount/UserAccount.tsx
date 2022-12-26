@@ -5,8 +5,7 @@ import { UserInfo } from "./styles";
 import { NavLink } from "react-router-dom";
 import { SignInIcon } from "assets/icons";
 import { ROUTE } from "router";
-import { useAppSelector } from "store/hooks/hooks";
-import { getUser } from "store/selectors/userSelector";
+import { getUser, useAppSelector } from "store";
 
 export const UserAccount = () => {
   const { userName, userSurname, isAuth } = useAppSelector(getUser);
