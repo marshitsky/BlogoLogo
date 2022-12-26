@@ -1,6 +1,6 @@
 import { SearchIcon } from "assets/icons";
 import { useOnClickOutside } from "hooks/useOnClickOutside";
-import React, { ChangeEvent, HTMLInputTypeAttribute, useRef, useState } from "react";
+import { ChangeEvent, HTMLInputTypeAttribute, useRef, useState } from "react";
 import { InputWrapper, StyledInput } from "./styles";
 
 interface IProps {
@@ -12,17 +12,17 @@ interface IProps {
 
 export const Search = (props: IProps) => {
   const ref = useRef<HTMLDivElement>(null);
-  const [isModalOpen, setModalOpen] = useState(false);
-  useOnClickOutside(ref, () => setModalOpen(false));
+  const [isInputActive, setIsInputActive] = useState(false);
+  useOnClickOutside(ref, () => setIsInputActive(false));
 
   return (
     <>
-      {isModalOpen ? (
+      {isInputActive ? (
         <InputWrapper ref={ref}>
           <StyledInput type="search" placeholder="Search ..." />
         </InputWrapper>
       ) : (
-        <SearchIcon onClick={() => setModalOpen(true)} />
+        <SearchIcon onClick={() => setIsInputActive(true)} />
       )}
     </>
   );
