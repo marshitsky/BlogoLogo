@@ -1,7 +1,7 @@
+import { ISignInFormTypes } from "components/SignInForm/SignInForm";
 import React from "react";
 import { useForm } from "react-hook-form";
-import { ROUTE } from "../../router/routes";
-import { ISignInFormTypes } from "../SignInForm/SignInForm";
+import { ROUTE } from "router";
 import {
   SignUpButton,
   SignUpInput,

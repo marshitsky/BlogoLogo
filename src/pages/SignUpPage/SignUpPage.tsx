@@ -1,6 +1,6 @@
+import { SignUpForm } from "components";
+import { StyledWrapper } from "pages/SignInPage/styles";
 import React from "react";
-import { SignUpForm } from "../../components/SignUpForm/SignUpForm";
-import { StyledWrapper } from "../SignInPage/styles";
 
 export const SignUpPage = () => {
   return (

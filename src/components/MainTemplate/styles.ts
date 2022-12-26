@@ -6,4 +6,10 @@ const StyledMainTemplate = styled.div`
   min-height: 100vh;
 `;
 
-export { StyledMainTemplate };
+const OutletWrapper = styled.div`
+  flex-grow: 1;
+  display: grid;
+  place-items: center center;
+`;
+
+export { StyledMainTemplate, OutletWrapper };

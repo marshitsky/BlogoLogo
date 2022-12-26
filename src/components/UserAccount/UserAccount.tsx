@@ -1,12 +1,12 @@
 import React from "react";
 // import { useDispatch } from "react-redux";
-import { useAppSelector } from "../../store/hooks/hooks";
-import { getUser } from "../../store/selectors/userSelector";
 // import { toggleAuth } from "../../store/slices/userSlice/userSlice";
-import { ReactComponent as SignInLogo } from "../../assets/icons/sign-in.svg";
 import { UserInfo } from "./styles";
 import { NavLink } from "react-router-dom";
-import { ROUTE } from "../../router/routes";
+import { SignInIcon } from "assets/icons";
+import { ROUTE } from "router";
+import { useAppSelector } from "store/hooks/hooks";
+import { getUser } from "store/selectors/userSelector";
 
 export const UserAccount = () => {
   const { userName, userSurname, isAuth } = useAppSelector(getUser);
@@ -23,7 +23,7 @@ export const UserAccount = () => {
         </UserInfo>
       ) : (
         <UserInfo>
-          <SignInLogo />
+          <SignInIcon />
           <NavLink to={ROUTE.SIGN_IN}>Sign In</NavLink>
         </UserInfo>
       )}

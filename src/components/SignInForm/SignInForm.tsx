@@ -1,6 +1,5 @@
 import { SubmitHandler, useForm } from "react-hook-form";
 import { NavLink } from "react-router-dom";
-import { ROUTE } from "../../router/routes";
 import {
   SignInInput,
   SignInLabel,
@@ -11,6 +10,7 @@ import {
 } from "./styles";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
+import { ROUTE } from "router";
 
 export interface ISignInFormTypes {
   email: string;

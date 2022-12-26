@@ -1,6 +1,6 @@
+import { SearchIcon } from "assets/icons";
+import { useToggle } from "hooks";
 import React, { ChangeEvent, HTMLInputTypeAttribute, useEffect } from "react";
-import { useToggle } from "../../hooks";
-import { ReactComponent as SerchIcon } from "../../assets/icons/search.svg";
 import { StyledInput } from "./styles";
 
 interface IProps {
@@ -17,5 +17,5 @@ export const Search = (props: IProps) => {
 
   useEffect(() => {}, []);
 
-  return <>{isSearchActive ? <StyledInput {...props} /> : <SerchIcon onClick={handleSearch} />}</>;
+  return <>{isSearchActive ? <StyledInput {...props} /> : <SearchIcon onClick={handleSearch} />}</>;
 };

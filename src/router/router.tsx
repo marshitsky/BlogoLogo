@@ -1,5 +1,5 @@
 import { createBrowserRouter, createRoutesFromElements, Route } from "react-router-dom";
-import { MainTemplate } from "../components";
+import { MainTemplate } from "components";
 import {
   AccountPage,
   ArticlePage,
@@ -10,10 +10,10 @@ import {
   SearchPage,
   SignInPage,
   SignUpPage,
-} from "../pages";
-import { ROUTE } from "./routes";
+} from "pages";
+import { ROUTE } from "router";
 
-export const router = createBrowserRouter(
+export const Router = createBrowserRouter(
   createRoutesFromElements(
     <Route path={ROUTE.HOME} element={<MainTemplate />}>
       <Route index element={<HomePage />} />
