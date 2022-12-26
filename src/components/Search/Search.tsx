@@ -5,7 +5,7 @@ import { StyledInput } from "./styles";
 
 interface IProps {
   placeholder: string;
-  type: HTMLInputTypeAttribute;
+  type: Pick<HTMLInputTypeAttribute, "search">;
   value?: string;
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
 }
@@ -17,5 +17,14 @@ export const Search = (props: IProps) => {
 
   useEffect(() => {}, []);
 
-  return <>{isSearchActive ? <StyledInput {...props} /> : <SearchIcon onClick={handleSearch} />}</>;
+  // eslint-disable-next-line max-len
+  return (
+    <>
+      {isSearchActive ? (
+        <StyledInput type="search" placeholder="Search ..." />
+      ) : (
+        <SearchIcon onClick={handleSearch} />
+      )}
+    </>
+  );
 };

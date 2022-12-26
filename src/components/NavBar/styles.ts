@@ -1,19 +1,20 @@
 import styled from "styled-components";
-import { Color } from "../../ui";
-import { Search } from "../Search/Search";
 import { NavLink } from "react-router-dom";
+import { Color } from "ui";
+import { Search } from "components/Search/Search";
 
 const Navigation = styled.div`
   display: grid;
   grid-template-columns: 1fr 5fr 1fr;
   align-items: center;
-  height: 96px;
-  padding: 0 5px;
+  padding: 0 32px;
   background-color: ${Color.WHITE_HEADER};
 `;
 
 const StyledNavLink = styled(NavLink)`
   max-width: 157px;
+  padding: 20px 0;
+  border-radius: 4.67px;
 `;
 
 const StyledSearch = styled(Search)`
