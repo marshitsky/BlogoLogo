@@ -22,6 +22,13 @@ const Image = styled.img`
   height: 208px;
   border-radius: 16px 16px 0 0;
   object-fit: cover;
+  filter: grayscale(0.74);
+  opacity: 0.84;
+  transition: 0.4s ease-in-out;
+  &:hover {
+    filter: grayscale(0);
+    opacity: 1;
+  }
 `;
 
 const Title = styled.h2`
