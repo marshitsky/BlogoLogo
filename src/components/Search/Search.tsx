@@ -14,6 +14,9 @@ export const Search = (props: IProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const [isInputActive, setIsInputActive] = useState(false);
   useOnClickOutside(ref, () => setIsInputActive(false));
+  const handleHide = () => {
+    setIsInputActive(true);
+  };
 
   return (
     <>
@@ -22,7 +25,7 @@ export const Search = (props: IProps) => {
           <StyledInput type="search" placeholder="Search ..." />
         </InputWrapper>
       ) : (
-        <SearchIcon onClick={() => setIsInputActive(true)} />
+        <SearchIcon onClick={handleHide} />
       )}
     </>
   );

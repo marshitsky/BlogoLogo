@@ -1,6 +1,6 @@
 import { Form, NavLink } from "react-router-dom";
 import styled from "styled-components";
-import { Color } from "../../ui";
+import { Color } from "ui";
 
 const StyledSigningForm = styled(Form)`
   display: flex;

@@ -7,9 +7,11 @@ const StyledMainTemplate = styled.div`
 `;
 
 const OutletWrapper = styled.div`
+  max-width: 1110px;
   flex-grow: 1;
   display: grid;
-  place-items: center center;
+  margin: 0 auto;
+  padding: 0 40px;
 `;
 
 export { StyledMainTemplate, OutletWrapper };

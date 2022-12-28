@@ -9,6 +9,7 @@ import { SignInForm } from "./SignInForm/SignInForm";
 import { SignUpForm } from "./SignUpForm/SignUpForm";
 import { ThemeToggler } from "./ThemeToggler/ThemeToggler";
 import { UserAccount } from "./UserAccount/UserAccount";
+import { ArticleContent } from "./ArticleContent/ArticleContent";
 
 export {
   ArticleList,
@@ -22,4 +23,5 @@ export {
   SignUpForm,
   ThemeToggler,
   UserAccount,
+  ArticleContent,
 };
