@@ -1,7 +1,7 @@
 export enum ROUTE {
   HOME = "/",
   ACCOUNT = "account",
-  CONTENT = "content",
+  CONTENT = "articles/:id",
   FAVORITES = "favorites",
   SEARCH = "search",
   SIGN_IN = "sign-in",
