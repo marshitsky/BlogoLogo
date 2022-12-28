@@ -1,16 +1,15 @@
 import { ArticleList, CustomSelect } from "components";
-import React from "react";
-import { Title, Wrapper } from "./styles";
+import { Title, HomePageHeader, HomePageWrapper } from "./styles";
 
 export const HomePage = () => {
   return (
-    <>
+    <HomePageWrapper>
       <Title>Blog</Title>
-      <Wrapper>
-        <p>HomePage</p>
+      <HomePageHeader>
+        <p>day week month year</p>
         <CustomSelect />
-      </Wrapper>
+      </HomePageHeader>
       <ArticleList />
-    </>
+    </HomePageWrapper>
   );
 };

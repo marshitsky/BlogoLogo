@@ -1,12 +1,14 @@
 import styled from "styled-components";
 import { Media } from "ui";
 
-const Spinner = styled.span`
-  font-size: 100px;
+const ListWrapper = styled.div`
+  align-self: center;
 `;
+
 const ErrorMessage = styled.span`
   font-size: 35px;
 `;
+
 const StyledArticlesList = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -20,4 +22,4 @@ const StyledArticlesList = styled.div`
   }
 `;
 
-export { Spinner, ErrorMessage, StyledArticlesList };
+export { StyledArticlesList, ListWrapper, ErrorMessage };

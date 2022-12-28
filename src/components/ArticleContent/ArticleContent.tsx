@@ -1,21 +1,24 @@
-import { Link } from "react-router-dom";
-import { ROUTE } from "router";
+import { useNavigate } from "react-router-dom";
 import { IArticle } from "types";
+import { NavigationLink, Title, Image, Text } from "./styles";
 
 interface IProps {
   article: IArticle;
 }
 
 export const ArticleContent = ({ article }: IProps) => {
-  const { id, imageUrl, title, summary, publishedAt } = article;
+  const navigate = useNavigate();
+  const handleBackHome = () => {
+    navigate(-1);
+  };
+  const { id, imageUrl, title, summary } = article;
   return (
-    <div>
-      <Link to={ROUTE.HOME}>Home</Link>
-      <h3>Post / {id}</h3>
-      <h4>{title}</h4>
-      <img src={imageUrl} alt="" />
-      <p>{publishedAt}</p>
-      <p>{summary}</p>
-    </div>
+    <>
+      <NavigationLink onClick={handleBackHome}>Home </NavigationLink>
+      <span> / Post {id}</span>
+      <Title>{title}</Title>
+      <Image src={imageUrl} alt="article-img" />
+      <Text>{summary}</Text>
+    </>
   );
 };

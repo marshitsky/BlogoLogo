@@ -11,7 +11,7 @@ const OutletWrapper = styled.div`
   flex-grow: 1;
   display: grid;
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 72px 40px;
 `;
 
 export { StyledMainTemplate, OutletWrapper };

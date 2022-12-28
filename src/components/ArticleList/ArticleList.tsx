@@ -1,9 +1,9 @@
-import { ArticleListItem } from "components";
+import { ArticleListItem, Spinner } from "components";
 import { useEffect } from "react";
 import { generatePath, Link } from "react-router-dom";
 import { ROUTE } from "router";
 import { fetchArticles, getAllArticles, useAppDispatch, useAppSelector } from "store";
-import { ErrorMessage, Spinner, StyledArticlesList } from "./styles";
+import { ErrorMessage, StyledArticlesList, ListWrapper } from "./styles";
 
 export const ArticleList = () => {
   const dispatch = useAppDispatch();
@@ -14,8 +14,8 @@ export const ArticleList = () => {
   }, [dispatch]);
 
   return (
-    <>
-      {isLoading && <Spinner>Loading...</Spinner>}
+    <ListWrapper>
+      {isLoading && <Spinner></Spinner>}
       {error && <ErrorMessage />}
       <StyledArticlesList>
         {Array.isArray(articles) &&
@@ -25,6 +25,6 @@ export const ArticleList = () => {
             </Link>
           ))}
       </StyledArticlesList>
-    </>
+    </ListWrapper>
   );
 };

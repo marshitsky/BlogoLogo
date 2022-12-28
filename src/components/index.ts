@@ -10,6 +10,7 @@ import { SignUpForm } from "./SignUpForm/SignUpForm";
 import { ThemeToggler } from "./ThemeToggler/ThemeToggler";
 import { UserAccount } from "./UserAccount/UserAccount";
 import { ArticleContent } from "./ArticleContent/ArticleContent";
+import { Spinner } from "./Spinner/Spinner";
 
 export {
   ArticleList,
@@ -24,4 +25,5 @@ export {
   ThemeToggler,
   UserAccount,
   ArticleContent,
+  Spinner,
 };
