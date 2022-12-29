@@ -7,6 +7,7 @@ const Navigation = styled.div`
   display: grid;
   grid-template-columns: 1fr 5fr 1fr;
   align-items: center;
+  gap: 32px;
   padding: 0 32px;
   background-color: ${Color.WHITE_HEADER};
 `;
