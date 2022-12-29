@@ -1,4 +1,4 @@
-import { ArticleList, CustomSelect } from "components";
+import { CustomSelect, Tabs } from "components";
 import { Title, HomePageHeader, HomePageWrapper } from "./styles";
 
 export const HomePage = () => {
@@ -9,7 +9,7 @@ export const HomePage = () => {
         <p>day week month year</p>
         <CustomSelect />
       </HomePageHeader>
-      <ArticleList />
+      <Tabs />
     </HomePageWrapper>
   );
 };

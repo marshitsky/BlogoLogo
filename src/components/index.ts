@@ -11,6 +11,11 @@ import { ThemeToggler } from "./ThemeToggler/ThemeToggler";
 import { UserAccount } from "./UserAccount/UserAccount";
 import { ArticleContent } from "./ArticleContent/ArticleContent";
 import { Spinner } from "./Spinner/Spinner";
+import { NewsList } from "./NewsList/NewsList";
+import { NewsListItem } from "./NewsListItem/NewsListItem";
+import { Tabs } from "./Tabs/Tabs";
+import { TabsItem } from "./TabsItem/TabsItem";
+import { NewsContent } from "./NewsContent/NewsContent";
 
 export {
   ArticleList,
@@ -26,4 +31,9 @@ export {
   UserAccount,
   ArticleContent,
   Spinner,
+  NewsList,
+  NewsListItem,
+  Tabs,
+  TabsItem,
+  NewsContent,
 };

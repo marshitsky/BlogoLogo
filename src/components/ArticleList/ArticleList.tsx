@@ -15,13 +15,13 @@ export const ArticleList = () => {
 
   return (
     <ListWrapper>
-      {isLoading && <Spinner></Spinner>}
+      {isLoading && <Spinner />}
       {error && <ErrorMessage />}
       <StyledArticlesList>
         {Array.isArray(articles) &&
           articles.map((article) => (
-            <Link to={generatePath(ROUTE.CONTENT, { id: `${article.id}` })}>
-              <ArticleListItem article={article} key={article.id} />
+            <Link to={generatePath(ROUTE.CONTENT, { id: `${article.id}` })} key={article.id}>
+              <ArticleListItem article={article} />
             </Link>
           ))}
       </StyledArticlesList>
