@@ -8,6 +8,10 @@ import { getAllArticles } from "./selectors/articleSselector";
 import { getArticleById } from "./selectors/singleArticleSelector";
 import { fetchArticleById } from "./slices/singleArticleSlice/singleArticleSlice";
 import { fetchArticles } from "./slices/articlesSlice/articlesSlice";
+import { fetchNews } from "./slices/newsSlice/newsSlice";
+import { getAllNews } from "./selectors/newsSelector";
+import { fetchSingleNews } from "./slices/singleNewsSlice/singleNewsSlice";
+import { getNewsById } from "./selectors/singleNewsSelector";
 
 export {
   store,
@@ -21,4 +25,8 @@ export {
   getArticleById,
   fetchArticleById,
   fetchArticles,
+  fetchNews,
+  getAllNews,
+  fetchSingleNews,
+  getNewsById,
 };

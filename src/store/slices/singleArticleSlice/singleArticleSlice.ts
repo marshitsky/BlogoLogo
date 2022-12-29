@@ -3,7 +3,7 @@ import { spaceFlightNewsAPI } from "services";
 import { IArticle } from "types";
 
 interface IArticlesState {
-  results: IArticle;
+  article: IArticle;
   isLoading: boolean;
   error: null | string;
 }
@@ -20,7 +20,7 @@ export const fetchArticleById = createAsyncThunk<IArticle, string, { rejectValue
 );
 
 const initialState: IArticlesState = {
-  results: {} as IArticle,
+  article: {} as IArticle,
   isLoading: false,
   error: null,
 };
@@ -36,7 +36,7 @@ export const singleArticleSlice = createSlice({
     });
     builder.addCase(fetchArticleById.fulfilled, (state, { payload }) => {
       state.isLoading = false;
-      state.results = payload;
+      state.article = payload;
     });
     builder.addCase(fetchArticleById.rejected, (state, { payload }) => {
       if (payload) {
