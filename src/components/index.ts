@@ -16,6 +16,7 @@ import { NewsListItem } from "./NewsListItem/NewsListItem";
 import { Tabs } from "./Tabs/Tabs";
 import { TabsItem } from "./TabsItem/TabsItem";
 import { NewsContent } from "./NewsContent/NewsContent";
+import { Pagination } from "./Pagination/Pagination";
 
 export {
   ArticleList,
@@ -36,4 +37,5 @@ export {
   Tabs,
   TabsItem,
   NewsContent,
+  Pagination,
 };

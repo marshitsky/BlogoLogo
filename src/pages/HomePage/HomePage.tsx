@@ -1,4 +1,4 @@
-import { CustomSelect, Tabs } from "components";
+import { CustomSelect, Pagination, Tabs } from "components";
 import { Title, HomePageHeader, HomePageWrapper } from "./styles";
 
 export const HomePage = () => {
@@ -10,6 +10,7 @@ export const HomePage = () => {
         <CustomSelect />
       </HomePageHeader>
       <Tabs />
+      <Pagination />
     </HomePageWrapper>
   );
 };
