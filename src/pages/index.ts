@@ -7,6 +7,7 @@ import { ResetPasswordPage } from "./ResetPasswordPage/ResetPasswordPage";
 import { SearchPage } from "./SearchPage/SearchPage";
 import { SignInPage } from "./SignInPage/SignInPage";
 import { SignUpPage } from "./SignUpPage/SignUpPage";
+import { NewsPage } from "./NewsPage/NewsPage";
 
 export {
   AccountPage,
@@ -18,4 +19,5 @@ export {
   SearchPage,
   SignInPage,
   SignUpPage,
+  NewsPage,
 };

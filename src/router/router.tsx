@@ -10,6 +10,7 @@ import {
   SearchPage,
   SignInPage,
   SignUpPage,
+  NewsPage,
 } from "pages";
 import { ROUTE } from "router";
 
@@ -19,6 +20,7 @@ export const Router = createBrowserRouter(
       <Route index element={<HomePage />} />
       <Route path={ROUTE.ACCOUNT} element={<AccountPage />} />
       <Route path={ROUTE.CONTENT} element={<ArticlePage />} />
+      <Route path={ROUTE.NEWS_CONTENT} element={<NewsPage />} />
       <Route path={ROUTE.FAVORITES} element={<FavoritesPage />} />
       <Route path={ROUTE.SEARCH} element={<SearchPage />} />
       <Route path={ROUTE.SIGN_IN} element={<SignInPage />} />
