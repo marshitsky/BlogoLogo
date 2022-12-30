@@ -9,8 +9,8 @@ import {
   SignInNavLink,
 } from "./styles";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { useState } from "react";
 import { ROUTE } from "router";
+import { setNewUser, useAppDispatch } from "store";
 
 export interface ISignInFormTypes {
   email: string;
@@ -18,21 +18,29 @@ export interface ISignInFormTypes {
 }
 
 export const SignInForm = () => {
-  const [errorMessage, setErrorMessage] = useState();
+  const dispatch = useAppDispatch();
   const {
     register,
     handleSubmit,
-    // reset,
+    reset,
     formState: { errors },
   } = useForm<ISignInFormTypes>();
 
   const onSubmit: SubmitHandler<ISignInFormTypes> = ({ email, password }: ISignInFormTypes) => {
     const auth = getAuth();
     signInWithEmailAndPassword(auth, email, password)
-      .then(() => {})
+      .then(({ user }) => {
+        dispatch(
+          setNewUser({
+            email: user.email,
+            id: user.uid,
+          }),
+        );
+      })
       .catch((error) => {
-        setErrorMessage(errorMessage);
+        return "Error";
       });
+    reset();
   };
 
   return (
@@ -44,7 +52,7 @@ export const SignInForm = () => {
         {...register("email", {
           required: "* email is required",
           maxLength: { value: 25, message: "* max 15 characters" },
-          pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,
+          pattern: { value: /^(.+)@(.+)$/, message: "Enter a valid email" },
         })}
       />
       {errors.email && <p>{errors.email.message}</p>}

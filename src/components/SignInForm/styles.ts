@@ -1,8 +1,8 @@
-import { Form, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { Color } from "ui";
 
-const StyledSigningForm = styled(Form)`
+const StyledSigningForm = styled.form`
   display: flex;
   flex-direction: column;
   width: clamp(272px, 724px, 100%);

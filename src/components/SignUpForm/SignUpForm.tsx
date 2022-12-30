@@ -1,7 +1,7 @@
-import { ISignInFormTypes } from "components/SignInForm/SignInForm";
-import React from "react";
-import { useForm } from "react-hook-form";
+import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
+import { SubmitHandler, useForm } from "react-hook-form";
 import { ROUTE } from "router";
+import { setNewUser, useAppDispatch } from "store";
 import {
   SignUpButton,
   SignUpInput,
@@ -11,24 +11,47 @@ import {
   StyledSigningUpForm,
 } from "./styles";
 
+export interface ISignInFormTypes {
+  userName: string;
+  email: string;
+  password: string;
+}
+
 export const SignUpForm = () => {
+  const dispatch = useAppDispatch();
   const {
     register,
-    // reset,
+    reset,
+    handleSubmit,
     formState: { errors },
-  } = useForm<ISignInFormTypes>({
-    mode: "onSubmit",
-    reValidateMode: "onSubmit",
-  });
+  } = useForm<ISignInFormTypes>();
+
+  const onSubmit: SubmitHandler<ISignInFormTypes> = ({ email, password }) => {
+    const auth = getAuth();
+    createUserWithEmailAndPassword(auth, email, password)
+      .then(({ user }) => {
+        dispatch(
+          setNewUser({
+            email: user.email,
+            id: user.uid,
+          }),
+        );
+      })
+      .catch((error) => {
+        return "Error";
+      });
+    reset();
+  };
+
   return (
-    <StyledSigningUpForm>
+    <StyledSigningUpForm onSubmit={handleSubmit(onSubmit)}>
       <SignUpLabel>Email</SignUpLabel>
       <SignUpInput
         type="email"
         placeholder="Your email"
         {...register("email", {
           required: "Email is required",
-          pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,
+          pattern: { value: /^(.+)@(.+)$/, message: "Enter a valid email" },
         })}
       />
       {errors.email && <p>{errors.email.message}</p>}
@@ -45,7 +68,7 @@ export const SignUpForm = () => {
         })}
       />
       {errors.password && <p>{errors.password.message}</p>}
-      <SignUpButton>Sign in</SignUpButton>
+      <SignUpButton type="submit">Sign Up</SignUpButton>
       <SignUpText>
         Have an account already? <SignUpNavLink to={"../" + ROUTE.SIGN_IN}>Sign In</SignUpNavLink>
       </SignUpText>
