@@ -12,7 +12,7 @@ import {
 } from "./styles";
 
 export interface ISignInFormTypes {
-  userName: string;
+  name: string;
   email: string;
   password: string;
 }
@@ -45,6 +45,19 @@ export const SignUpForm = () => {
 
   return (
     <StyledSigningUpForm onSubmit={handleSubmit(onSubmit)}>
+      <SignUpLabel>Name</SignUpLabel>
+      <SignUpInput
+        type="name"
+        placeholder="Your name"
+        {...register("name", {
+          required: "Name is required",
+          maxLength: {
+            value: 20,
+            message: "Too long",
+          },
+        })}
+      />
+      {errors.name && <p>{errors.name.message}</p>}
       <SignUpLabel>Email</SignUpLabel>
       <SignUpInput
         type="email"
