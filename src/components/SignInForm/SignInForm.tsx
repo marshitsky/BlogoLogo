@@ -1,5 +1,5 @@
 import { SubmitHandler, useForm } from "react-hook-form";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import {
   SignInInput,
   SignInLabel,
@@ -18,6 +18,10 @@ export interface ISignInFormTypes {
 }
 
 export const SignInForm = () => {
+  const navigate = useNavigate();
+  const handleNavigateToAccount = () => {
+    navigate("../" + ROUTE.ACCOUNT);
+  };
   const dispatch = useAppDispatch();
   const {
     register,
@@ -37,6 +41,7 @@ export const SignInForm = () => {
           }),
         );
       })
+      .then(handleNavigateToAccount)
       .catch((error) => {
         return "Error";
       });
