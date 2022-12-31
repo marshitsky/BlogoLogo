@@ -70,7 +70,7 @@ export const SignInForm = () => {
         })}
       />
       {errors.password && <p>{errors.password.message}</p>}
-      <NavLink to={ROUTE.RESET_PASSWORD}>Forgot password?</NavLink>
+      <NavLink to={"../" + ROUTE.RESET_PASSWORD}>Forgot password?</NavLink>
       <SignInButton type="submit">Sign in</SignInButton>
       <SignInText>
         Don’t have an account? <SignInNavLink to={"../" + ROUTE.SIGN_UP}>Sign Up</SignInNavLink>
