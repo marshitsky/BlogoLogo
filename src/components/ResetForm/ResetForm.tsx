@@ -18,6 +18,11 @@ export const ResetForm = () => {
     navigate(-1);
   };
 
+  // make modal for all errors in all sign/reset forms
+  const showAlertWrongEmail = () => {
+    return alert("Wrong email");
+  };
+
   const {
     register,
     reset,
@@ -32,7 +37,8 @@ export const ResetForm = () => {
       .then()
       .catch((error) => {
         const errorCode = error.code;
-        const errorMessage = error.message;
+        // const errorMessage = error.message;
+        errorCode === "auth/user-not-found" && showAlertWrongEmail();
       });
 
     reset();
