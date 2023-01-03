@@ -13,11 +13,6 @@ export const ResetForm = () => {
     navigate(-1);
   };
 
-  // make modal for all errors in all sign/reset forms
-  const showAlertWrongEmail = () => {
-    return alert("Wrong email");
-  };
-
   const {
     register,
     reset,
@@ -27,15 +22,7 @@ export const ResetForm = () => {
 
   const onSubmit: SubmitHandler<ISignInFormTypes> = ({ email }) => {
     const auth = getAuth();
-    sendPasswordResetEmail(auth, email)
-      .then(handleBackHome)
-      .then()
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        alert(errorMessage);
-      });
-
+    sendPasswordResetEmail(auth, email).then(handleBackHome);
     reset();
   };
 

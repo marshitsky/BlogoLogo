@@ -1,11 +1,20 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
+import { Color } from "ui";
 
 const UserInfo = styled.div`
   display: flex;
   justify-content: end;
   align-items: center;
   gap: 16px;
+`;
+
+const StyledInitials = styled.div`
+  padding: 7px;
+  font-size: 34px;
+  color: ${Color.WHITE};
+  background: linear-gradient(133.87deg, #4d0ac7 -10.18%, #912ef2 108.59%);
+  border-radius: 4px;
 `;
 
 const StyledNavLink = styled(NavLink)`
@@ -15,4 +24,4 @@ const StyledNavLink = styled(NavLink)`
   }
 `;
 
-export { UserInfo, StyledNavLink };
+export { UserInfo, StyledNavLink, StyledInitials };

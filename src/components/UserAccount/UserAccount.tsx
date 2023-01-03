@@ -1,4 +1,4 @@
-import { StyledNavLink, UserInfo } from "./styles";
+import { StyledInitials, StyledNavLink, UserInfo } from "./styles";
 import { NavLink } from "react-router-dom";
 import { SignInIcon } from "assets/icons";
 import { ROUTE } from "router";
@@ -10,7 +10,21 @@ export const UserAccount = () => {
     <div>
       {isAuth ? (
         <UserInfo>
-          <NavLink to={ROUTE.ACCOUNT}>{name}</NavLink>
+          <StyledInitials>
+            {name &&
+              name
+                .split(" ")
+                .map((n) => n[0])
+                .join("")
+                .toUpperCase()}
+          </StyledInitials>
+          <NavLink to={ROUTE.ACCOUNT}>
+            {name &&
+              name
+                .split(" ")
+                .map((n) => n[0].toUpperCase() + n.slice(1))
+                .join(" ")}
+          </NavLink>
         </UserInfo>
       ) : (
         <UserInfo>
