@@ -1,12 +1,7 @@
-import {
-  StyledSigningUpForm,
-  SignUpLabel,
-  SignUpInput,
-  SignUpButton,
-} from "components/SignUpForm/styles";
 import { getAuth, sendPasswordResetEmail } from "firebase/auth";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import { StyledResetForm, ResetLabel, ResetInput, ResetButton } from "./styles";
 
 export interface ISignInFormTypes {
   email: string;
@@ -37,17 +32,17 @@ export const ResetForm = () => {
       .then()
       .catch((error) => {
         const errorCode = error.code;
-        // const errorMessage = error.message;
-        errorCode === "auth/user-not-found" && showAlertWrongEmail();
+        const errorMessage = error.message;
+        alert(errorMessage);
       });
 
     reset();
   };
 
   return (
-    <StyledSigningUpForm onSubmit={handleSubmit(onSubmit)}>
-      <SignUpLabel>Email</SignUpLabel>
-      <SignUpInput
+    <StyledResetForm onSubmit={handleSubmit(onSubmit)}>
+      <ResetLabel>Email</ResetLabel>
+      <ResetInput
         type="email"
         placeholder="Your email"
         {...register("email", {
@@ -56,7 +51,7 @@ export const ResetForm = () => {
         })}
       />
       {errors.email && <p>{errors.email.message}</p>}
-      <SignUpButton type="submit">Reset password</SignUpButton>
-    </StyledSigningUpForm>
+      <ResetButton type="submit">Reset password</ResetButton>
+    </StyledResetForm>
   );
 };

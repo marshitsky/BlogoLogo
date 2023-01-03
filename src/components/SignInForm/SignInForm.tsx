@@ -8,9 +8,9 @@ import {
   StyledSigningForm,
   SignInNavLink,
 } from "./styles";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { ROUTE } from "router";
-import { setNewUser, useAppDispatch } from "store";
+import { useAppDispatch } from "store";
+import { signInUser } from "store/slices/usersSlice/usersSlice";
 
 export interface ISignInFormTypes {
   email: string;
@@ -19,9 +19,6 @@ export interface ISignInFormTypes {
 
 export const SignInForm = () => {
   const navigate = useNavigate();
-  const handleNavigateToAccount = () => {
-    navigate("../" + ROUTE.ACCOUNT);
-  };
   const dispatch = useAppDispatch();
   const {
     register,
@@ -30,22 +27,12 @@ export const SignInForm = () => {
     formState: { errors },
   } = useForm<ISignInFormTypes>();
 
-  const onSubmit: SubmitHandler<ISignInFormTypes> = ({ email, password }: ISignInFormTypes) => {
-    const auth = getAuth();
-    signInWithEmailAndPassword(auth, email, password)
-      .then(({ user }) => {
-        dispatch(
-          setNewUser({
-            email: user.email,
-            id: user.uid,
-          }),
-        );
-      })
-      .then(handleNavigateToAccount)
-      .catch((error) => {
-        return "Error";
+  const onSubmit: SubmitHandler<ISignInFormTypes> = (userInfo) => {
+    dispatch(signInUser(userInfo))
+      .then(() => navigate("../" + ROUTE.ACCOUNT))
+      .finally(() => {
+        reset();
       });
-    reset();
   };
 
   return (
@@ -56,7 +43,7 @@ export const SignInForm = () => {
         placeholder="Your email"
         {...register("email", {
           required: "* email is required",
-          maxLength: { value: 25, message: "* max 15 characters" },
+          maxLength: { value: 35, message: "* max 35 characters" },
           pattern: { value: /^(.+)@(.+)$/, message: "Enter a valid email" },
         })}
       />

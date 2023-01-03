@@ -1,10 +1,13 @@
 import { ResetForm } from "components";
-import React from "react";
+import { ROUTE } from "router";
+import { ResetPage, ResetPageTitle, StyledLink } from "./styles";
 
 export const ResetPasswordPage = () => {
   return (
-    <div>
+    <ResetPage>
+      <StyledLink to={ROUTE.HOME}>Back to home</StyledLink>
+      <ResetPageTitle>Reset Password</ResetPageTitle>
       <ResetForm />
-    </div>
+    </ResetPage>
   );
 };

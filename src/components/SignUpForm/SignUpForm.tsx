@@ -1,7 +1,8 @@
-import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
 import { SubmitHandler, useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import { ROUTE } from "router";
-import { setNewUser, useAppDispatch } from "store";
+import { useAppDispatch } from "store";
+import { signUpUser } from "store/slices/usersSlice/usersSlice";
 import {
   SignUpButton,
   SignUpInput,
@@ -12,13 +13,14 @@ import {
 } from "./styles";
 
 export interface ISignInFormTypes {
-  name: string;
   email: string;
   password: string;
+  userName: string;
 }
 
 export const SignUpForm = () => {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   const {
     register,
     reset,
@@ -26,21 +28,14 @@ export const SignUpForm = () => {
     formState: { errors },
   } = useForm<ISignInFormTypes>();
 
-  const onSubmit: SubmitHandler<ISignInFormTypes> = ({ email, password }) => {
-    const auth = getAuth();
-    createUserWithEmailAndPassword(auth, email, password)
-      .then(({ user }) => {
-        dispatch(
-          setNewUser({
-            email: user.email,
-            id: user.uid,
-          }),
-        );
+  const onSubmit: SubmitHandler<ISignInFormTypes> = (userInfo) => {
+    dispatch(signUpUser(userInfo))
+      .then(() => {
+        navigate(ROUTE.HOME);
       })
-      .catch((error) => {
-        return "Error";
+      .finally(() => {
+        reset();
       });
-    reset();
   };
 
   return (
@@ -49,7 +44,7 @@ export const SignUpForm = () => {
       <SignUpInput
         type="name"
         placeholder="Your name"
-        {...register("name", {
+        {...register("userName", {
           required: "Name is required",
           maxLength: {
             value: 20,
@@ -57,7 +52,7 @@ export const SignUpForm = () => {
           },
         })}
       />
-      {errors.name && <p>{errors.name.message}</p>}
+      {errors.userName && <p>{errors.userName.message}</p>}
       <SignUpLabel>Email</SignUpLabel>
       <SignUpInput
         type="email"
