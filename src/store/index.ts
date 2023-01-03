@@ -1,9 +1,8 @@
 import { store } from "./store";
 import { useAppDispatch, useAppSelector } from "./hooks/hooks";
 import { setTheme } from "./selectors/themeSelector";
-import { getUser } from "./selectors/userSelector";
+import { getUserInfo } from "./selectors/userSelector";
 import { toggleTheme } from "./slices/themeSlice/themeSlice";
-import { setNewUser } from "./slices/usersSlice/usersSlice";
 import { getAllArticles } from "./selectors/articleSselector";
 import { getArticleById } from "./selectors/singleArticleSelector";
 import { fetchArticleById } from "./slices/singleArticleSlice/singleArticleSlice";
@@ -18,9 +17,8 @@ export {
   useAppDispatch,
   useAppSelector,
   setTheme,
-  getUser,
+  getUserInfo,
   toggleTheme,
-  setNewUser,
   getAllArticles,
   getArticleById,
   fetchArticleById,
