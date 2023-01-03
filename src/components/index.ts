@@ -18,6 +18,7 @@ import { TabsItem } from "./TabsItem/TabsItem";
 import { NewsContent } from "./NewsContent/NewsContent";
 import { Pagination } from "./Pagination/Pagination";
 import { ResetForm } from "./ResetForm/ResetForm";
+import { RequireAuth } from "./RequireAuth/RequireAuth";
 
 export {
   ArticleList,
@@ -40,4 +41,5 @@ export {
   NewsContent,
   Pagination,
   ResetForm,
+  RequireAuth,
 };
