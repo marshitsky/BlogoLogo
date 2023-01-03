@@ -1,5 +1,7 @@
 import React from "react";
+import { getUserInfo, useAppSelector } from "store";
 
 export const AccountPage = () => {
-  return <div>AccountPage</div>;
+  const { name } = useAppSelector(getUserInfo);
+  return <div>{name}</div>;
 };

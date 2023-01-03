@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { FirebaseErrorCode, getFBErrorMessage } from "utils";
 
 interface IUserState {
   name: string;
@@ -32,7 +33,8 @@ export const signUpUser = createAsyncThunk<
 
     return { userEmail, name };
   } catch (error) {
-    return rejectWithValue("Error");
+    const firebaseError = error as { code: FirebaseErrorCode };
+    return rejectWithValue(getFBErrorMessage(firebaseError.code));
   }
 });
 
@@ -48,7 +50,8 @@ export const signInUser = createAsyncThunk<
 
     return { userEmail };
   } catch (error) {
-    return rejectWithValue("Error");
+    const firebaseError = error as { code: FirebaseErrorCode };
+    return rejectWithValue(getFBErrorMessage(firebaseError.code));
   }
 });
 
@@ -58,7 +61,7 @@ const userSlice = createSlice({
   reducers: {
     getUserName: (state, { payload }) => {
       if (payload) {
-        return (state.email = payload);
+        return (state.name = payload);
       }
     },
   },
