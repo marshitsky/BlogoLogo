@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { FirebaseErrorCode, getFBErrorMessage } from "utils";
 
@@ -7,7 +7,6 @@ interface IUserState {
   email: string | null;
   password: string;
   isAuth: boolean;
-  id: null | string;
   error: null | string;
 }
 
@@ -16,7 +15,6 @@ const initialState: IUserState = {
   email: "",
   password: "",
   isAuth: false,
-  id: "",
   error: null,
 };
 
@@ -27,8 +25,8 @@ export const signUpUser = createAsyncThunk<
 >("user/signUpUser", async ({ email, password, userName }, { rejectWithValue }) => {
   try {
     const auth = getAuth();
-    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-    const userEmail = userCredential.user.email as string;
+    const userCredential = createUserWithEmailAndPassword(auth, email, password);
+    const userEmail = (await userCredential).user.email;
     const name = userName;
 
     return { userEmail, name };
@@ -59,10 +57,9 @@ const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    getUserName: (state, { payload }) => {
-      if (payload) {
-        return (state.name = payload);
-      }
+    getUserName: (state, { payload }: PayloadAction<string>) => {
+      state.name = payload;
+      state.email = payload;
     },
   },
   extraReducers(builder) {
@@ -70,9 +67,11 @@ const userSlice = createSlice({
       state.isAuth = false;
       state.error = null;
     });
-    builder.addCase(signUpUser.fulfilled, (state) => {
+    builder.addCase(signUpUser.fulfilled, (state, { payload }) => {
       state.isAuth = true;
       state.error = null;
+      state.name = payload.name;
+      state.email = payload.userEmail;
     });
     builder.addCase(signUpUser.rejected, (state, { payload }) => {
       if (payload) {
@@ -85,9 +84,10 @@ const userSlice = createSlice({
       state.isAuth = false;
       state.error = null;
     });
-    builder.addCase(signInUser.fulfilled, (state) => {
+    builder.addCase(signInUser.fulfilled, (state, { payload }) => {
       state.isAuth = true;
       state.error = null;
+      state.email = payload.userEmail;
     });
     builder.addCase(signInUser.rejected, (state, { payload }) => {
       if (payload) {
@@ -99,3 +99,4 @@ const userSlice = createSlice({
 });
 
 export default userSlice.reducer;
+export const { getUserName } = userSlice.actions;
