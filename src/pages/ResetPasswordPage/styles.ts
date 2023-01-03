@@ -2,13 +2,13 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { H1 } from "ui";
 
-const StyledWrapper = styled.div``;
+const ResetPage = styled.div``;
 
 const StyledLink = styled(Link)``;
 
-const SigInTitle = styled.h1`
+const ResetPageTitle = styled.h1`
   ${H1}
   padding: 32px 0 56px 0;
 `;
 
-export { StyledWrapper, StyledLink, SigInTitle };
+export { ResetPage, StyledLink, ResetPageTitle };
