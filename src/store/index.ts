@@ -11,6 +11,8 @@ import { fetchNews } from "./slices/newsSlice/newsSlice";
 import { getAllNews } from "./selectors/newsSelector";
 import { fetchSingleNews } from "./slices/singleNewsSlice/singleNewsSlice";
 import { getNewsById } from "./selectors/singleNewsSelector";
+import { fetchSignInUser } from "./slices/usersSlice/usersSlice";
+import { fetchSignUpUser } from "./slices/usersSlice/usersSlice";
 
 export {
   store,
@@ -27,4 +29,6 @@ export {
   getAllNews,
   fetchSingleNews,
   getNewsById,
+  fetchSignInUser,
+  fetchSignUpUser,
 };

@@ -9,8 +9,7 @@ import {
   SignInNavLink,
 } from "./styles";
 import { ROUTE } from "router";
-import { useAppDispatch } from "store";
-import { signInUser } from "store/slices/usersSlice/usersSlice";
+import { fetchSignInUser, useAppDispatch } from "store";
 
 export interface ISignInFormTypes {
   email: string;
@@ -28,7 +27,7 @@ export const SignInForm = () => {
   } = useForm<ISignInFormTypes>();
 
   const onSubmit: SubmitHandler<ISignInFormTypes> = (userInfo) => {
-    dispatch(signInUser(userInfo))
+    dispatch(fetchSignInUser(userInfo))
       .then(() => navigate("../" + ROUTE.ACCOUNT))
       .finally(() => {
         reset();

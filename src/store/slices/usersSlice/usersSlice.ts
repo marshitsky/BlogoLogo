@@ -18,7 +18,7 @@ const initialState: IUserState = {
   error: null,
 };
 
-export const signUpUser = createAsyncThunk<
+export const fetchSignUpUser = createAsyncThunk<
   { userEmail: string | null; name: string },
   { email: string; password: string; userName: string },
   { rejectValue: string }
@@ -36,7 +36,7 @@ export const signUpUser = createAsyncThunk<
   }
 });
 
-export const signInUser = createAsyncThunk<
+export const fetchSignInUser = createAsyncThunk<
   { userEmail: string | null },
   { email: string; password: string },
   { rejectValue: string }
@@ -63,33 +63,33 @@ const userSlice = createSlice({
     },
   },
   extraReducers(builder) {
-    builder.addCase(signUpUser.pending, (state) => {
+    builder.addCase(fetchSignUpUser.pending, (state) => {
       state.isAuth = false;
       state.error = null;
     });
-    builder.addCase(signUpUser.fulfilled, (state, { payload }) => {
+    builder.addCase(fetchSignUpUser.fulfilled, (state, { payload }) => {
       state.isAuth = true;
       state.error = null;
       state.name = payload.name;
       state.email = payload.userEmail;
     });
-    builder.addCase(signUpUser.rejected, (state, { payload }) => {
+    builder.addCase(fetchSignUpUser.rejected, (state, { payload }) => {
       if (payload) {
         state.isAuth = false;
         state.error = payload;
       }
     });
 
-    builder.addCase(signInUser.pending, (state) => {
+    builder.addCase(fetchSignInUser.pending, (state) => {
       state.isAuth = false;
       state.error = null;
     });
-    builder.addCase(signInUser.fulfilled, (state, { payload }) => {
+    builder.addCase(fetchSignInUser.fulfilled, (state, { payload }) => {
       state.isAuth = true;
       state.error = null;
       state.email = payload.userEmail;
     });
-    builder.addCase(signInUser.rejected, (state, { payload }) => {
+    builder.addCase(fetchSignInUser.rejected, (state, { payload }) => {
       if (payload) {
         state.isAuth = false;
         state.error = payload;

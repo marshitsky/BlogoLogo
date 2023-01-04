@@ -1,8 +1,7 @@
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { ROUTE } from "router";
-import { useAppDispatch } from "store";
-import { signUpUser } from "store/slices/usersSlice/usersSlice";
+import { fetchSignUpUser, useAppDispatch } from "store";
 import {
   SignUpButton,
   SignUpInput,
@@ -29,7 +28,7 @@ export const SignUpForm = () => {
   } = useForm<ISignInFormTypes>();
 
   const onSubmit: SubmitHandler<ISignInFormTypes> = (userInfo) => {
-    dispatch(signUpUser(userInfo))
+    dispatch(fetchSignUpUser(userInfo))
       .then(() => {
         navigate(ROUTE.HOME);
       })
