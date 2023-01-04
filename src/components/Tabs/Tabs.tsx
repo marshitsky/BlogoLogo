@@ -1,29 +1,35 @@
-import { ArticleList, NewsList } from "components";
-import { TabsItem } from "components/TabsItem/TabsItem";
-import React, { useState } from "react";
-import { ITab } from "types";
-import { TabsBlock } from "./styles";
+import { CustomSelect } from "components";
+import { useToggle } from "hooks";
+import { TabButton, TabsBlock, TabsControlWrapper, SortPanelWrapper } from "./styles";
 
-const tabs: ITab[] = [
-  { id: "1", label: "Articles" },
-  { id: "2", label: "News" },
-];
+interface ITabs {
+  tab: string;
+  setTab: (tab: string) => void;
+}
 
-export const Tabs = () => {
-  const [chosenTab, setChosenTab] = useState(tabs[0].id);
-  const handleSelectTab = (id: string) => {
-    setChosenTab(id);
+export const Tabs = ({ setTab, tab }: ITabs) => {
+  const [isActive, setIsActive] = useToggle();
+
+  const handleArticle = () => {
+    setTab("articles");
+    setIsActive();
   };
+
+  const handleNews = () => {
+    setTab("blogs");
+    setIsActive();
+  };
+
   return (
-    <>
+    <TabsControlWrapper>
       <TabsBlock>
-        {tabs.map((item) => (
-          <TabsItem key={item.id} onClick={handleSelectTab} isChosen={chosenTab} tab={item}>
-            {item.label}
-          </TabsItem>
-        ))}
+        <TabButton onClick={handleArticle}>Articles</TabButton>
+        <TabButton onClick={handleNews}>Blogs</TabButton>
       </TabsBlock>
-      {chosenTab === tabs[0].id ? <ArticleList /> : <NewsList />}
-    </>
+      <SortPanelWrapper>
+        <p>Day Week Month Year</p>
+        <CustomSelect />
+      </SortPanelWrapper>
+    </TabsControlWrapper>
   );
 };

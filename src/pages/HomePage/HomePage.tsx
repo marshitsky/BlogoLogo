@@ -1,15 +1,15 @@
-import { CustomSelect, Pagination, Tabs } from "components";
-import { Title, HomePageHeader, HomePageWrapper } from "./styles";
+import { ArticleList, NewsList, Pagination, Tabs } from "components";
+import { useState } from "react";
+import { Title, HomePageWrapper } from "./styles";
 
 export const HomePage = () => {
+  const [tab, setTab] = useState<string>("articles");
+
   return (
     <HomePageWrapper>
       <Title>Blog</Title>
-      <HomePageHeader>
-        <p>day week month year</p>
-        <CustomSelect />
-      </HomePageHeader>
-      <Tabs />
+      <Tabs tab={tab} setTab={setTab} />
+      {tab === "articles" ? <ArticleList /> : <NewsList />}
       <Pagination />
     </HomePageWrapper>
   );

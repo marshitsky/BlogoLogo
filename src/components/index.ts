@@ -14,7 +14,6 @@ import { Spinner } from "./Spinner/Spinner";
 import { NewsList } from "./NewsList/NewsList";
 import { NewsListItem } from "./NewsListItem/NewsListItem";
 import { Tabs } from "./Tabs/Tabs";
-import { TabsItem } from "./TabsItem/TabsItem";
 import { NewsContent } from "./NewsContent/NewsContent";
 import { Pagination } from "./Pagination/Pagination";
 import { ResetForm } from "./ResetForm/ResetForm";
@@ -37,7 +36,6 @@ export {
   NewsList,
   NewsListItem,
   Tabs,
-  TabsItem,
   NewsContent,
   Pagination,
   ResetForm,

@@ -1,4 +1,4 @@
-import { NewsContent } from "components";
+import { NewsContent, Spinner } from "components";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchSingleNews, getNewsById, useAppDispatch, useAppSelector } from "store";
@@ -12,10 +12,9 @@ export const NewsPage = () => {
     dispatch(fetchSingleNews(details));
   }, [dispatch, details]);
 
-  return (
-    <div>
-      {isLoading && <span>LOADING</span>}
-      <NewsContent news={news} />
-    </div>
-  );
+  if (isLoading) {
+    return <Spinner />;
+  }
+
+  return <NewsContent news={news} />;
 };

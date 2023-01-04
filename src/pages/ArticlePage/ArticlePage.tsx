@@ -1,4 +1,4 @@
-import { ArticleContent } from "components";
+import { ArticleContent, Spinner } from "components";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchArticleById, getArticleById, useAppDispatch, useAppSelector } from "store";
@@ -11,10 +11,9 @@ export const ArticlePage = () => {
   useEffect(() => {
     dispatch(fetchArticleById(details));
   }, [dispatch, details]);
-  return (
-    <div>
-      {isLoading && <span>LOADING</span>}
-      <ArticleContent article={article} />
-    </div>
-  );
+
+  if (isLoading) {
+    return <Spinner />;
+  }
+  return <ArticleContent article={article} />;
 };

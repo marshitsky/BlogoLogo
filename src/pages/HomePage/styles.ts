@@ -7,7 +7,7 @@ const HomePageWrapper = styled.div`
 `;
 
 const HomePageHeader = styled.div`
-  width: clamp(270px, 100%, 1110px);
+  width: 1120px;
   display: grid;
   grid-template-columns: 80% 20%;
   align-items: center;
