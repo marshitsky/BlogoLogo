@@ -1,7 +1,5 @@
 import { ArticleListItem, Spinner } from "components";
 import { useEffect } from "react";
-import { generatePath, Link } from "react-router-dom";
-import { ROUTE } from "router";
 import { fetchArticles, getAllArticles, useAppDispatch, useAppSelector } from "store";
 import { ErrorMessage, StyledArticlesList, ListWrapper } from "./styles";
 
@@ -19,11 +17,7 @@ export const ArticleList = () => {
       {error && <ErrorMessage />}
       <StyledArticlesList>
         {Array.isArray(articles) &&
-          articles.map((article) => (
-            <Link to={generatePath(ROUTE.CONTENT, { id: `${article.id}` })} key={article.id}>
-              <ArticleListItem article={article} />
-            </Link>
-          ))}
+          articles.map((article) => <ArticleListItem article={article} key={article.id} />)}
       </StyledArticlesList>
     </ListWrapper>
   );

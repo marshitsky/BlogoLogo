@@ -1,4 +1,6 @@
 import React from "react";
+import { generatePath, Link } from "react-router-dom";
+import { ROUTE } from "router";
 import { IArticle } from "types";
 import { StyledArticleListItem, Image, Title, PublishDate } from "./styles";
 
@@ -11,9 +13,11 @@ export const ArticleListItem = ({ article }: IProps) => {
   const date = new Date(publishedAt).toLocaleString().slice(0, -3);
   return (
     <StyledArticleListItem>
-      <Image src={imageUrl} alt={title} />
-      <PublishDate>{date}</PublishDate>
-      <Title>{title}</Title>
+      <Link to={generatePath(ROUTE.CONTENT, { id: `${article.id}` })}>
+        <Image src={imageUrl} alt={title} />
+        <PublishDate>{date}</PublishDate>
+        <Title>{title}</Title>
+      </Link>
     </StyledArticleListItem>
   );
 };

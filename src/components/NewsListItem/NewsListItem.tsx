@@ -5,6 +5,8 @@ import {
   Image,
 } from "components/ArticleListItem/styles";
 import React from "react";
+import { generatePath, Link } from "react-router-dom";
+import { ROUTE } from "router";
 import { INews } from "types";
 
 interface IProps {
@@ -16,9 +18,11 @@ export const NewsListItem = ({ news }: IProps) => {
   const date = new Date(publishedAt).toLocaleString().slice(0, -3);
   return (
     <StyledArticleListItem>
-      <Image src={imageUrl} alt={title} />
-      <PublishDate>{date}</PublishDate>
-      <Title>{title}</Title>
+      <Link to={generatePath(ROUTE.NEWS_CONTENT, { id: `${news.id}` })}>
+        <Image src={imageUrl} alt={title} />
+        <PublishDate>{date}</PublishDate>
+        <Title>{title}</Title>
+      </Link>
     </StyledArticleListItem>
   );
 };
