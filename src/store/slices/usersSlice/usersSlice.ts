@@ -10,6 +10,26 @@ interface IUserState {
   error: null | string;
 }
 
+interface IUserNameEmail {
+  userEmail: string | null;
+  name: string;
+}
+
+interface IUserEmail {
+  userEmail: string | null;
+}
+
+interface ICreateFirebaseAuth {
+  email: string;
+  password: string;
+  userName: string;
+}
+
+interface ISignInFirebaseAuth {
+  email: string;
+  password: string;
+}
+
 const initialState: IUserState = {
   name: "",
   email: "",
@@ -19,8 +39,8 @@ const initialState: IUserState = {
 };
 
 export const fetchSignUpUser = createAsyncThunk<
-  { userEmail: string | null; name: string },
-  { email: string; password: string; userName: string },
+  IUserNameEmail,
+  ICreateFirebaseAuth,
   { rejectValue: string }
 >("user/signUpUser", async ({ email, password, userName }, { rejectWithValue }) => {
   try {
@@ -37,8 +57,8 @@ export const fetchSignUpUser = createAsyncThunk<
 });
 
 export const fetchSignInUser = createAsyncThunk<
-  { userEmail: string | null },
-  { email: string; password: string },
+  IUserEmail,
+  ISignInFirebaseAuth,
   { rejectValue: string }
 >("user/sigInUser", async ({ email, password }, { rejectWithValue }) => {
   try {
