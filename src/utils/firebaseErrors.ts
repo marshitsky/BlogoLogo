@@ -11,8 +11,14 @@ export enum FirebaseErrorMessage {
 }
 
 export const getFBErrorMessage = (code: FirebaseErrorCode) => {
-  if (code === "auth/email-already-in-use") return FirebaseErrorMessage.EMAIL_EXISTS;
-  if (code === "auth/wrong-password") return FirebaseErrorMessage.WRONG_PASSWORD;
-  if (code === "auth/user-not-found") return FirebaseErrorMessage.USER_NOT_FOUND;
-  return FirebaseErrorMessage.UNKNOWN_ERROR;
+  switch (code) {
+    case "auth/email-already-in-use":
+      return FirebaseErrorMessage.EMAIL_EXISTS;
+    case "auth/wrong-password":
+      return FirebaseErrorMessage.WRONG_PASSWORD;
+    case "auth/user-not-found":
+      return FirebaseErrorMessage.USER_NOT_FOUND;
+    default:
+      return FirebaseErrorMessage.UNKNOWN_ERROR;
+  }
 };
