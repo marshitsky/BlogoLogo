@@ -14,7 +14,7 @@ import {
 } from "pages";
 import { ROUTE } from "router";
 
-export const Router = createBrowserRouter(
+export const router = createBrowserRouter(
   createRoutesFromElements(
     <>
       <Route path={ROUTE.HOME} element={<MainTemplate />}>
