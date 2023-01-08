@@ -1,12 +1,12 @@
 import { SubmitHandler, useForm } from "react-hook-form";
-import { NavLink, useNavigate } from "react-router-dom";
+import { generatePath, useNavigate } from "react-router-dom";
 import {
   SignInInput,
   SignInLabel,
   SignInText,
   SignInButton,
   StyledSigningForm,
-  SignInNavLink,
+  StyledLink,
 } from "./styles";
 import { ROUTE } from "router";
 import { fetchSignInUser, useAppDispatch } from "store";
@@ -22,16 +22,13 @@ export const SignInForm = () => {
   const {
     register,
     handleSubmit,
-    reset,
     formState: { errors },
   } = useForm<ISignInFormTypes>();
 
   const onSubmit: SubmitHandler<ISignInFormTypes> = (userInfo) => {
-    dispatch(fetchSignInUser(userInfo))
-      .then(() => navigate("../" + ROUTE.ACCOUNT))
-      .finally(() => {
-        reset();
-      });
+    dispatch(fetchSignInUser(userInfo)).then(() =>
+      navigate(generatePath("/:path", { path: ROUTE.ACCOUNT })),
+    );
   };
 
   return (
@@ -61,10 +58,13 @@ export const SignInForm = () => {
         })}
       />
       {errors.password && <p>{errors.password.message}</p>}
-      <NavLink to={"../" + ROUTE.RESET_PASSWORD}>Forgot password?</NavLink>
+      <StyledLink to={generatePath("/:path", { path: ROUTE.RESET_PASSWORD })}>
+        Forgot password?
+      </StyledLink>
       <SignInButton type="submit">Sign in</SignInButton>
       <SignInText>
-        Don’t have an account? <SignInNavLink to={"../" + ROUTE.SIGN_UP}>Sign Up</SignInNavLink>
+        Don’t have an account?{" "}
+        <StyledLink to={generatePath("/:path", { path: ROUTE.SIGN_UP })}>Sign Up</StyledLink>
       </SignInText>
     </StyledSigningForm>
   );

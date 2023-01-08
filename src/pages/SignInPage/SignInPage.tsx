@@ -1,11 +1,11 @@
 import { SignInForm } from "components";
 import { ROUTE } from "router";
-import { SigInTitle, StyledLink, StyledWrapper } from "./styles";
+import { SigInTitle, SLink, StyledWrapper } from "./styles";
 
 export const SignInPage = () => {
   return (
     <StyledWrapper>
-      <StyledLink to={ROUTE.HOME}>Back to home</StyledLink>
+      <SLink to={ROUTE.HOME}>Back to home</SLink>
       <SigInTitle>Sign In</SigInTitle>
       <SignInForm />
     </StyledWrapper>
