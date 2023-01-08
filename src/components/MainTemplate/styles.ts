@@ -10,10 +10,10 @@ const StyledMainTemplate = styled.div`
 const OutletWrapper = styled.div`
   display: grid;
   place-self: center;
-  max-width: 1110px;
   flex-grow: 1;
+  max-width: 1110px;
   padding: 72px 40px;
-  ${Media.MD} {
+  ${Media.LG} {
     padding: 72px 24px;
   }
 `;

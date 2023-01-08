@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Color } from "ui";
 import { Search } from "components/Search/Search";
 
@@ -12,8 +12,8 @@ const Navigation = styled.div`
   background-color: ${Color.WHITE_HEADER};
 `;
 
-const StyledNavLink = styled(NavLink)`
-  max-width: 157px;
+const StyledNavLink = styled(Link)`
+  width: 157px;
   padding: 20px 0;
   border-radius: 4.67px;
 `;

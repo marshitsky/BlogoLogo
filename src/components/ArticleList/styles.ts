@@ -14,10 +14,10 @@ const StyledArticlesList = styled.div`
   grid-template-columns: repeat(3, 1fr);
   gap: 35px;
   padding-top: 64px;
-  ${Media.LG} {
+  ${Media.XL} {
     grid-template-columns: repeat(2, 1fr);
   }
-  ${Media.SM} {
+  ${Media.MD} {
     grid-template-columns: 1fr;
   }
 `;

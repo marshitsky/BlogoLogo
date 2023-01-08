@@ -1,19 +1,24 @@
 import styled from "styled-components";
-import { Color } from "ui";
+import { Color, Media } from "ui";
 
 const StyledArticleListItem = styled.div`
-  height: 350px;
+  max-width: 352px;
   border-radius: 16px;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px,
     rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px,
     rgba(0, 0, 0, 0.09) 0px -3px 5px;
   overflow: hidden;
   transition: 0.5s;
-
   &:hover {
     box-shadow: rgba(0, 0, 0, 0.5) 0px 54px 55px, rgba(0, 0, 0, 0.24) 0px -12px 30px,
       rgba(0, 0, 0, 0.24) 0px 4px 6px, rgba(0, 0, 0, 0.34) 0px 12px 13px,
       rgba(0, 0, 0, 0.18) 0px -3px 5px;
+  }
+  ${Media.XL} {
+    width: 328px;
+  }
+  ${Media.SM} {
+    width: 272px;
   }
 `;
 

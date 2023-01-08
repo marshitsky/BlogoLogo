@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Color, Media } from "ui";
 
@@ -10,16 +10,18 @@ const StyledSigningForm = styled.form`
   padding: 40px;
   background-color: ${Color.WHITE_BACKGROUND};
   border-radius: 16px;
-  border: 1px solid ${Color.PRIMARY};
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px,
+    rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px,
+    rgba(0, 0, 0, 0.09) 0px -3px 5px;
   ${Media.LG} {
-    width: 624px;
+    max-width: 624px;
   }
   ${Media.MD} {
     width: 272px;
   }
 `;
 
-const SignInLabel = styled.p`
+const SignInLabel = styled.h1`
   font-weight: 600;
 `;
 
@@ -43,13 +45,14 @@ const SignInText = styled.span`
   text-align: center;
 `;
 
-const SignInNavLink = styled(NavLink)`
+const StyledLink = styled(Link)`
   font-weight: 500;
-  color: ${Color.PRIMARY};
+  color: ${Color.PRIMARY} !important;
+  text-decoration: underline;
   &:hover {
     color: ${Color.PRIMARY};
     text-decoration: underline;
   }
 `;
 
-export { StyledSigningForm, SignInLabel, SignInInput, SignInButton, SignInText, SignInNavLink };
+export { StyledSigningForm, SignInLabel, SignInInput, SignInButton, SignInText, StyledLink };

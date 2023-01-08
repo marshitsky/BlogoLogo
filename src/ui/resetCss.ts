@@ -1,7 +1,6 @@
 import { css } from "styled-components";
 
 export const resetCSS = css`
-  @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
   *,
   *::before,
   *::after {
@@ -56,8 +55,8 @@ export const resetCSS = css`
   ul {
     list-style: none;
   }
-  img,
-  svg {
+  img
+  /* svg */ {
     vertical-align: top;
     max-width: 100%;
     height: auto;
