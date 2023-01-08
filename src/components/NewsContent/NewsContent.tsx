@@ -1,7 +1,7 @@
-import { NavigationLink, Title, Image, Text } from "components/ArticleContent/styles";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { INews } from "types";
+import { HomeLink, LinkWrapper, NewsImage, NewsText, NewsTitle, StyledLink } from "./styles";
 
 interface IProps {
   news: INews;
@@ -12,15 +12,20 @@ export const NewsContent = ({ news }: IProps) => {
   const handleBackHome = () => {
     navigate(-1);
   };
-  const { id, imageUrl, title, summary } = news;
+  const { id, imageUrl, title, summary, url } = news;
 
   return (
     <>
-      <NavigationLink onClick={handleBackHome}>Home </NavigationLink>
+      <HomeLink onClick={handleBackHome}>Home </HomeLink>
       <span> / Post {id}</span>
-      <Title>{title}</Title>
-      <Image src={imageUrl} alt="article-img" />
-      <Text>{summary}</Text>
+      <NewsTitle>{title}</NewsTitle>
+      <NewsImage src={imageUrl} alt="article-img" />
+      <NewsText>{summary}</NewsText>
+      <LinkWrapper>
+        <StyledLink href={url} target="_blank">
+          Original source
+        </StyledLink>
+      </LinkWrapper>
     </>
   );
 };

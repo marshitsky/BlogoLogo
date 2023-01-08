@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { H2 } from "ui";
+import { Color, H2, Media, S1 } from "ui";
 
 const NavigationLink = styled.span`
   cursor: pointer;
@@ -24,4 +24,28 @@ const Text = styled.p`
   line-height: 32px;
 `;
 
-export { NavigationLink, Title, Image, Text };
+const OuterLinkWrapper = styled.p`
+  display: grid;
+  justify-items: center;
+  width: max-content;
+  background-color: ${Color.BTN_COLOR};
+  border-radius: 12px;
+  transition: 0.5s;
+  &:hover {
+    background-color: ${Color.LIGHT};
+  }
+  &:active {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+      rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  }
+`;
+
+const OuterLink = styled.a`
+  padding: 16px 32px;
+  ${S1};
+  ${Media.SM} {
+    width: 72px;
+  }
+`;
+
+export { NavigationLink, Title, Image, Text, OuterLink, OuterLinkWrapper };
