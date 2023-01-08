@@ -1,5 +1,5 @@
 import { SubmitHandler, useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { generatePath, useNavigate } from "react-router-dom";
 import { ROUTE } from "router";
 import { fetchSignUpUser, useAppDispatch } from "store";
 import {
@@ -17,23 +17,40 @@ export interface ISignInFormTypes {
   userName: string;
 }
 
+export interface IUserInfoToLS {
+  id: number;
+  name: string;
+  email: string;
+}
+
 export const SignUpForm = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+
   const {
     register,
-    reset,
     handleSubmit,
     formState: { errors },
   } = useForm<ISignInFormTypes>();
 
   const onSubmit: SubmitHandler<ISignInFormTypes> = (userInfo) => {
+    const userInfoToLS: IUserInfoToLS[] = [
+      {
+        id: Math.floor(Math.random() * 10000) + 1,
+        name: userInfo.userName,
+        email: userInfo.email,
+      },
+    ];
+
     dispatch(fetchSignUpUser(userInfo))
       .then(() => {
-        navigate(ROUTE.HOME);
+        navigate(generatePath("/:path", { path: ROUTE.ACCOUNT }));
       })
-      .finally(() => {
-        reset();
+      .then(() => {
+        localStorage.setItem("userInfo", JSON.stringify(userInfoToLS));
+      })
+      .catch(() => {
+        alert("Error");
       });
   };
 
@@ -77,7 +94,8 @@ export const SignUpForm = () => {
       {errors.password && <p>{errors.password.message}</p>}
       <SignUpButton type="submit">Sign Up</SignUpButton>
       <SignUpText>
-        Have an account already? <SignUpNavLink to={"../" + ROUTE.SIGN_IN}>Sign In</SignUpNavLink>
+        Have an account already?{" "}
+        <SignUpNavLink to={generatePath("/:path", { path: ROUTE.SIGN_IN })}>Sign In</SignUpNavLink>
       </SignUpText>
     </StyledSigningUpForm>
   );

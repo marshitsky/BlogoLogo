@@ -1,37 +1,43 @@
-import { StyledInitials, StyledNavLink, UserInfo } from "./styles";
+import { StyledIcon, StyledInitials, StyledNavLink, UserInfo } from "./styles";
 import { NavLink } from "react-router-dom";
-import { SignInIcon } from "assets/icons";
 import { ROUTE } from "router";
 import { getUserInfo, useAppSelector } from "store";
 
 export const UserAccount = () => {
-  const { isAuth, name } = useAppSelector(getUserInfo);
+  const { isAuth } = useAppSelector(getUserInfo);
+  const userName = JSON.parse(localStorage.getItem("userInfo")!);
+
   return (
-    <div>
+    <>
+      {" "}
       {isAuth ? (
         <UserInfo>
           <StyledInitials>
-            {name &&
-              name
-                .split(" ")
-                .map((n) => n[0])
-                .join("")
-                .toUpperCase()}
+            {userName !== null &&
+              userName.map(({ name }: any) =>
+                name
+                  .split(" ")
+                  .map((n: string) => n[0])
+                  .join("")
+                  .toUpperCase(),
+              )}
           </StyledInitials>
           <NavLink to={ROUTE.ACCOUNT}>
-            {name &&
-              name
-                .split(" ")
-                .map((n) => n[0].toUpperCase() + n.slice(1))
-                .join(" ")}
+            {userName !== null &&
+              userName.map(({ name }: any) =>
+                name
+                  .split(" ")
+                  .map((n: string) => n[0].toUpperCase() + n.slice(1))
+                  .join(" "),
+              )}
           </NavLink>
         </UserInfo>
       ) : (
         <UserInfo>
-          <SignInIcon />
+          <StyledIcon />
           <StyledNavLink to={ROUTE.SIGN_IN}>Sign In</StyledNavLink>
         </UserInfo>
       )}
-    </div>
+    </>
   );
 };
