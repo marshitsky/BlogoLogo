@@ -81,6 +81,9 @@ const userSlice = createSlice({
       state.name = payload;
       state.email = payload;
     },
+    getLogOut: (state, { payload }: PayloadAction<boolean>) => {
+      state.isAuth = payload;
+    },
   },
   extraReducers(builder) {
     builder.addCase(fetchSignUpUser.pending, (state) => {
@@ -120,3 +123,4 @@ const userSlice = createSlice({
 
 export default userSlice.reducer;
 export const { getUserName } = userSlice.actions;
+export const { getLogOut } = userSlice.actions;

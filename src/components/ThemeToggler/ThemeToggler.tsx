@@ -19,7 +19,7 @@ export const ThemeToggler = () => {
     <FormControlLabel
       value="start"
       control={<CustomSwitch color="primary" />}
-      label={theme === "light" ? "Dark theme" : "Light theme"}
+      label={theme === "light" ? "Dark" : "Light"}
       labelPlacement="start"
       onChange={handleTheme}
     />
