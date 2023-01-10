@@ -13,7 +13,7 @@ export const ArticleListItem = ({ article }: IProps) => {
   const date = new Date(publishedAt).toLocaleString().slice(0, -3);
   return (
     <StyledArticleListItem>
-      <Link to={generatePath(ROUTE.CONTENT, { id: `${article.id}` })}>
+      <Link to={generatePath("../" + ROUTE.CONTENT, { id: `${article.id}` })}>
         <Image src={imageUrl} alt={title} />
         <PublishDate>{date}</PublishDate>
         <Title>{title}</Title>
