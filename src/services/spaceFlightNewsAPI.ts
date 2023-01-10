@@ -36,6 +36,14 @@ class SpaceFlightNewsAPI {
     const { data } = await this.API.get<IArticle>(`${this.ENDPOINTS.blogs}/${id}`);
     return data;
   }
+
+  public async getSearch(word: string) {
+    const params = {
+      _title_contains: word,
+    };
+    const { data } = await this.API.get<IArticle[]>(this.ENDPOINTS.articles, { params });
+    return data;
+  }
 }
 
 export const spaceFlightNewsAPI = new SpaceFlightNewsAPI();

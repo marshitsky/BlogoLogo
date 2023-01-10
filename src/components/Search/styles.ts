@@ -1,9 +1,13 @@
 import styled from "styled-components";
 import { Color } from "ui";
 
+const StyledForm = styled.form`
+  height: 100%;
+  padding: 21px 0;
+`;
+
 const InputWrapper = styled.div`
-  width: 100%;
-  height: 67%;
+  height: 100%;
 `;
 
 const StyledInput = styled.input`
@@ -21,4 +25,4 @@ const StyledInput = styled.input`
   }
 `;
 
-export { StyledInput, InputWrapper };
+export { StyledForm, StyledInput, InputWrapper };

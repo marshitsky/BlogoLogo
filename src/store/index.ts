@@ -13,6 +13,9 @@ import { fetchSingleNews } from "./slices/singleNewsSlice/singleNewsSlice";
 import { getNewsById } from "./selectors/singleNewsSelector";
 import { fetchSignInUser } from "./slices/usersSlice/usersSlice";
 import { fetchSignUpUser } from "./slices/usersSlice/usersSlice";
+import { getSearch } from "./selectors/searchSelector";
+import { fetchSearch } from "./slices/articlesSlice/articlesSlice";
+import { setSearchValue } from "./slices/articlesSlice/articlesSlice";
 
 export {
   store,
@@ -31,4 +34,7 @@ export {
   getNewsById,
   fetchSignInUser,
   fetchSignUpUser,
+  getSearch,
+  fetchSearch,
+  setSearchValue,
 };
