@@ -13,7 +13,7 @@ const StyledArticlesList = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 35px;
-  padding-top: 64px;
+  padding-top: 50px;
   ${Media.XL} {
     grid-template-columns: repeat(2, 1fr);
   }

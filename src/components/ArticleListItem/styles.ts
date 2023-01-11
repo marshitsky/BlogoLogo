@@ -3,6 +3,7 @@ import { Color, Media } from "ui";
 
 const StyledArticleListItem = styled.div`
   max-width: 352px;
+  height: 388px;
   border-radius: 16px;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px,
     rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px,
@@ -19,6 +20,7 @@ const StyledArticleListItem = styled.div`
   }
   ${Media.SM} {
     width: 272px;
+    height: 336px;
   }
 `;
 

@@ -1,14 +1,16 @@
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { Color, H3, S1 } from "ui";
 
 const TabsControlWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  padding-top: 40px;
 `;
 
 const TabsBlock = styled.div``;
 
-const TabButton = styled.button`
+const TabButton = styled(NavLink)`
   padding: 10px 30px;
   ${S1}
   border: 1px solid ${Color.WHITE_HEADER};
@@ -27,6 +29,7 @@ const SortPanelWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-top: 50px;
 `;
 
 const SortButtons = styled.p`
