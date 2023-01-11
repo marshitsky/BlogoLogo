@@ -8,7 +8,7 @@ export const ArticleList = () => {
   const { articles, error, isLoading } = useAppSelector(getAllArticles);
 
   useEffect(() => {
-    dispatch(fetchArticles(12));
+    dispatch(fetchArticles({ page: 0, value: "" }));
   }, [dispatch]);
 
   return (

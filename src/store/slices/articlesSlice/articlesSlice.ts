@@ -22,16 +22,17 @@ const initialState: IArticlesState = {
   },
 };
 
-export const fetchArticles = createAsyncThunk<IArticle[], number, { rejectValue: string }>(
-  "articles/fetchArticles",
-  async (params, { rejectWithValue }) => {
-    try {
-      return await spaceFlightNewsAPI.getAllArticles(params);
-    } catch (error) {
-      return rejectWithValue("Error");
-    }
-  },
-);
+export const fetchArticles = createAsyncThunk<
+  IArticle[],
+  { page: number; value: string },
+  { rejectValue: string }
+>("articles/fetchArticles", async (params, { rejectWithValue }) => {
+  try {
+    return await spaceFlightNewsAPI.getAllArticles(params.page, params.value);
+  } catch (error) {
+    return rejectWithValue("Error");
+  }
+});
 
 export const fetchSearch = createAsyncThunk<IArticle[], string, { rejectValue: string }>(
   "articles/fetchSearch",

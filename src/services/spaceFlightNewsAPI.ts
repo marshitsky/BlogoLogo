@@ -1,5 +1,5 @@
 import axios from "axios";
-import { IArticle } from "types";
+import { IArticle, INews } from "types";
 
 class SpaceFlightNewsAPI {
   private readonly BASE_URL = process.env.REACT_APP_DATABASE_URL;
@@ -11,9 +11,11 @@ class SpaceFlightNewsAPI {
     baseURL: this.BASE_URL,
   });
 
-  public async getAllArticles(number: number) {
+  public async getAllArticles(page: number, value: string) {
     const params = {
-      _limit: number,
+      _start: page,
+      _limit: 12,
+      _sort: value,
     };
     const { data } = await this.API.get<IArticle[]>(this.ENDPOINTS.articles, { params });
     return data;
@@ -24,11 +26,13 @@ class SpaceFlightNewsAPI {
     return data;
   }
 
-  public async getAllNews(number: number) {
+  public async getAllNews(page: number, value: string) {
     const params = {
-      _limit: number,
+      _start: page,
+      _limit: 12,
+      _sort: value,
     };
-    const { data } = await this.API.get(this.ENDPOINTS.blogs, { params });
+    const { data } = await this.API.get<INews[]>(this.ENDPOINTS.blogs, { params });
     return data;
   }
 
