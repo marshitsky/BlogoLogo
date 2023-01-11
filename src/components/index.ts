@@ -1,6 +1,7 @@
 import { ArticleList } from "./ArticleList/ArticleList";
 import { ArticleListItem } from "./ArticleListItem/ArticleListItem";
-import { CustomSelect } from "./CustomSelect/CustomSelect";
+import { CustomArticleSelect } from "./CustomArticleSelect/CustomArticleSelect";
+import { CustomNewsSelect } from "./CustomNewsSelect/CustomNewsSelect";
 import { Footer } from "./Footer/Footer";
 import { MainTemplate } from "./MainTemplate/MainTemplate";
 import { NavBar } from "./NavBar/NavBar";
@@ -22,7 +23,8 @@ import { RequireAuth } from "./RequireAuth/RequireAuth";
 export {
   ArticleList,
   ArticleListItem,
-  CustomSelect,
+  CustomArticleSelect,
+  CustomNewsSelect,
   Footer,
   MainTemplate,
   NavBar,

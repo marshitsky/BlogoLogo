@@ -1,4 +1,5 @@
-import { CustomSelect } from "components";
+import { CustomArticleSelect, CustomNewsSelect } from "components";
+import { DateFilter } from "components/DateFilter/DateFilter";
 import { useToggle } from "hooks";
 import { TabButton, TabsBlock, TabsControlWrapper, SortPanelWrapper } from "./styles";
 
@@ -23,12 +24,16 @@ export const Tabs = ({ setTab, tab }: ITabs) => {
   return (
     <TabsControlWrapper>
       <TabsBlock>
-        <TabButton onClick={handleArticle}>Articles</TabButton>
-        <TabButton onClick={handleNews}>Blogs</TabButton>
+        <TabButton to={""} onClick={handleArticle}>
+          Articles
+        </TabButton>
+        <TabButton to={""} onClick={handleNews}>
+          Blogs
+        </TabButton>
       </TabsBlock>
       <SortPanelWrapper>
-        <p>Day Week Month Year</p>
-        <CustomSelect />
+        <DateFilter />
+        {isActive ? <CustomNewsSelect /> : <CustomArticleSelect />}
       </SortPanelWrapper>
     </TabsControlWrapper>
   );

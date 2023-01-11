@@ -31,4 +31,5 @@ export const router = createBrowserRouter(
       </Route>
     </Route>,
   ),
+  { basename: "/" },
 );

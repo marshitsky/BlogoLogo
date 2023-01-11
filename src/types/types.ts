@@ -31,4 +31,9 @@ interface ILaunch {
   provider: string;
 }
 
-export type { IArticle, INews };
+interface IOption {
+  value: string;
+  label: string;
+}
+
+export type { IArticle, INews, IOption };
