@@ -19,6 +19,8 @@ import { NewsContent } from "./NewsContent/NewsContent";
 import { Pagination } from "./Pagination/Pagination";
 import { ResetForm } from "./ResetForm/ResetForm";
 import { RequireAuth } from "./RequireAuth/RequireAuth";
+import { Portal } from "./Portal/Portal";
+import { Modal } from "./Modal/Modal";
 
 export {
   ArticleList,
@@ -42,4 +44,6 @@ export {
   Pagination,
   ResetForm,
   RequireAuth,
+  Portal,
+  Modal,
 };
