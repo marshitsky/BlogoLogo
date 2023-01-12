@@ -8,7 +8,7 @@ export const NewsList = () => {
   const { news, isLoading, error } = useAppSelector(getAllNews);
 
   useEffect(() => {
-    dispatch(fetchNews(12));
+    dispatch(fetchNews({ page: 0, value: "" }));
   }, [dispatch]);
 
   return (

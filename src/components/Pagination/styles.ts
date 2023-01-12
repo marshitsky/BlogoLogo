@@ -1,30 +1,58 @@
 import styled from "styled-components";
 import { Color, S1 } from "ui";
 
-const PaginationList = styled.div`
+interface setCurrent {
+  current: number;
+}
+
+const StyledPagination = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 52px;
+  justify-content: space-between;
+  padding-top: 40px;
 `;
 
-const PaginationItem = styled.li`
-  list-style: none;
-`;
-
-const PaginationButton = styled.button`
-  padding: 10px 30px;
+const PrevButton = styled.button`
   ${S1}
-  border: 1px solid ${Color.WHITE_HEADER};
-  border-radius: 6px;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
-    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
-  transition: 1s;
+  color: ${Color.FONT_COLOR};
+  background-color: transparent;
+  cursor: pointer;
   &:hover {
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px,
-      rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px,
-      rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    color: ${Color.PRIMARY_LIGHT};
   }
 `;
 
-export { PaginationList, PaginationItem, PaginationButton };
+const NextButton = styled(PrevButton)``;
+
+const ButtonPage = styled(PrevButton)``;
+
+const CurrentButton = styled(PrevButton)``;
+
+const PageList = styled.ul`
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  li {
+    ${S1}
+  }
+`;
+
+const FirstPageItem = styled.li<setCurrent>`
+  display: ${({ current }) => (current <= 1 ? "none" : "block")};
+  color: ${Color.SECONDARY};
+`;
+
+const SecondPageItem = styled.li<setCurrent>``;
+
+const CurrentPageItem = styled.li``;
+
+export {
+  StyledPagination,
+  PrevButton,
+  NextButton,
+  ButtonPage,
+  PageList,
+  FirstPageItem,
+  SecondPageItem,
+  CurrentButton,
+  CurrentPageItem,
+};
