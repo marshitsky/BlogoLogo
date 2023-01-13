@@ -1,5 +1,7 @@
+import { Modal } from "components";
+import { useToggle } from "hooks";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { generatePath, useNavigate } from "react-router-dom";
+import { generatePath } from "react-router-dom";
 import { ROUTE } from "router";
 import { fetchSignUpUser, useAppDispatch } from "store";
 import {
@@ -21,11 +23,12 @@ export interface IUserInfoToLS {
   id: number;
   name: string;
   email: string;
+  isAuth: boolean;
 }
 
 export const SignUpForm = () => {
   const dispatch = useAppDispatch();
-  const navigate = useNavigate();
+  const [isActive, setIsActive] = useToggle(false);
 
   const {
     register,
@@ -34,23 +37,21 @@ export const SignUpForm = () => {
   } = useForm<ISignInFormTypes>();
 
   const onSubmit: SubmitHandler<ISignInFormTypes> = (userInfo) => {
-    const userInfoToLS: IUserInfoToLS[] = [
-      {
-        id: Math.floor(Math.random() * 10000) + 1,
-        name: userInfo.userName,
-        email: userInfo.email,
-      },
-    ];
-
+    const userInfoToLS: IUserInfoToLS = {
+      id: Math.floor(Math.random() * 10000) + 1,
+      name: userInfo.userName,
+      email: userInfo.email,
+      isAuth: true,
+    };
     dispatch(fetchSignUpUser(userInfo))
-      .then(() => {
-        navigate(generatePath("/:path", { path: ROUTE.ACCOUNT }));
-      })
       .then(() => {
         localStorage.setItem("userInfo", JSON.stringify(userInfoToLS));
       })
       .catch(() => {
         alert("Error");
+      })
+      .then(() => {
+        setIsActive();
       });
   };
 
@@ -97,6 +98,7 @@ export const SignUpForm = () => {
         Have an account already?{" "}
         <SignUpNavLink to={generatePath("/:path", { path: ROUTE.SIGN_IN })}>Sign In</SignUpNavLink>
       </SignUpText>
+      {isActive && <Modal />}
     </StyledSigningUpForm>
   );
 };

@@ -14,22 +14,18 @@ export const UserAccount = () => {
         <UserInfo>
           <StyledInitials>
             {userName !== null &&
-              userName.map(({ name }: any) =>
-                name
-                  .split(" ")
-                  .map((n: string) => n[0])
-                  .join("")
-                  .toUpperCase(),
-              )}
+              userName.name
+                .split(" ")
+                .map((n: string) => n[0])
+                .join("")
+                .toUpperCase()}
           </StyledInitials>
           <NavLink to={ROUTE.ACCOUNT}>
             {userName !== null &&
-              userName.map(({ name }: any) =>
-                name
-                  .split(" ")
-                  .map((n: string) => n[0].toUpperCase() + n.slice(1))
-                  .join(" "),
-              )}
+              userName.name
+                .split(" ")
+                .map((n: string) => n[0].toUpperCase() + n.slice(1))
+                .join(" ")}
           </NavLink>
         </UserInfo>
       ) : (
