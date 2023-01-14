@@ -1,20 +1,24 @@
 import { Portal } from "components";
 import { PortalTarget } from "components/Portal/Portal";
-import { generatePath, useNavigate } from "react-router-dom";
-import { ROUTE } from "router";
 import { AuthText, Button, Container, ModalInformation } from "./styles";
 
-export const Modal = () => {
-  const navigate = useNavigate();
-  const handleClick = () => {
-    navigate(generatePath("/:path", { path: ROUTE.ACCOUNT }));
+interface IProps {
+  message: string;
+  handleClick?: () => void;
+  setIsActive: (isActive: boolean) => void;
+}
+
+export const Modal = ({ message, handleClick, setIsActive }: IProps) => {
+  const handleCloseModal = (event: React.MouseEvent) => {
+    event.stopPropagation();
+    setIsActive(false);
   };
 
   return (
-    <Portal target={PortalTarget.ROOT}>
-      <Container>
+    <Portal target={PortalTarget.MODAL}>
+      <Container onClick={handleCloseModal}>
         <ModalInformation>
-          <AuthText>Authorization successful</AuthText>
+          <AuthText>{message}</AuthText>
           <Button onClick={handleClick}>OK</Button>
         </ModalInformation>
       </Container>

@@ -25,10 +25,16 @@ export const SignInForm = () => {
     formState: { errors },
   } = useForm<ISignInFormTypes>();
 
+  const userAuth = JSON.parse(localStorage.getItem("userInfo")!);
+  if (userAuth) {
+    userAuth.isAuth = true;
+  }
+
   const onSubmit: SubmitHandler<ISignInFormTypes> = (userInfo) => {
     dispatch(fetchSignInUser(userInfo)).then(() =>
       navigate(generatePath("/:path", { path: ROUTE.ACCOUNT })),
     );
+    localStorage.length > 0 && localStorage.setItem("userInfo", JSON.stringify(userAuth));
   };
 
   return (

@@ -1,7 +1,7 @@
 import { Modal } from "components";
-import { useToggle } from "hooks";
+import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { generatePath } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { ROUTE } from "router";
 import { fetchSignUpUser, useAppDispatch } from "store";
 import {
@@ -27,8 +27,14 @@ export interface IUserInfoToLS {
 }
 
 export const SignUpForm = () => {
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const dispatch = useAppDispatch();
-  const [isActive, setIsActive] = useToggle(false);
+  const [isActive, setIsActive] = useState(false);
+
+  const navigate = useNavigate();
+  const handleNavigate = () => {
+    navigate(`/${ROUTE.ACCOUNT}`);
+  };
 
   const {
     register,
@@ -43,15 +49,19 @@ export const SignUpForm = () => {
       email: userInfo.email,
       isAuth: true,
     };
+
+    setErrorMessage(null);
+
     dispatch(fetchSignUpUser(userInfo))
+      .unwrap()
       .then(() => {
         localStorage.setItem("userInfo", JSON.stringify(userInfoToLS));
       })
-      .catch(() => {
-        alert("Error");
+      .catch((error) => {
+        setErrorMessage(error);
       })
       .then(() => {
-        setIsActive();
+        setIsActive(true);
       });
   };
 
@@ -95,10 +105,18 @@ export const SignUpForm = () => {
       {errors.password && <p>{errors.password.message}</p>}
       <SignUpButton type="submit">Sign Up</SignUpButton>
       <SignUpText>
-        Have an account already?{" "}
-        <SignUpNavLink to={generatePath("/:path", { path: ROUTE.SIGN_IN })}>Sign In</SignUpNavLink>
+        Have an account already? <SignUpNavLink to={`/${ROUTE.SIGN_IN}`}>Sign In</SignUpNavLink>
       </SignUpText>
-      {isActive && <Modal />}
+      {isActive && !errorMessage && (
+        <Modal
+          message="Authorization successful"
+          handleClick={handleNavigate}
+          setIsActive={function (isActive: boolean): void {
+            throw new Error("Function not implemented.");
+          }}
+        />
+      )}
+      {errorMessage && <Modal message={errorMessage} setIsActive={setIsActive} />}
     </StyledSigningUpForm>
   );
 };
