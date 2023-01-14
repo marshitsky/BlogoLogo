@@ -4,8 +4,7 @@ import { ROUTE } from "router";
 import { getUserInfo, useAppSelector } from "store";
 
 export const UserAccount = () => {
-  const { isAuth } = useAppSelector(getUserInfo);
-  const userName = JSON.parse(localStorage.getItem("userInfo")!);
+  const { isAuth, name } = useAppSelector(getUserInfo);
 
   return (
     <>
@@ -13,19 +12,21 @@ export const UserAccount = () => {
       {isAuth ? (
         <UserInfo>
           <StyledInitials>
-            {userName !== null &&
-              userName.name
+            {name.split(" ").length > 1
+              ? name
                 .split(" ")
                 .map((n: string) => n[0])
                 .join("")
-                .toUpperCase()}
+                .toUpperCase()
+              : name[0].toUpperCase()}
           </StyledInitials>
           <NavLink to={ROUTE.ACCOUNT}>
-            {userName !== null &&
-              userName.name
+            {name.split(" ").length > 1
+              ? name
                 .split(" ")
                 .map((n: string) => n[0].toUpperCase() + n.slice(1))
-                .join(" ")}
+                .join(" ")
+              : name[0].toUpperCase() + name.substring(1, name.length)}
           </NavLink>
         </UserInfo>
       ) : (

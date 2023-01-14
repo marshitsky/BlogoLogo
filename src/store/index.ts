@@ -16,6 +16,7 @@ import { fetchSignUpUser } from "./slices/usersSlice/usersSlice";
 import { getSearch } from "./selectors/searchSelector";
 import { fetchSearch } from "./slices/articlesSlice/articlesSlice";
 import { setSearchValue } from "./slices/articlesSlice/articlesSlice";
+import { logOut } from "./slices/usersSlice/usersSlice";
 
 export {
   store,
@@ -37,4 +38,5 @@ export {
   getSearch,
   fetchSearch,
   setSearchValue,
+  logOut,
 };

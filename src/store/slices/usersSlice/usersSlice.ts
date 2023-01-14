@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
-import { FirebaseErrorCode, getFBErrorMessage } from "utils";
+import { FirebaseErrorCode, FirebaseErrorMessage, getFBErrorMessage } from "utils";
 
 interface IUserState {
   name: string;
@@ -30,18 +30,20 @@ interface ISignInFirebaseAuth {
   password: string;
 }
 
+const userName = JSON.parse(localStorage.getItem("userInfo")!);
+
 const initialState: IUserState = {
-  name: "",
-  email: "",
+  name: userName !== null && userName.name,
+  email: userName !== null && userName.email,
   password: "",
-  isAuth: false,
+  isAuth: userName !== null && userName.isAuth,
   error: null,
 };
 
 export const fetchSignUpUser = createAsyncThunk<
   IUserNameEmail,
   ICreateFirebaseAuth,
-  { rejectValue: string }
+  { rejectValue: FirebaseErrorMessage }
 >("user/signUpUser", async ({ email, password, userName }, { rejectWithValue }) => {
   try {
     const auth = getAuth();
@@ -59,7 +61,7 @@ export const fetchSignUpUser = createAsyncThunk<
 export const fetchSignInUser = createAsyncThunk<
   IUserEmail,
   ISignInFirebaseAuth,
-  { rejectValue: string }
+  { rejectValue: FirebaseErrorMessage }
 >("user/sigInUser", async ({ email, password }, { rejectWithValue }) => {
   try {
     const auth = getAuth();
@@ -81,7 +83,7 @@ const userSlice = createSlice({
       state.name = payload;
       state.email = payload;
     },
-    getLogOut: (state, { payload }: PayloadAction<boolean>) => {
+    logOut: (state, { payload }: PayloadAction<boolean>) => {
       state.isAuth = payload;
     },
   },
@@ -123,4 +125,4 @@ const userSlice = createSlice({
 
 export default userSlice.reducer;
 export const { getUserName } = userSlice.actions;
-export const { getLogOut } = userSlice.actions;
+export const { logOut } = userSlice.actions;

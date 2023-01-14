@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { ROUTE } from "router";
-import { useAppDispatch } from "store";
-import { getLogOut } from "store/slices/usersSlice/usersSlice";
+import { useAppDispatch, logOut } from "store";
 import { AccountPageTitle, AccountPageWrapper, LogOutButton, Subtitle } from "./styles";
 
 export const AccountPage = () => {
@@ -9,9 +8,14 @@ export const AccountPage = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
+  const userAuth = JSON.parse(localStorage.getItem("userInfo")!);
+  if (userAuth) {
+    userAuth.isAuth = false;
+  }
+
   const handleLogOut = () => {
-    dispatch(getLogOut(false));
-    // localStorage.setItem("userInfo");
+    dispatch(logOut(false));
+    localStorage.length > 0 && localStorage.setItem("userInfo", JSON.stringify(userAuth));
     navigate(ROUTE.HOME);
   };
 
