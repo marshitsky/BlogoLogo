@@ -21,4 +21,11 @@ const Title = styled.h1`
   }
 `;
 
-export { HomePageHeader, Title, HomePageWrapper };
+const SortPanelWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 50px;
+`;
+
+export { HomePageHeader, Title, HomePageWrapper, SortPanelWrapper };

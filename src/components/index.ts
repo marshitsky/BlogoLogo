@@ -1,7 +1,6 @@
 import { ArticleList } from "./ArticleList/ArticleList";
 import { ArticleListItem } from "./ArticleListItem/ArticleListItem";
-import { CustomArticleSelect } from "./CustomArticleSelect/CustomArticleSelect";
-import { CustomNewsSelect } from "./CustomNewsSelect/CustomNewsSelect";
+import { CustomSelect } from "./CustomSelect/CustomSelect";
 import { Footer } from "./Footer/Footer";
 import { MainTemplate } from "./MainTemplate/MainTemplate";
 import { NavBar } from "./NavBar/NavBar";
@@ -12,7 +11,6 @@ import { ThemeToggler } from "./ThemeToggler/ThemeToggler";
 import { UserAccount } from "./UserAccount/UserAccount";
 import { ArticleContent } from "./ArticleContent/ArticleContent";
 import { Spinner } from "./Spinner/Spinner";
-import { NewsList } from "./NewsList/NewsList";
 import { NewsListItem } from "./NewsListItem/NewsListItem";
 import { Tabs } from "./Tabs/Tabs";
 import { NewsContent } from "./NewsContent/NewsContent";
@@ -21,12 +19,12 @@ import { ResetForm } from "./ResetForm/ResetForm";
 import { RequireAuth } from "./RequireAuth/RequireAuth";
 import { Portal } from "./Portal/Portal";
 import { Modal } from "./Modal/Modal";
+import { DateFilter } from "./DateFilter/DateFilter";
 
 export {
   ArticleList,
   ArticleListItem,
-  CustomArticleSelect,
-  CustomNewsSelect,
+  CustomSelect,
   Footer,
   MainTemplate,
   NavBar,
@@ -37,7 +35,6 @@ export {
   UserAccount,
   ArticleContent,
   Spinner,
-  NewsList,
   NewsListItem,
   Tabs,
   NewsContent,
@@ -46,4 +43,5 @@ export {
   RequireAuth,
   Portal,
   Modal,
+  DateFilter,
 };

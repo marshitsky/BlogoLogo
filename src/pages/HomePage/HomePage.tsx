@@ -1,6 +1,6 @@
-import { ArticleList, NewsList, Pagination, Tabs } from "components";
+import { ArticleList, CustomSelect, DateFilter, Pagination, Tabs } from "components";
 import { useState } from "react";
-import { Title, HomePageWrapper } from "./styles";
+import { Title, HomePageWrapper, SortPanelWrapper } from "./styles";
 
 export const HomePage = () => {
   const [tab, setTab] = useState<string>("articles");
@@ -9,7 +9,11 @@ export const HomePage = () => {
     <HomePageWrapper>
       <Title>Blog</Title>
       <Tabs tab={tab} setTab={setTab} />
-      {tab === "articles" ? <ArticleList /> : <NewsList />}
+      <SortPanelWrapper>
+        <DateFilter />
+        {tab === "articles" ? <CustomSelect tab="articles" /> : <CustomSelect tab="blogs" />}{" "}
+      </SortPanelWrapper>
+      {tab === "articles" ? <ArticleList tab="articles" /> : <ArticleList tab="blogs" />}
       <Pagination />
     </HomePageWrapper>
   );
