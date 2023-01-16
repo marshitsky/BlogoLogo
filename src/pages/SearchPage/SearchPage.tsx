@@ -1,19 +1,46 @@
 import { ArticleList } from "components";
 import { useEffect } from "react";
-import { fetchSearch, getSearch, useAppDispatch, useAppSelector } from "store";
+import { fetchArticles, fetchNews, getAllArticles, useAppDispatch, useAppSelector } from "store";
+import { SearchResultsInfo } from "./styles";
 
 export const SearchPage = () => {
-  const { searchParams } = useAppSelector(getSearch);
+  const {
+    searchParams: { searchValue },
+  } = useAppSelector(getAllArticles);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    searchParams.searchValue && dispatch(fetchSearch(searchParams.searchValue));
-  }, [dispatch, searchParams]);
+    searchValue &&
+      dispatch(
+        fetchArticles({
+          page: 0,
+          word: searchValue,
+          value: "",
+        }),
+      );
+  }, [dispatch, searchValue]);
+
+  useEffect(() => {
+    searchValue &&
+      dispatch(
+        fetchNews({
+          page: 0,
+          word: searchValue,
+          value: "",
+        }),
+      );
+  }, [dispatch, searchValue]);
 
   return (
-    <div>
-      <h1>"{searchParams.searchValue ? searchParams.searchValue : " "}" search results</h1>
-      <ArticleList />
-    </div>
+    <>
+      <SearchResultsInfo>
+        "{searchValue ? searchValue : " "}" search results for Articles
+      </SearchResultsInfo>
+      <ArticleList tab={"articles"} />
+      <SearchResultsInfo>
+        "{searchValue ? searchValue : " "}" search results for News
+      </SearchResultsInfo>
+      <ArticleList tab={"blogs"} />
+    </>
   );
 };

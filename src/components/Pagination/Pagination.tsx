@@ -37,11 +37,11 @@ export const Pagination = () => {
   };
 
   useEffect(() => {
-    dispatch(fetchArticles({ page: requestParams.page, value: "" }));
+    dispatch(fetchArticles({ page: requestParams.page, value: "", word: "" }));
   }, [dispatch, requestParams]);
 
   useEffect(() => {
-    dispatch(fetchNews({ page: requestParams.page, value: "" }));
+    dispatch(fetchNews({ page: requestParams.page, value: "", word: "" }));
   }, [dispatch, requestParams]);
 
   return (

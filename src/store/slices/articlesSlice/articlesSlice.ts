@@ -24,26 +24,15 @@ const initialState: IArticlesState = {
 
 export const fetchArticles = createAsyncThunk<
   IArticle[],
-  { page: number; value: string },
+  { page: number; value: string; word: string },
   { rejectValue: string }
 >("articles/fetchArticles", async (params, { rejectWithValue }) => {
   try {
-    return await spaceFlightNewsAPI.getAllArticles(params.page, params.value);
+    return await spaceFlightNewsAPI.getAllArticles(params.page, params.value, params.word);
   } catch (error) {
     return rejectWithValue("Error");
   }
 });
-
-export const fetchSearch = createAsyncThunk<IArticle[], string, { rejectValue: string }>(
-  "articles/fetchSearch",
-  async (word, { rejectWithValue }) => {
-    try {
-      return await spaceFlightNewsAPI.getSearch(word);
-    } catch (error) {
-      return rejectWithValue("Error");
-    }
-  },
-);
 
 export const articlesSlice = createSlice({
   name: "articles",
@@ -63,21 +52,6 @@ export const articlesSlice = createSlice({
       state.articles = payload;
     });
     builder.addCase(fetchArticles.rejected, (state, { payload }) => {
-      if (payload) {
-        state.isLoading = false;
-        state.error = payload;
-      }
-    });
-
-    builder.addCase(fetchSearch.pending, (state) => {
-      state.isLoading = true;
-      state.error = null;
-    });
-    builder.addCase(fetchSearch.fulfilled, (state, { payload }) => {
-      state.isLoading = false;
-      state.articles = payload;
-    });
-    builder.addCase(fetchSearch.rejected, (state, { payload }) => {
       if (payload) {
         state.isLoading = false;
         state.error = payload;

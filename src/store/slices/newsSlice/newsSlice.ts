@@ -16,11 +16,11 @@ const initialState: INewsState = {
 
 export const fetchNews = createAsyncThunk<
   INews[],
-  { page: number; value: string },
+  { page: number; value: string; word: string },
   { rejectValue: string }
 >("news/fetchNews", async (params, { rejectWithValue }) => {
   try {
-    return await spaceFlightNewsAPI.getAllNews(params.page, params.value);
+    return await spaceFlightNewsAPI.getAllNews(params.page, params.value, params.word);
   } catch (error) {
     return rejectWithValue("Error");
   }

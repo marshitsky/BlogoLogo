@@ -11,11 +11,12 @@ class SpaceFlightNewsAPI {
     baseURL: this.BASE_URL,
   });
 
-  public async getAllArticles(page: number, value: string) {
+  public async getAllArticles(page: number, value: string, word: string) {
     const params = {
       _start: page,
       _limit: 12,
       _sort: value,
+      _title_contains: word,
     };
     const { data } = await this.API.get<IArticle[]>(this.ENDPOINTS.articles, { params });
     return data;
@@ -26,11 +27,12 @@ class SpaceFlightNewsAPI {
     return data;
   }
 
-  public async getAllNews(page: number, value: string) {
+  public async getAllNews(page: number, value: string, word: string) {
     const params = {
       _start: page,
       _limit: 12,
       _sort: value,
+      _title_contains: word,
     };
     const { data } = await this.API.get<INews[]>(this.ENDPOINTS.blogs, { params });
     return data;
@@ -38,14 +40,6 @@ class SpaceFlightNewsAPI {
 
   public async getNewsById(id: string) {
     const { data } = await this.API.get<IArticle>(`${this.ENDPOINTS.blogs}/${id}`);
-    return data;
-  }
-
-  public async getSearch(word: string) {
-    const params = {
-      _title_contains: word,
-    };
-    const { data } = await this.API.get<IArticle[]>(this.ENDPOINTS.articles, { params });
     return data;
   }
 }
