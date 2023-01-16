@@ -10,6 +10,8 @@ import {
 } from "./styles";
 import { ROUTE } from "router";
 import { fetchSignInUser, useAppDispatch } from "store";
+import { useState } from "react";
+import { Modal } from "components";
 
 export interface ISignInFormTypes {
   email: string;
@@ -17,8 +19,15 @@ export interface ISignInFormTypes {
 }
 
 export const SignInForm = () => {
-  const navigate = useNavigate();
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [isActive, setIsActive] = useState(false);
   const dispatch = useAppDispatch();
+
+  const navigate = useNavigate();
+  const handleNavigate = () => {
+    navigate(`/${ROUTE.ACCOUNT}`);
+  };
+
   const {
     register,
     handleSubmit,
@@ -31,10 +40,14 @@ export const SignInForm = () => {
   }
 
   const onSubmit: SubmitHandler<ISignInFormTypes> = (userInfo) => {
-    dispatch(fetchSignInUser(userInfo)).then(() =>
-      navigate(generatePath("/:path", { path: ROUTE.ACCOUNT })),
-    );
-    localStorage.length > 0 && localStorage.setItem("userInfo", JSON.stringify(userAuth));
+    setErrorMessage(null);
+    dispatch(fetchSignInUser(userInfo)).unwrap().then(() => {
+      localStorage.length > 0 && localStorage.setItem("userInfo", JSON.stringify(userAuth));
+    }).catch((error) => {
+      setErrorMessage(error);
+    }).then(() => {
+      setIsActive(true);
+    });
   };
 
   return (
@@ -72,6 +85,15 @@ export const SignInForm = () => {
         Don’t have an account?{" "}
         <StyledLink to={generatePath("/:path", { path: ROUTE.SIGN_UP })}>Sign Up</StyledLink>
       </SignInText>
+      {isActive && !errorMessage && <Modal
+        message="Successful"
+        handleClick={handleNavigate}
+        setIsActive={function (isActive: boolean): void {
+          throw new Error("Function not implemented.");
+        }}
+      />
+      }
+      {errorMessage && <Modal message={errorMessage} setIsActive={setIsActive} />}
     </StyledSigningForm>
   );
 };

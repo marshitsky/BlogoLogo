@@ -12,21 +12,25 @@ export const UserAccount = () => {
       {isAuth ? (
         <UserInfo>
           <StyledInitials>
-            {name.split(" ").length > 1
+            {name && name.split(" ").length > 1
               ? name
                 .split(" ")
                 .map((n: string) => n[0])
                 .join("")
                 .toUpperCase()
-              : name[0].toUpperCase()}
+              : name && name.split(" ").length < 2
+                ? name[0].toUpperCase()
+                : ""}
           </StyledInitials>
           <NavLink to={ROUTE.ACCOUNT}>
-            {name.split(" ").length > 1
+            {name && name.split(" ").length > 1
               ? name
                 .split(" ")
                 .map((n: string) => n[0].toUpperCase() + n.slice(1))
                 .join(" ")
-              : name[0].toUpperCase() + name.substring(1, name.length)}
+              : name && name.split(" ").length < 2
+                ? name[0].toUpperCase() + name.substring(1, name.length)
+                : " "}
           </NavLink>
         </UserInfo>
       ) : (

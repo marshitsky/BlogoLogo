@@ -25,15 +25,8 @@ const TabButton = styled(NavLink)`
   }
 `;
 
-const SortPanelWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-top: 50px;
-`;
-
 const SortButtons = styled.p`
   ${H3}
 `;
 
-export { TabsControlWrapper, TabsBlock, TabButton, SortPanelWrapper, SortButtons };
+export { TabsControlWrapper, TabsBlock, TabButton, SortButtons };
