@@ -1,4 +1,4 @@
-import { createBrowserRouter, createRoutesFromElements, Route } from "react-router-dom";
+import { createBrowserRouter, createRoutesFromElements, Navigate, Route } from "react-router-dom";
 import { MainTemplate, RequireAuth } from "components";
 import {
   AccountPage,
@@ -23,8 +23,9 @@ export const router = createBrowserRouter(
       <Route path={ROUTE.SEARCH} element={<SearchPage />} />
       <Route path={ROUTE.SIGN_IN} element={<SignInPage />} />
       <Route path={ROUTE.SIGN_UP} element={<SignUpPage />} />
-      <Route path={ROUTE.NOT_FOUND} element={<NotFoundPage />} />
       <Route path={ROUTE.RESET_PASSWORD} element={<ResetPasswordPage />} />
+      <Route path={ROUTE.NOT_FOUND} element={<NotFoundPage />} />
+      <Route path="*" element={<Navigate replace to={ROUTE.NOT_FOUND} />} />
       <Route element={<RequireAuth />}>
         <Route path={ROUTE.ACCOUNT} element={<AccountPage />} />
         <Route path={ROUTE.FAVORITES} element={<FavoritesPage />} />
