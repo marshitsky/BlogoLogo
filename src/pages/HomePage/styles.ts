@@ -25,7 +25,14 @@ const SortPanelWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 15px;
   padding-top: 50px;
+  ${Media.LG} {
+    flex-direction: column;
+    align-items: start;
+    gap: 15px;
+    padding-top: 25px;
+  }
 `;
 
 export { HomePageHeader, Title, HomePageWrapper, SortPanelWrapper };

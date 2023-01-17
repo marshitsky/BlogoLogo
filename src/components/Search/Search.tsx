@@ -6,13 +6,14 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { ROUTE } from "router";
 import { setSearchValue, useAppDispatch } from "store";
-import { InputWrapper, StyledForm, StyledInput } from "./styles";
+import { InputWrapper, StyledForm, StyledInput, SubmitButton } from "./styles";
 
 interface IProps {
   placeholder: string;
   type: HTMLInputTypeAttribute;
   value?: string;
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+  onClick?: () => void;
 }
 
 export const Search = (props: IProps) => {
@@ -49,6 +50,9 @@ export const Search = (props: IProps) => {
         <StyledForm onSubmit={handleSearch}>
           <InputWrapper ref={ref}>
             <StyledInput type="search" placeholder="Search ..." name="search" {...searchValue} />
+            <SubmitButton type="submit" onClick={props.onClick}>
+              Search
+            </SubmitButton>
           </InputWrapper>
         </StyledForm>
       ) : (

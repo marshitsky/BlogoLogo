@@ -7,7 +7,7 @@ interface ITabs {
 }
 
 export const Tabs = ({ setTab, tab }: ITabs) => {
-  const [_, setIsActive] = useToggle();
+  const [isActive, setIsActive] = useToggle();
 
   const handleArticle = () => {
     setTab("articles");
@@ -21,11 +21,11 @@ export const Tabs = ({ setTab, tab }: ITabs) => {
 
   return (
     <TabsBlock>
-      <TabButton to={""} onClick={handleArticle}>
+      <TabButton to={""} onClick={handleArticle} $isActive={!isActive}>
         Articles
       </TabButton>
-      <TabButton to={""} onClick={handleNews}>
-        Blogs
+      <TabButton to={""} onClick={handleNews} $isActive={isActive}>
+        News
       </TabButton>
     </TabsBlock>
   );

@@ -29,7 +29,7 @@ const CurrentButton = styled(PrevButton)``;
 
 const PageList = styled.ul`
   display: flex;
-  gap: 32px;
+  gap: 40px;
   align-items: center;
   li {
     ${S1}

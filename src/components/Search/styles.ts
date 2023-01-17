@@ -25,4 +25,8 @@ const StyledInput = styled.input`
   }
 `;
 
-export { StyledForm, StyledInput, InputWrapper };
+const SubmitButton = styled.button`
+  display: none;
+`;
+
+export { StyledForm, StyledInput, InputWrapper, SubmitButton };
