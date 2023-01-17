@@ -4,19 +4,13 @@ import { AuthText, Button, Container, ModalInformation } from "./styles";
 
 interface IProps {
   message: string;
-  handleClick?: () => void;
-  setIsActive: (isActive: boolean) => void;
+  handleClick: () => void;
 }
 
-export const Modal = ({ message, handleClick, setIsActive }: IProps) => {
-  const handleCloseModal = (event: React.MouseEvent) => {
-    event.stopPropagation();
-    setIsActive(false);
-  };
-
+export const Modal = ({ message, handleClick }: IProps) => {
   return (
     <Portal target={PortalTarget.MODAL}>
-      <Container onClick={handleCloseModal}>
+      <Container>
         <ModalInformation>
           <AuthText>{message}</AuthText>
           <Button onClick={handleClick}>OK</Button>
