@@ -20,6 +20,7 @@ import { RequireAuth } from "./RequireAuth/RequireAuth";
 import { Portal } from "./Portal/Portal";
 import { Modal } from "./Modal/Modal";
 import { DateFilter } from "./DateFilter/DateFilter";
+import { ScrollUpButton } from "./ScrollUpButton/ScrollUpButton";
 
 export {
   ArticleList,
@@ -44,4 +45,5 @@ export {
   Portal,
   Modal,
   DateFilter,
+  ScrollUpButton,
 };

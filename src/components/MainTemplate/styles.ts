@@ -14,7 +14,7 @@ const OutletWrapper = styled.div`
   max-width: 1110px;
   padding: 72px 40px;
   ${Media.LG} {
-    padding: 72px 24px;
+    padding: 44px 24px;
   }
 `;
 
