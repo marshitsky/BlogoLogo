@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { Color } from "ui";
+import { Color, Media } from "ui";
 import { Search } from "components/Search/Search";
 
 const Navigation = styled.div`
@@ -10,6 +10,9 @@ const Navigation = styled.div`
   gap: 32px;
   padding: 0 32px;
   background-color: ${Color.WHITE_HEADER};
+  ${Media.MD} {
+    grid-template-columns: 1fr 1fr;
+  }
 `;
 
 const StyledNavLink = styled(Link)`

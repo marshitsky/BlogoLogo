@@ -1,17 +1,27 @@
 import React from "react";
-import { UserAccount } from "components";
-import { Navigation, StyledNavLink, StyledSearch } from "./styles";
+import { Search, UserAccount } from "components";
+import { Navigation, StyledNavLink } from "./styles";
 import { ROUTE } from "router";
 import { Logo } from "assets/img";
+import { useWindowSize } from "hooks";
+import { BurgerMenu } from "components/BurgerMenu/BurgerMenu";
 
 export const NavBar = () => {
+  const { width = 0 } = useWindowSize();
+
   return (
     <Navigation>
       <StyledNavLink to={ROUTE.HOME}>
         <Logo />
       </StyledNavLink>
-      <StyledSearch placeholder="Search ..." type={"text"} />
-      <UserAccount />
+      {width >= 568 ? (
+        <>
+          <Search placeholder="Search ..." type={"text"} />
+          <UserAccount />
+        </>
+      ) : (
+        <BurgerMenu />
+      )}
     </Navigation>
   );
 };
