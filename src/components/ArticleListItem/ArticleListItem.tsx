@@ -1,8 +1,9 @@
 import React from "react";
 import { generatePath, Link } from "react-router-dom";
 import { ROUTE } from "router";
+import { addToFavorite, useAppDispatch } from "store";
 import { IArticle } from "types";
-import { StyledArticleListItem, Image, Title, PublishDate } from "./styles";
+import { StyledArticleListItem, Image, Title, PublishDate, FavoritesBtn } from "./styles";
 
 interface IProps {
   article: IArticle;
@@ -10,6 +11,12 @@ interface IProps {
 
 export const ArticleListItem = ({ article }: IProps) => {
   const { imageUrl, publishedAt, title } = article;
+  const dispatch = useAppDispatch();
+
+  const handleAddToFavorites = () => {
+    dispatch(addToFavorite(article));
+  };
+
   const date = new Date(publishedAt);
   const m = date.toLocaleString("en-us", { month: "long" });
   const d = date.getDate();
@@ -24,6 +31,7 @@ export const ArticleListItem = ({ article }: IProps) => {
         <PublishDate>{printDate}</PublishDate>
         <Title>{title.length > 70 ? title.slice(0, 70) + "..." : title}</Title>
       </Link>
+      <FavoritesBtn onClick={handleAddToFavorites}>❤</FavoritesBtn>
     </StyledArticleListItem>
   );
 };

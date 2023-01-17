@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Color, Media } from "ui";
 
 const StyledArticleListItem = styled.div`
+  position: relative;
   max-width: 352px;
   height: 388px;
   border-radius: 16px;
@@ -39,7 +40,7 @@ const Image = styled.img`
 `;
 
 const Title = styled.h2`
-  padding: 0 32px 32px 32px;
+  padding: 0 32px 10px 32px;
   font-weight: 600;
   font-size: 18px;
   line-height: 28px;
@@ -53,4 +54,12 @@ const PublishDate = styled.p`
   color: ${Color.FOOTER_FONT_COLOR};
 `;
 
-export { StyledArticleListItem, Image, Title, PublishDate };
+const FavoritesBtn = styled.button`
+  position: absolute;
+  top: 45%;
+  right: 3%;
+  font-size: 1.5rem;
+  color: ${Color.WHITE};
+`;
+
+export { StyledArticleListItem, Image, Title, PublishDate, FavoritesBtn };

@@ -5,6 +5,7 @@ import articlesReducer from "./slices/articlesSlice/articlesSlice";
 import singleArticleReducer from "./slices/singleArticleSlice/singleArticleSlice";
 import newsReducer from "./slices/newsSlice/newsSlice";
 import singleNewsReduser from "./slices/singleNewsSlice/singleNewsSlice";
+import favoritesReducer from "./slices/favoritesSlice/favoritesSlice";
 
 export const store = configureStore({
   reducer: {
@@ -14,6 +15,7 @@ export const store = configureStore({
     singleArticle: singleArticleReducer,
     news: newsReducer,
     singleNews: singleNewsReduser,
+    favorites: favoritesReducer,
   },
 });
 
