@@ -1,20 +1,20 @@
 import React from "react";
 import { generatePath, Link } from "react-router-dom";
 import { ROUTE } from "router";
-import { addToFavorite, useAppDispatch } from "store";
 import { IArticle } from "types";
 import { StyledArticleListItem, Image, Title, PublishDate, FavoritesBtn } from "./styles";
 
 interface IProps {
   article: IArticle;
+  onClick: (article: IArticle) => void;
+  isFavorite?: boolean;
 }
 
-export const ArticleListItem = ({ article }: IProps) => {
+export const ArticleListItem = ({ article, onClick, isFavorite }: IProps) => {
   const { imageUrl, publishedAt, title } = article;
-  const dispatch = useAppDispatch();
 
-  const handleAddToFavorites = () => {
-    dispatch(addToFavorite(article));
+  const handleFavorite = () => {
+    onClick(article);
   };
 
   const date = new Date(publishedAt);
@@ -31,7 +31,7 @@ export const ArticleListItem = ({ article }: IProps) => {
         <PublishDate>{printDate}</PublishDate>
         <Title>{title.length > 70 ? title.slice(0, 70) + "..." : title}</Title>
       </Link>
-      <FavoritesBtn onClick={handleAddToFavorites}>❤</FavoritesBtn>
+      <FavoritesBtn onClick={handleFavorite}>{isFavorite ? "💘" : "❤"}</FavoritesBtn>
     </StyledArticleListItem>
   );
 };

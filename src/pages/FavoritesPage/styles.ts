@@ -1,5 +1,16 @@
+import { StyledArticlesList } from "components/ArticleList/styles";
 import styled from "styled-components";
+import { H1 } from "ui";
 
-const Favorites = styled.div``;
+const FavoritesWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 
-export { Favorites };
+const Heading = styled.h1`
+  ${H1}
+`;
+
+const FavoritesList = styled(StyledArticlesList)``;
+
+export { FavoritesWrapper, Heading, FavoritesList };

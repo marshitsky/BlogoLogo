@@ -6,7 +6,7 @@ interface IFavoritesState {
 }
 
 const initialState: IFavoritesState = {
-  results: [],
+  results: JSON.parse(localStorage.getItem("favorites") || "[]"),
 };
 
 const favoritesSlice = createSlice({
@@ -14,12 +14,16 @@ const favoritesSlice = createSlice({
   initialState,
   reducers: {
     addToFavorite: (state, { payload }: PayloadAction<IArticle>) => {
-      const result = state.results.find((article) => article.id === payload.id);
-      if (!result) state.results.push(payload);
+      state.results.push(payload);
+      localStorage.setItem("favorites", JSON.stringify(state.results));
+    },
+    removeFromFavorites: (state, { payload }: PayloadAction<IArticle>) => {
+      state.results = state.results.filter((result) => result.id !== payload.id);
+      localStorage.setItem("favorites", JSON.stringify(state.results));
     },
   },
 });
 
 export default favoritesSlice.reducer;
 
-export const { addToFavorite } = favoritesSlice.actions;
+export const { addToFavorite, removeFromFavorites } = favoritesSlice.actions;

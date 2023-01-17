@@ -3,6 +3,7 @@ import {
   StyledArticleListItem,
   Title,
   Image,
+  FavoritesBtn,
 } from "components/ArticleListItem/styles";
 import React from "react";
 import { generatePath, Link } from "react-router-dom";
@@ -11,10 +12,17 @@ import { INews } from "types";
 
 interface IProps {
   news: INews;
+  onClick: (news: INews) => void;
+  isFavorite?: boolean;
 }
 
-export const NewsListItem = ({ news }: IProps) => {
+export const NewsListItem = ({ news, onClick, isFavorite }: IProps) => {
   const { imageUrl, publishedAt, title } = news;
+
+  const handleFavorite = () => {
+    onClick(news);
+  };
+
   const date = new Date(publishedAt);
   const m = date.toLocaleString("en-us", { month: "long" });
   const d = date.getDate();
@@ -29,6 +37,7 @@ export const NewsListItem = ({ news }: IProps) => {
         <PublishDate>{printDate}</PublishDate>
         <Title>{title.length > 70 ? title.slice(0, 70) + "..." : title}</Title>
       </Link>
+      <FavoritesBtn onClick={handleFavorite}>{isFavorite ? "💘" : "❤"}</FavoritesBtn>
     </StyledArticleListItem>
   );
 };

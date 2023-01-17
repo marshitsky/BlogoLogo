@@ -5,7 +5,7 @@ import { Search } from "components/Search/Search";
 
 const Navigation = styled.div`
   display: grid;
-  grid-template-columns: 1fr 5fr 1fr;
+  grid-template-columns: 1fr 5fr 0.5fr 1fr;
   align-items: center;
   gap: 32px;
   padding: 0 32px;
@@ -21,10 +21,17 @@ const StyledNavLink = styled(Link)`
   border-radius: 4.67px;
 `;
 
+const StyledFavoritesLink = styled(Link)`
+  position: relative;
+  justify-self: end;
+  font-size: 32px;
+  color: #ff0000 !important;
+`;
+
 const StyledSearch = styled(Search)`
   justify-self: end;
   width: 100%;
   background-color: ${Color.EXTRA_LIGHT};
 `;
 
-export { Navigation, StyledNavLink, StyledSearch };
+export { Navigation, StyledNavLink, StyledFavoritesLink, StyledSearch };

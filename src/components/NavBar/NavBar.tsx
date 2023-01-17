@@ -1,6 +1,6 @@
 import React from "react";
 import { Search, UserAccount } from "components";
-import { Navigation, StyledNavLink } from "./styles";
+import { Navigation, StyledFavoritesLink, StyledNavLink } from "./styles";
 import { ROUTE } from "router";
 import { Logo } from "assets/img";
 import { useWindowSize } from "hooks";
@@ -17,6 +17,7 @@ export const NavBar = () => {
       {width >= 568 ? (
         <>
           <Search placeholder="Search ..." type={"text"} />
+          <StyledFavoritesLink to={ROUTE.FAVORITES}>❤</StyledFavoritesLink>
           <UserAccount />
         </>
       ) : (
