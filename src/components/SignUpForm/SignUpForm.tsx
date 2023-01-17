@@ -4,6 +4,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { ROUTE } from "router";
 import { fetchSignUpUser, useAppDispatch } from "store";
+import { validateEmail, validateName, validatePassword } from "utils";
 import {
   SignUpButton,
   SignUpInput,
@@ -35,11 +36,15 @@ export const SignUpForm = () => {
   const handleNavigate = () => {
     navigate(`/${ROUTE.ACCOUNT}`);
   };
+  const handleCloseModal = () => {
+    setIsActive(false);
+  };
 
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm<ISignInFormTypes>();
 
   const onSubmit: SubmitHandler<ISignInFormTypes> = (userInfo) => {
@@ -59,6 +64,7 @@ export const SignUpForm = () => {
       })
       .catch((error) => {
         setErrorMessage(error);
+        reset();
       })
       .then(() => {
         setIsActive(true);
@@ -68,55 +74,29 @@ export const SignUpForm = () => {
   return (
     <StyledSigningUpForm onSubmit={handleSubmit(onSubmit)}>
       <SignUpLabel>Name</SignUpLabel>
-      <SignUpInput
-        type="name"
-        placeholder="Your name"
-        {...register("userName", {
-          required: "Name is required",
-          maxLength: {
-            value: 20,
-            message: "Too long",
-          },
-        })}
-      />
+      <SignUpInput type="name" placeholder="Your name" {...register("userName", validateName())} />
       {errors.userName && <p>{errors.userName.message}</p>}
+
       <SignUpLabel>Email</SignUpLabel>
-      <SignUpInput
-        type="email"
-        placeholder="Your email"
-        {...register("email", {
-          required: "Email is required",
-          pattern: { value: /^(.+)@(.+)$/, message: "Enter a valid email" },
-        })}
-      />
+      <SignUpInput type="email" placeholder="Your email" {...register("email", validateEmail())} />
       {errors.email && <p>{errors.email.message}</p>}
+
       <SignUpLabel>Password</SignUpLabel>
       <SignUpInput
         type="password"
         placeholder="Your password"
-        {...register("password", {
-          required: "Password is required",
-          minLength: {
-            value: 6,
-            message: "Password must be at least 6 characters",
-          },
-        })}
+        {...register("password", validatePassword())}
       />
       {errors.password && <p>{errors.password.message}</p>}
+
       <SignUpButton type="submit">Sign Up</SignUpButton>
       <SignUpText>
         Have an account already? <SignUpNavLink to={`/${ROUTE.SIGN_IN}`}>Sign In</SignUpNavLink>
       </SignUpText>
       {isActive && !errorMessage && (
-        <Modal
-          message="Authorization successful"
-          handleClick={handleNavigate}
-          setIsActive={function (isActive: boolean): void {
-            throw new Error("Function not implemented.");
-          }}
-        />
+        <Modal message="Authorization successful" handleClick={handleNavigate} />
       )}
-      {errorMessage && <Modal message={errorMessage} setIsActive={setIsActive} />}
+      {isActive && errorMessage && <Modal message={errorMessage} handleClick={handleCloseModal} />}
     </StyledSigningUpForm>
   );
 };

@@ -18,7 +18,7 @@ import { setSearchValue } from "./slices/articlesSlice/articlesSlice";
 import { logOut } from "./slices/usersSlice/usersSlice";
 import { addToFavorite } from "./slices/favoritesSlice/favoritesSlice";
 import { removeFromFavorites } from "./slices/favoritesSlice/favoritesSlice";
-import { getFavotites } from "./selectors/favoritesSlice";
+import { getFavotites } from "./selectors/favoritesSelector";
 
 export {
   store,
