@@ -9,7 +9,7 @@ const ErrorMessage = styled.span`
   font-size: 35px;
 `;
 
-const StyledArticlesList = styled.div`
+const StyledBlogList = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 35px;
@@ -22,4 +22,4 @@ const StyledArticlesList = styled.div`
   }
 `;
 
-export { StyledArticlesList, ListWrapper, ErrorMessage };
+export { StyledBlogList, ListWrapper, ErrorMessage };

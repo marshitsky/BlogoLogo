@@ -1,4 +1,4 @@
-import { ArticleList } from "components";
+import { BlogList } from "components";
 import { useEffect } from "react";
 import { fetchArticles, fetchNews, getAllArticles, useAppDispatch, useAppSelector } from "store";
 import { SearchResultsInfo } from "./styles";
@@ -36,11 +36,11 @@ export const SearchPage = () => {
       <SearchResultsInfo>
         "{searchValue ? searchValue : " "}" search results for Articles
       </SearchResultsInfo>
-      <ArticleList tab={"articles"} />
+      <BlogList tab={"articles"} />
       <SearchResultsInfo>
         "{searchValue ? searchValue : " "}" search results for News
       </SearchResultsInfo>
-      <ArticleList tab={"blogs"} />
+      <BlogList tab={"blogs"} />
     </>
   );
 };

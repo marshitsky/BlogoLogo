@@ -1,22 +1,13 @@
 import { ArticleListItem, NewsListItem, Spinner } from "components";
-import { useEffect } from "react";
-import {
-  addToFavorite,
-  fetchArticles,
-  fetchNews,
-  getAllArticles,
-  getAllNews,
-  useAppDispatch,
-  useAppSelector,
-} from "store";
+import { addToFavorite, getAllArticles, getAllNews, useAppDispatch, useAppSelector } from "store";
 import { IArticle } from "types";
-import { ErrorMessage, StyledArticlesList, ListWrapper } from "./styles";
+import { ErrorMessage, StyledBlogList, ListWrapper } from "./styles";
 
 interface IProps {
   tab: string;
 }
 
-export const ArticleList = ({ tab }: IProps) => {
+export const BlogList = ({ tab }: IProps) => {
   const dispatch = useAppDispatch();
   const { articles, error, isLoading } = useAppSelector(getAllArticles);
   const { news } = useAppSelector(getAllNews);
@@ -25,19 +16,11 @@ export const ArticleList = ({ tab }: IProps) => {
     dispatch(addToFavorite(article));
   };
 
-  useEffect(() => {
-    dispatch(fetchArticles({ page: 0, value: "", word: "" }));
-  }, [dispatch]);
-
-  useEffect(() => {
-    dispatch(fetchNews({ page: 0, value: "", word: "" }));
-  }, [dispatch]);
-
   return (
     <ListWrapper>
       {isLoading && <Spinner />}
       {error && <ErrorMessage />}
-      <StyledArticlesList>
+      <StyledBlogList>
         {tab === "articles"
           ? Array.isArray(articles) &&
             articles.map((article) => (
@@ -47,7 +30,7 @@ export const ArticleList = ({ tab }: IProps) => {
             news.map((news) => (
               <NewsListItem news={news} key={news.id} onClick={handleAddToFavorites} />
             ))}
-      </StyledArticlesList>
+      </StyledBlogList>
     </ListWrapper>
   );
 };

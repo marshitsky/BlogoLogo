@@ -1,4 +1,4 @@
-import { ArticleList } from "./ArticleList/ArticleList";
+import { BlogList } from "./BlogList/BlogList";
 import { ArticleListItem } from "./ArticleListItem/ArticleListItem";
 import { CustomSelect } from "./CustomSelect/CustomSelect";
 import { Footer } from "./Footer/Footer";
@@ -23,7 +23,7 @@ import { DateFilter } from "./DateFilter/DateFilter";
 import { ScrollUpButton } from "./ScrollUpButton/ScrollUpButton";
 
 export {
-  ArticleList,
+  BlogList,
   ArticleListItem,
   CustomSelect,
   Footer,

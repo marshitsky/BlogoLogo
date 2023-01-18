@@ -1,4 +1,4 @@
-import { StyledArticlesList } from "components/ArticleList/styles";
+import { StyledBlogList } from "components/BlogList/styles";
 import styled from "styled-components";
 import { H1 } from "ui";
 
@@ -11,6 +11,6 @@ const Heading = styled.h1`
   ${H1}
 `;
 
-const FavoritesList = styled(StyledArticlesList)``;
+const FavoritesList = styled(StyledBlogList)``;
 
 export { FavoritesWrapper, Heading, FavoritesList };
