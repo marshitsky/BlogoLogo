@@ -25,7 +25,7 @@ export const router = createBrowserRouter(
       <Route path={ROUTE.SIGN_UP} element={<SignUpPage />} />
       <Route path={ROUTE.RESET_PASSWORD} element={<ResetPasswordPage />} />
       <Route path={ROUTE.NOT_FOUND} element={<NotFoundPage />} />
-      <Route path="*" element={<Navigate replace to={ROUTE.NOT_FOUND} />} />
+      <Route path="*" element={<Navigate replace to={ROUTE.HOME} />} />
       <Route element={<RequireAuth />}>
         <Route path={ROUTE.ACCOUNT} element={<AccountPage />} />
         <Route path={ROUTE.FAVORITES} element={<FavoritesPage />} />
