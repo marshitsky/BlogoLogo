@@ -1,3 +1,4 @@
 import { TabsNames } from "./tabs";
+import { options } from "./selectValues";
 
-export { TabsNames };
+export { TabsNames, options };

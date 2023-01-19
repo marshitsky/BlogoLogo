@@ -3,7 +3,9 @@ import { TabsBlock } from "components/Tabs/styles";
 import { TabsNames } from "config";
 import { useToggle } from "hooks";
 import { useEffect, useState } from "react";
+import { SingleValue } from "react-select";
 import { fetchArticles, fetchNews, useAppDispatch } from "store";
+import { IOption } from "types";
 import { Title, HomePageWrapper, SortPanelWrapper } from "./styles";
 
 export const HomePage = () => {
@@ -15,6 +17,15 @@ export const HomePage = () => {
   const handleActiveTab = (value: string) => {
     setTabValue(value);
     setIsActiveTab();
+  };
+
+  const handleSelect = (option: SingleValue<IOption | null | any>): void => {
+    tabValue === TabsNames.ARTICLE_VALUE &&
+      option &&
+      dispatch(fetchArticles({ page: 0, value: option.value, word: "" }));
+    tabValue === TabsNames.NEWS_VALUE &&
+      option &&
+      dispatch(fetchNews({ page: 0, value: option.value, word: "" }));
   };
 
   useEffect(() => {
@@ -44,9 +55,10 @@ export const HomePage = () => {
 
       <SortPanelWrapper>
         <DateFilter />
-        {tabValue === TabsNames.ARTICLE_VALUE && <CustomSelect tab="articles" />}
-        {tabValue === TabsNames.NEWS_VALUE && <CustomSelect tab="blogs" />}
+        {tabValue === TabsNames.ARTICLE_VALUE && <CustomSelect handleSelect={handleSelect} />}
+        {tabValue === TabsNames.NEWS_VALUE && <CustomSelect handleSelect={handleSelect} />}
       </SortPanelWrapper>
+
       {tabValue === TabsNames.ARTICLE_VALUE && <BlogList tab="articles" />}
       {tabValue === TabsNames.NEWS_VALUE && <BlogList tab="blogs" />}
       <Pagination />
