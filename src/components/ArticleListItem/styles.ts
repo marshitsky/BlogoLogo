@@ -4,6 +4,7 @@ import { Color, Media } from "ui";
 const StyledArticleListItem = styled.div`
   position: relative;
   max-width: 352px;
+  width: 100%;
   height: 388px;
   border-radius: 16px;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px,
@@ -25,10 +26,16 @@ const StyledArticleListItem = styled.div`
   }
 `;
 
+const ImageWrapper = styled.div`
+  display: grid;
+  align-items: center;
+  width: 100%;
+  height: 208px;
+`;
+
 const Image = styled.img`
   width: 100%;
   height: 208px;
-  border-radius: 16px 16px 0 0;
   object-fit: cover;
   filter: grayscale(0.74);
   opacity: 0.84;
@@ -62,4 +69,4 @@ const FavoritesBtn = styled.button`
   color: ${Color.WHITE};
 `;
 
-export { StyledArticleListItem, Image, Title, PublishDate, FavoritesBtn };
+export { StyledArticleListItem, ImageWrapper, Image, Title, PublishDate, FavoritesBtn };

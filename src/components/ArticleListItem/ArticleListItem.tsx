@@ -2,7 +2,14 @@ import React from "react";
 import { generatePath, Link } from "react-router-dom";
 import { ROUTE } from "router";
 import { IBlogItem } from "types";
-import { StyledArticleListItem, Image, Title, PublishDate, FavoritesBtn } from "./styles";
+import {
+  StyledArticleListItem,
+  Image,
+  Title,
+  PublishDate,
+  FavoritesBtn,
+  ImageWrapper,
+} from "./styles";
 
 interface IProps {
   article: IBlogItem;
@@ -27,7 +34,9 @@ export const ArticleListItem = ({ article, onClick, isFavorite }: IProps) => {
   return (
     <StyledArticleListItem>
       <Link to={generatePath("../" + ROUTE.CONTENT, { id: `${article.id}` })}>
-        <Image src={imageUrl} alt={title} />
+        <ImageWrapper>
+          <Image src={imageUrl} alt={title} />
+        </ImageWrapper>
         <PublishDate>{printDate}</PublishDate>
         <Title>{title.length > 70 ? title.slice(0, 70) + "..." : title}</Title>
       </Link>

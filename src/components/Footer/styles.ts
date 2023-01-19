@@ -9,6 +9,7 @@ const StyledFooter = styled.div`
   width: clamp(320px, 1120px, 100%);
   padding: 24px 11px;
   margin: 0 auto;
+  border-top: 1px solid ${Color.WHITE_HEADER};
 `;
 
 const CopyRight = styled.h3`

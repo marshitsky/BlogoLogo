@@ -1,5 +1,13 @@
 import styled from "styled-components";
 
+const SpinnerWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+`;
+
 const StyledSpinner = styled.div`
   display: block;
   width: 70px;
@@ -16,4 +24,4 @@ const StyledSpinner = styled.div`
   }
 `;
 
-export { StyledSpinner };
+export { SpinnerWrapper, StyledSpinner };

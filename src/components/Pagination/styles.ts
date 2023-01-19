@@ -8,8 +8,8 @@ interface setCurrent {
 const StyledPagination = styled.div`
   display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 30px;
+  align-items: end;
+  column-gap: 30px;
   padding-top: 40px;
 `;
 

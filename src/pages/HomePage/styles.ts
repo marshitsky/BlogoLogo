@@ -1,16 +1,12 @@
 import styled from "styled-components";
 import { H1, H2, Media } from "ui";
 
-const HomePageWrapper = styled.div`
+const HomePageWrapper = styled.main`
   display: flex;
   flex-direction: column;
-`;
-
-const HomePageHeader = styled.div`
-  width: 1120px;
-  display: grid;
-  grid-template-columns: 80% 20%;
-  align-items: center;
+  max-width: 1110px;
+  width: 100%;
+  margin: 0 auto;
 `;
 
 const Title = styled.h1`
@@ -21,18 +17,31 @@ const Title = styled.h1`
   }
 `;
 
+const SortPanelBlock = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  row-gap: 20px;
+  padding-top: 50px;
+  ${Media.LG} {
+    padding-top: 25px;
+  }
+  ${Media.MD} {
+    flex-direction: column;
+    align-items: center;
+  }
+`;
+
 const SortPanelWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 15px;
-  padding-top: 50px;
   ${Media.LG} {
     flex-direction: column;
     align-items: start;
     gap: 15px;
-    padding-top: 25px;
   }
 `;
 
-export { HomePageHeader, Title, HomePageWrapper, SortPanelWrapper };
+export { Title, HomePageWrapper, SortPanelBlock, SortPanelWrapper };

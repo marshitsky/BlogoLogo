@@ -4,6 +4,7 @@ import {
   Title,
   Image,
   FavoritesBtn,
+  ImageWrapper,
 } from "components/ArticleListItem/styles";
 import React from "react";
 import { generatePath, Link } from "react-router-dom";
@@ -33,7 +34,9 @@ export const NewsListItem = ({ news, onClick, isFavorite }: IProps) => {
   return (
     <StyledArticleListItem>
       <Link to={generatePath("../" + ROUTE.NEWS_CONTENT, { id: `${news.id}` })}>
-        <Image src={imageUrl} alt={title} />
+        <ImageWrapper>
+          <Image src={imageUrl} alt={title} />
+        </ImageWrapper>
         <PublishDate>{printDate}</PublishDate>
         <Title>{title.length > 70 ? title.slice(0, 70) + "..." : title}</Title>
       </Link>

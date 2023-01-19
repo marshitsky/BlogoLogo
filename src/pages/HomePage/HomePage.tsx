@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import { SingleValue } from "react-select";
 import { fetchArticles, fetchNews, useAppDispatch } from "store";
 import { IOption } from "types";
-import { Title, HomePageWrapper, SortPanelWrapper } from "./styles";
+import { Title, HomePageWrapper, SortPanelWrapper, SortPanelBlock } from "./styles";
 
 export const HomePage = () => {
   const [isActiveTab, setIsActiveTab] = useToggle();
@@ -71,33 +71,30 @@ export const HomePage = () => {
     <HomePageWrapper>
       <Title>Blog</Title>
 
-      <TabsBlock>
-        <Tabs
-          tabName={TabsNames.ARTICLE_LABEL}
-          setTab={() => handleActiveTab(TabsNames.ARTICLE_VALUE)}
-          isActive={!isActiveTab}
-        />
-        <Tabs
-          tabName={TabsNames.NEWS_LABEL}
-          setTab={() => handleActiveTab(TabsNames.NEWS_VALUE)}
-          isActive={isActiveTab}
-        />
-      </TabsBlock>
-
-      <SortPanelWrapper>
-        {/* <DateFilter /> */}
-        {tabValue === TabsNames.ARTICLE_VALUE && <CustomSelect handleSelect={handleSelect} />}
-        {tabValue === TabsNames.NEWS_VALUE && <CustomSelect handleSelect={handleSelect} />}
-      </SortPanelWrapper>
+      <SortPanelBlock>
+        <TabsBlock>
+          <Tabs
+            tabName={TabsNames.ARTICLE_LABEL}
+            setTab={() => handleActiveTab(TabsNames.ARTICLE_VALUE)}
+            isActive={!isActiveTab}
+          />
+          <Tabs
+            tabName={TabsNames.NEWS_LABEL}
+            setTab={() => handleActiveTab(TabsNames.NEWS_VALUE)}
+            isActive={isActiveTab}
+          />
+        </TabsBlock>
+        <SortPanelWrapper>
+          {/* <DateFilter /> */}
+          {tabValue === TabsNames.ARTICLE_VALUE && <CustomSelect handleSelect={handleSelect} />}
+          {tabValue === TabsNames.NEWS_VALUE && <CustomSelect handleSelect={handleSelect} />}
+        </SortPanelWrapper>
+      </SortPanelBlock>
 
       {tabValue === TabsNames.ARTICLE_VALUE && <BlogList tab="articles" />}
       {tabValue === TabsNames.NEWS_VALUE && <BlogList tab="blogs" />}
+
       <StyledPagination>
-        <Pagination
-          handlePage={() => handlePage(12, -requestParams.current + 1)}
-          requestParams={requestParams.current - requestParams.current + 1}
-        />
-        {"···"}
         <Pagination
           handlePage={() => handlePage(-12, -1)}
           requestParams={requestParams.current - 1}
@@ -106,6 +103,10 @@ export const HomePage = () => {
         <Pagination
           handlePage={() => handlePage(12, 1)}
           requestParams={requestParams.current + 1}
+        />
+        <Pagination
+          handlePage={() => handlePage(12, 1)}
+          requestParams={requestParams.current + 2}
         />
         {"···"}
         <Pagination

@@ -6,12 +6,9 @@ const TabsBlock = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
-  padding-top: 40px;
-  margin: 0 10px 16px 10px;
   border-bottom: 1px solid ${Color.WHITE_HEADER};
   ${Media.MD} {
-    flex-wrap: wrap;
-    padding-top: 20px;
+    justify-content: center;
   }
 `;
 
