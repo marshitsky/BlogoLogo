@@ -1,6 +1,7 @@
-import { BlogList, CustomSelect, DateFilter, Pagination, Tabs } from "components";
+import { BlogList, CustomSelect, Pagination, Tabs } from "components";
+import { StyledPagination } from "components/Pagination/styles";
 import { TabsBlock } from "components/Tabs/styles";
-import { TabsNames } from "config";
+import { options, TabsNames } from "config";
 import { useToggle } from "hooks";
 import { useEffect, useState } from "react";
 import { SingleValue } from "react-select";
@@ -11,21 +12,27 @@ import { Title, HomePageWrapper, SortPanelWrapper } from "./styles";
 export const HomePage = () => {
   const [isActiveTab, setIsActiveTab] = useToggle();
   const [tabValue, setTabValue] = useState<string>(TabsNames.ARTICLE_VALUE);
+  const [option, setOption] = useState(options[0]);
+  const [requestParams, setRequestParams] = useState({ page: 0, current: 1 });
 
   const dispatch = useAppDispatch();
 
   const handleActiveTab = (value: string) => {
     setTabValue(value);
     setIsActiveTab();
+    setRequestParams({ page: 0, current: 1 });
   };
 
   const handleSelect = (option: SingleValue<IOption | null | any>): void => {
-    tabValue === TabsNames.ARTICLE_VALUE &&
-      option &&
-      dispatch(fetchArticles({ page: 0, value: option.value, word: "" }));
-    tabValue === TabsNames.NEWS_VALUE &&
-      option &&
-      dispatch(fetchNews({ page: 0, value: option.value, word: "" }));
+    setOption(option);
+    setRequestParams({ page: 0, current: 1 });
+  };
+
+  const handlePage = (cardsQuanity: number, pageNumber: number) => {
+    setRequestParams({
+      page: requestParams.page + cardsQuanity,
+      current: requestParams.current + pageNumber,
+    });
   };
 
   useEffect(() => {
@@ -35,6 +42,30 @@ export const HomePage = () => {
   useEffect(() => {
     dispatch(fetchNews({ page: 0, value: "", word: "" }));
   }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(fetchArticles({ page: 0, value: option.value, word: "" }));
+  }, [dispatch, option.value]);
+
+  useEffect(() => {
+    dispatch(fetchNews({ page: 0, value: option.value, word: "" }));
+  }, [dispatch, option.value]);
+
+  useEffect(() => {
+    dispatch(fetchArticles({ page: requestParams.page, value: "", word: "" }));
+  }, [dispatch, requestParams]);
+
+  useEffect(() => {
+    dispatch(fetchNews({ page: requestParams.page, value: "", word: "" }));
+  }, [dispatch, requestParams]);
+
+  useEffect(() => {
+    dispatch(fetchArticles({ page: requestParams.page, value: option.value, word: "" }));
+  }, [dispatch, option.value, requestParams.page]);
+
+  useEffect(() => {
+    dispatch(fetchNews({ page: requestParams.page, value: option.value, word: "" }));
+  }, [dispatch, option.value, requestParams.page]);
 
   return (
     <HomePageWrapper>
@@ -54,14 +85,34 @@ export const HomePage = () => {
       </TabsBlock>
 
       <SortPanelWrapper>
-        <DateFilter />
+        {/* <DateFilter /> */}
         {tabValue === TabsNames.ARTICLE_VALUE && <CustomSelect handleSelect={handleSelect} />}
         {tabValue === TabsNames.NEWS_VALUE && <CustomSelect handleSelect={handleSelect} />}
       </SortPanelWrapper>
 
       {tabValue === TabsNames.ARTICLE_VALUE && <BlogList tab="articles" />}
       {tabValue === TabsNames.NEWS_VALUE && <BlogList tab="blogs" />}
-      <Pagination />
+      <StyledPagination>
+        <Pagination
+          handlePage={() => handlePage(12, -requestParams.current + 1)}
+          requestParams={requestParams.current - requestParams.current + 1}
+        />
+        {"···"}
+        <Pagination
+          handlePage={() => handlePage(-12, -1)}
+          requestParams={requestParams.current - 1}
+        />
+        <Pagination handlePage={() => handlePage(0, 0)} requestParams={requestParams.current} />
+        <Pagination
+          handlePage={() => handlePage(12, 1)}
+          requestParams={requestParams.current + 1}
+        />
+        {"···"}
+        <Pagination
+          handlePage={() => handlePage(12, 5)}
+          requestParams={requestParams.current + 5}
+        />
+      </StyledPagination>
     </HomePageWrapper>
   );
 };
