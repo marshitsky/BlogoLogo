@@ -32,5 +32,5 @@ export const router = createBrowserRouter(
       </Route>
     </Route>,
   ),
-  { basename: "/blogologo" },
+  { basename: "/BlogoLogo" },
 );
