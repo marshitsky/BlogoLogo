@@ -1,5 +1,5 @@
 import axios from "axios";
-import { IArticle, INews } from "types";
+import { IBlogItem } from "types";
 
 class SpaceFlightNewsAPI {
   private readonly BASE_URL = process.env.REACT_APP_DATABASE_URL;
@@ -11,35 +11,24 @@ class SpaceFlightNewsAPI {
     baseURL: this.BASE_URL,
   });
 
-  public async getAllArticles(page: number, value: string, word: string) {
+  public async getAllBlogs(page: number, value: string, word: string, endpoint: string) {
     const params = {
       _start: page,
       _limit: 12,
       _sort: value,
       _title_contains: word,
     };
-    const { data } = await this.API.get<IArticle[]>(this.ENDPOINTS.articles, { params });
+    const { data } = await this.API.get<IBlogItem[]>(this.BASE_URL + "/" + endpoint, { params });
     return data;
   }
 
   public async getArticleById(id: string) {
-    const { data } = await this.API.get<IArticle>(`${this.ENDPOINTS.articles}/${id}`);
-    return data;
-  }
-
-  public async getAllNews(page: number, value: string, word: string) {
-    const params = {
-      _start: page,
-      _limit: 12,
-      _sort: value,
-      _title_contains: word,
-    };
-    const { data } = await this.API.get<INews[]>(this.ENDPOINTS.blogs, { params });
+    const { data } = await this.API.get<IBlogItem>(`${this.ENDPOINTS.articles}/${id}`);
     return data;
   }
 
   public async getNewsById(id: string) {
-    const { data } = await this.API.get<IArticle>(`${this.ENDPOINTS.blogs}/${id}`);
+    const { data } = await this.API.get<IBlogItem>(`${this.ENDPOINTS.blogs}/${id}`);
     return data;
   }
 }

@@ -1,9 +1,9 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { spaceFlightNewsAPI } from "services";
-import { IArticle } from "types";
+import { IBlogItem } from "types";
 
 interface IArticlesState {
-  articles: IArticle[];
+  articles: IBlogItem[];
   isLoading: boolean;
   error: null | string;
   searchParams: ISearchParams;
@@ -23,12 +23,12 @@ const initialState: IArticlesState = {
 };
 
 export const fetchArticles = createAsyncThunk<
-  IArticle[],
+  IBlogItem[],
   { page: number; value: string; word: string },
   { rejectValue: string }
 >("articles/fetchArticles", async (params, { rejectWithValue }) => {
   try {
-    return await spaceFlightNewsAPI.getAllArticles(params.page, params.value, params.word);
+    return await spaceFlightNewsAPI.getAllBlogs(params.page, params.value, params.word, "articles");
   } catch (error) {
     return rejectWithValue("Error");
   }

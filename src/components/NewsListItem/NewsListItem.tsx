@@ -8,11 +8,11 @@ import {
 import React from "react";
 import { generatePath, Link } from "react-router-dom";
 import { ROUTE } from "router";
-import { INews } from "types";
+import { IBlogItem } from "types";
 
 interface IProps {
-  news: INews;
-  onClick: (news: INews) => void;
+  news: IBlogItem;
+  onClick: (news: IBlogItem) => void;
   isFavorite?: boolean;
 }
 

@@ -1,10 +1,10 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { INews } from "types";
+import { IBlogItem } from "types";
 import { HomeLink, LinkWrapper, NewsImage, NewsText, NewsTitle, StyledLink } from "./styles";
 
 interface IProps {
-  news: INews;
+  news: IBlogItem;
 }
 
 export const NewsContent = ({ news }: IProps) => {

@@ -1,6 +1,7 @@
 import { ArticleListItem, NewsListItem, Spinner } from "components";
+import { TabsNames } from "config";
 import { addToFavorite, getAllArticles, getAllNews, useAppDispatch, useAppSelector } from "store";
-import { IArticle } from "types";
+import { IBlogItem } from "types";
 import { ErrorMessage, StyledBlogList, ListWrapper } from "./styles";
 
 interface IProps {
@@ -12,7 +13,7 @@ export const BlogList = ({ tab }: IProps) => {
   const { articles, error, isLoading } = useAppSelector(getAllArticles);
   const { news } = useAppSelector(getAllNews);
 
-  const handleAddToFavorites = (article: IArticle) => {
+  const handleAddToFavorites = (article: IBlogItem) => {
     dispatch(addToFavorite(article));
   };
 
@@ -21,15 +22,16 @@ export const BlogList = ({ tab }: IProps) => {
       {isLoading && <Spinner />}
       {error && <ErrorMessage />}
       <StyledBlogList>
-        {tab === "articles"
-          ? Array.isArray(articles) &&
-            articles.map((article) => (
-              <ArticleListItem article={article} key={article.id} onClick={handleAddToFavorites} />
-            ))
-          : Array.isArray(news) &&
-            news.map((news) => (
-              <NewsListItem news={news} key={news.id} onClick={handleAddToFavorites} />
-            ))}
+        {tab === TabsNames.ARTICLE_VALUE &&
+          Array.isArray(articles) &&
+          articles.map((article) => (
+            <ArticleListItem article={article} key={article.id} onClick={handleAddToFavorites} />
+          ))}
+        {tab === TabsNames.NEWS_VALUE &&
+          Array.isArray(news) &&
+          news.map((news) => (
+            <NewsListItem news={news} key={news.id} onClick={handleAddToFavorites} />
+          ))}
       </StyledBlogList>
     </ListWrapper>
   );

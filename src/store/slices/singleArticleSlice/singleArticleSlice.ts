@@ -1,14 +1,14 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { spaceFlightNewsAPI } from "services";
-import { IArticle } from "types";
+import { IBlogItem } from "types";
 
 interface IArticlesState {
-  article: IArticle;
+  article: IBlogItem;
   isLoading: boolean;
   error: null | string;
 }
 
-export const fetchArticleById = createAsyncThunk<IArticle, string, { rejectValue: string }>(
+export const fetchArticleById = createAsyncThunk<IBlogItem, string, { rejectValue: string }>(
   "articles/fetchArticles",
   async (params, { rejectWithValue }) => {
     try {
@@ -20,7 +20,7 @@ export const fetchArticleById = createAsyncThunk<IArticle, string, { rejectValue
 );
 
 const initialState: IArticlesState = {
-  article: {} as IArticle,
+  article: {} as IBlogItem,
   isLoading: false,
   error: null,
 };

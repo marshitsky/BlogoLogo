@@ -1,13 +1,13 @@
 import { ArticleListItem } from "components";
 import { removeFromFavorites, useAppDispatch, useAppSelector } from "store";
-import { IArticle } from "types";
+import { IBlogItem } from "types";
 import { FavoritesWrapper, Heading, FavoritesList } from "./styles";
 
 export const FavoritesPage = () => {
   const { results } = useAppSelector((state) => state.favorites);
   const dispatch = useAppDispatch();
 
-  const handleRemoveFromFavorites = (article: IArticle) => {
+  const handleRemoveFromFavorites = (article: IBlogItem) => {
     dispatch(removeFromFavorites(article));
   };
 
@@ -18,7 +18,7 @@ export const FavoritesPage = () => {
       <FavoritesList>
         {results !== null &&
           results &&
-          results.map((result: IArticle) => {
+          results.map((result: IBlogItem) => {
             return (
               <ArticleListItem
                 key={result.id}

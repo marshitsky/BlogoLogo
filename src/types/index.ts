@@ -1,3 +1,3 @@
-import { IArticle, INews, IOption } from "./types";
+import { IBlogItem, IOption } from "./types";
 
-export type { IArticle, INews, IOption };
+export type { IBlogItem, IOption };

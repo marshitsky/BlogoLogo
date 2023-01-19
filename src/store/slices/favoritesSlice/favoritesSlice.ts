@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IArticle } from "types";
+import { IBlogItem } from "types";
 
 interface IFavoritesState {
-  results: IArticle[];
+  results: IBlogItem[];
 }
 
 const initialState: IFavoritesState = {
@@ -13,11 +13,11 @@ const favoritesSlice = createSlice({
   name: "favorites",
   initialState,
   reducers: {
-    addToFavorite: (state, { payload }: PayloadAction<IArticle>) => {
+    addToFavorite: (state, { payload }: PayloadAction<IBlogItem>) => {
       state.results.push(payload);
       localStorage.setItem("favorites", JSON.stringify(state.results));
     },
-    removeFromFavorites: (state, { payload }: PayloadAction<IArticle>) => {
+    removeFromFavorites: (state, { payload }: PayloadAction<IBlogItem>) => {
       state.results = state.results.filter((result) => result.id !== payload.id);
       localStorage.setItem("favorites", JSON.stringify(state.results));
     },

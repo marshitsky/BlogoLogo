@@ -1,12 +1,12 @@
 import React from "react";
 import { generatePath, Link } from "react-router-dom";
 import { ROUTE } from "router";
-import { IArticle } from "types";
+import { IBlogItem } from "types";
 import { StyledArticleListItem, Image, Title, PublishDate, FavoritesBtn } from "./styles";
 
 interface IProps {
-  article: IArticle;
-  onClick: (article: IArticle) => void;
+  article: IBlogItem;
+  onClick: (article: IBlogItem) => void;
   isFavorite?: boolean;
 }
 

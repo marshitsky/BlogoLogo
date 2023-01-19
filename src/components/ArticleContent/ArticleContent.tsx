@@ -1,9 +1,9 @@
 import { useNavigate } from "react-router-dom";
-import { IArticle } from "types";
+import { IBlogItem } from "types";
 import { NavigationLink, Title, Image, Text, OuterLink, OuterLinkWrapper } from "./styles";
 
 interface IProps {
-  article: IArticle;
+  article: IBlogItem;
 }
 
 export const ArticleContent = ({ article }: IProps) => {
