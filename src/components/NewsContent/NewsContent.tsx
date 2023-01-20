@@ -1,3 +1,4 @@
+import { Wrapper } from "components/ArticleContent/styles";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { IBlogItem } from "types";
@@ -15,7 +16,7 @@ export const NewsContent = ({ news }: IProps) => {
   const { id, imageUrl, title, summary, url } = news;
 
   return (
-    <>
+    <Wrapper>
       <HomeLink onClick={handleBackHome}>Home </HomeLink>
       <span> / Post {id}</span>
       <NewsTitle>{title}</NewsTitle>
@@ -26,6 +27,6 @@ export const NewsContent = ({ news }: IProps) => {
           Original source
         </StyledLink>
       </LinkWrapper>
-    </>
+    </Wrapper>
   );
 };
