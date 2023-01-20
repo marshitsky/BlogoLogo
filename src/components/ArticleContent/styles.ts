@@ -1,6 +1,14 @@
 import styled from "styled-components";
 import { Color, H2, Media, S1 } from "ui";
 
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  max-width: 1110px;
+  padding: 0 20px;
+  width: 100%;
+`;
+
 const NavigationLink = styled.span`
   cursor: pointer;
 `;
@@ -48,4 +56,4 @@ const OuterLink = styled.a`
   }
 `;
 
-export { NavigationLink, Title, Image, Text, OuterLink, OuterLinkWrapper };
+export { Wrapper, NavigationLink, Title, Image, Text, OuterLink, OuterLinkWrapper };

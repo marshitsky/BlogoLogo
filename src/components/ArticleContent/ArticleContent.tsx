@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { IBlogItem } from "types";
-import { NavigationLink, Title, Image, Text, OuterLink, OuterLinkWrapper } from "./styles";
+import { NavigationLink, Title, Image, Text, OuterLink, OuterLinkWrapper, Wrapper } from "./styles";
 
 interface IProps {
   article: IBlogItem;
@@ -13,9 +13,10 @@ export const ArticleContent = ({ article }: IProps) => {
   };
   const { id, imageUrl, title, summary, url } = article;
   return (
-    <>
-      <NavigationLink onClick={handleBackHome}>Home </NavigationLink>
-      <span> / Post {id}</span>
+    <Wrapper>
+      <NavigationLink onClick={handleBackHome}>
+        Home <span> / Post {id}</span>
+      </NavigationLink>
       <Title>{title}</Title>
       <Image src={imageUrl} alt="article-img" />
       <Text>{summary}</Text>
@@ -24,6 +25,6 @@ export const ArticleContent = ({ article }: IProps) => {
           Original source
         </OuterLink>
       </OuterLinkWrapper>
-    </>
+    </Wrapper>
   );
 };
