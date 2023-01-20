@@ -1,30 +1,31 @@
-import {
-  PublishDate,
-  StyledArticleListItem,
-  Title,
-  Image,
-  FavoritesBtn,
-  ImageWrapper,
-} from "components/ArticleListItem/styles";
 import React from "react";
 import { generatePath, Link } from "react-router-dom";
 import { ROUTE } from "router";
 import { getFavotites, useAppSelector } from "store";
 import { IBlogItem } from "types";
+import {
+  StyledArticleListItem,
+  Image,
+  Title,
+  PublishDate,
+  FavoritesBtn,
+  ImageWrapper,
+  InfoWrapper,
+} from "./styles";
 
 interface IProps {
-  news: IBlogItem;
-  onClick: (news: IBlogItem) => void;
+  blog: IBlogItem;
+  onClick: (article: IBlogItem) => void;
   isFavorite?: boolean;
 }
 
-export const NewsListItem = ({ news, onClick, isFavorite }: IProps) => {
-  const { imageUrl, publishedAt, title } = news;
+export const BlogListItem = ({ blog, onClick, isFavorite }: IProps) => {
+  const { imageUrl, publishedAt, title } = blog;
   const { results } = useAppSelector(getFavotites);
-  const isFav = results.map((fav) => fav.id).some((a) => a === news.id);
+  const isFav = results.map((fav) => fav.id).some((a) => a === blog.id);
 
   const handleFavorite = () => {
-    onClick(news);
+    onClick(blog);
   };
 
   const date = new Date(publishedAt);
@@ -36,12 +37,14 @@ export const NewsListItem = ({ news, onClick, isFavorite }: IProps) => {
 
   return (
     <StyledArticleListItem>
-      <Link to={generatePath("../" + ROUTE.NEWS_CONTENT, { id: `${news.id}` })}>
+      <Link to={generatePath(ROUTE.HOME + ROUTE.CONTENT, { id: `${blog.id}` })}>
         <ImageWrapper>
           <Image src={imageUrl} alt={title} />
         </ImageWrapper>
-        <PublishDate>{printDate}</PublishDate>
-        <Title>{title.length > 70 ? title.slice(0, 70) + "..." : title}</Title>
+        <InfoWrapper>
+          <PublishDate>{printDate}</PublishDate>
+          <Title>{title.length > 70 ? title.slice(0, 70) + "..." : title}</Title>
+        </InfoWrapper>
       </Link>
       <FavoritesBtn onClick={handleFavorite}>{isFav ? "❤️" : "🤍"}</FavoritesBtn>
     </StyledArticleListItem>

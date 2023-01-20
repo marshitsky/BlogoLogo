@@ -1,5 +1,5 @@
 import { BlogList } from "./BlogList/BlogList";
-import { ArticleListItem } from "./ArticleListItem/ArticleListItem";
+import { BlogListItem } from "./BlogListItem/BlogListItem";
 import { CustomSelect } from "./CustomSelect/CustomSelect";
 import { Footer } from "./Footer/Footer";
 import { MainTemplate } from "./MainTemplate/MainTemplate";
@@ -11,7 +11,6 @@ import { ThemeToggler } from "./ThemeToggler/ThemeToggler";
 import { UserAccount } from "./UserAccount/UserAccount";
 import { ArticleContent } from "./ArticleContent/ArticleContent";
 import { Spinner } from "./Spinner/Spinner";
-import { NewsListItem } from "./NewsListItem/NewsListItem";
 import { Tabs } from "./Tabs/Tabs";
 import { NewsContent } from "./NewsContent/NewsContent";
 import { Pagination } from "./Pagination/Pagination";
@@ -24,7 +23,7 @@ import { ScrollUpButton } from "./ScrollUpButton/ScrollUpButton";
 
 export {
   BlogList,
-  ArticleListItem,
+  BlogListItem,
   CustomSelect,
   Footer,
   MainTemplate,
@@ -36,7 +35,6 @@ export {
   UserAccount,
   ArticleContent,
   Spinner,
-  NewsListItem,
   Tabs,
   NewsContent,
   Pagination,

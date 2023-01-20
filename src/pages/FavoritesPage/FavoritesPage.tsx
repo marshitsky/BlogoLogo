@@ -1,4 +1,4 @@
-import { ArticleListItem } from "components";
+import { BlogListItem } from "components";
 import { getFavotites, removeFromFavorites, useAppDispatch, useAppSelector } from "store";
 import { IBlogItem } from "types";
 import { FavoritesWrapper, Heading, FavoritesList } from "./styles";
@@ -20,9 +20,9 @@ export const FavoritesPage = () => {
           results &&
           results.map((result: IBlogItem) => {
             return (
-              <ArticleListItem
+              <BlogListItem
                 key={result.id}
-                article={result}
+                blog={result}
                 onClick={handleRemoveFromFavorites}
                 isFavorite
               />

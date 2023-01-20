@@ -12,6 +12,7 @@ export const ArticleContent = ({ article }: IProps) => {
     navigate(-1);
   };
   const { id, imageUrl, title, summary, url } = article;
+
   return (
     <Wrapper>
       <NavigationLink onClick={handleBackHome}>

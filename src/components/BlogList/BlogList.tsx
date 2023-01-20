@@ -1,4 +1,4 @@
-import { ArticleListItem, NewsListItem, Spinner } from "components";
+import { BlogListItem, Spinner } from "components";
 import { TabsNames } from "config";
 import { addToFavorite, getAllArticles, getAllNews, useAppDispatch, useAppSelector } from "store";
 import { IBlogItem } from "types";
@@ -25,12 +25,12 @@ export const BlogList = ({ tab }: IProps) => {
       {tab === TabsNames.ARTICLE_VALUE &&
         Array.isArray(articles) &&
         articles.map((article) => (
-          <ArticleListItem article={article} key={article.id} onClick={handleAddToFavorites} />
+          <BlogListItem blog={article} key={article.id} onClick={handleAddToFavorites} />
         ))}
       {tab === TabsNames.NEWS_VALUE &&
         Array.isArray(news) &&
         news.map((news) => (
-          <NewsListItem news={news} key={news.id} onClick={handleAddToFavorites} />
+          <BlogListItem blog={news} key={news.id} onClick={handleAddToFavorites} />
         ))}
     </StyledBlogList>
   );
