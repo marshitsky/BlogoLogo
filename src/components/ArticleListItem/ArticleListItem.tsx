@@ -9,6 +9,7 @@ import {
   PublishDate,
   FavoritesBtn,
   ImageWrapper,
+  InfoWrapper,
 } from "./styles";
 
 interface IProps {
@@ -33,12 +34,14 @@ export const ArticleListItem = ({ article, onClick, isFavorite }: IProps) => {
 
   return (
     <StyledArticleListItem>
-      <Link to={generatePath("../" + ROUTE.CONTENT, { id: `${article.id}` })}>
+      <Link to={generatePath(ROUTE.HOME + ROUTE.CONTENT, { id: `${article.id}` })}>
         <ImageWrapper>
           <Image src={imageUrl} alt={title} />
         </ImageWrapper>
-        <PublishDate>{printDate}</PublishDate>
-        <Title>{title.length > 70 ? title.slice(0, 70) + "..." : title}</Title>
+        <InfoWrapper>
+          <PublishDate>{printDate}</PublishDate>
+          <Title>{title.length > 70 ? title.slice(0, 70) + "..." : title}</Title>
+        </InfoWrapper>
       </Link>
       <FavoritesBtn onClick={handleFavorite}>{isFavorite ? "💘" : "❤"}</FavoritesBtn>
     </StyledArticleListItem>

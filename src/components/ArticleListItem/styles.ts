@@ -22,7 +22,6 @@ const StyledArticleListItem = styled.div`
   }
   ${Media.SM} {
     width: 272px;
-    height: 336px;
   }
 `;
 
@@ -46,8 +45,11 @@ const Image = styled.img`
   }
 `;
 
+const InfoWrapper = styled.div`
+  padding: 32px;
+`;
+
 const Title = styled.h2`
-  padding: 0 32px 10px 32px;
   font-weight: 600;
   font-size: 18px;
   line-height: 28px;
@@ -55,7 +57,6 @@ const Title = styled.h2`
 `;
 
 const PublishDate = styled.p`
-  padding: 32px 0 8px 32px;
   text-align: start;
   font-size: 14px;
   color: ${Color.FOOTER_FONT_COLOR};
@@ -69,4 +70,12 @@ const FavoritesBtn = styled.button`
   color: ${Color.WHITE};
 `;
 
-export { StyledArticleListItem, ImageWrapper, Image, Title, PublishDate, FavoritesBtn };
+export {
+  StyledArticleListItem,
+  ImageWrapper,
+  Image,
+  Title,
+  InfoWrapper,
+  PublishDate,
+  FavoritesBtn,
+};
