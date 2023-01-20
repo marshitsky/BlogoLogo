@@ -1,10 +1,10 @@
 import { ArticleListItem } from "components";
-import { removeFromFavorites, useAppDispatch, useAppSelector } from "store";
+import { getFavotites, removeFromFavorites, useAppDispatch, useAppSelector } from "store";
 import { IBlogItem } from "types";
 import { FavoritesWrapper, Heading, FavoritesList } from "./styles";
 
 export const FavoritesPage = () => {
-  const { results } = useAppSelector((state) => state.favorites);
+  const { results } = useAppSelector(getFavotites);
   const dispatch = useAppDispatch();
 
   const handleRemoveFromFavorites = (article: IBlogItem) => {

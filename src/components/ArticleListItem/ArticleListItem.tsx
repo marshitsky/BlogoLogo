@@ -1,6 +1,7 @@
 import React from "react";
 import { generatePath, Link } from "react-router-dom";
 import { ROUTE } from "router";
+import { getFavotites, useAppSelector } from "store";
 import { IBlogItem } from "types";
 import {
   StyledArticleListItem,
@@ -20,6 +21,8 @@ interface IProps {
 
 export const ArticleListItem = ({ article, onClick, isFavorite }: IProps) => {
   const { imageUrl, publishedAt, title } = article;
+  const { results } = useAppSelector(getFavotites);
+  const isFav = results.map((fav) => fav.id).some((a) => a === article.id);
 
   const handleFavorite = () => {
     onClick(article);
@@ -43,7 +46,7 @@ export const ArticleListItem = ({ article, onClick, isFavorite }: IProps) => {
           <Title>{title.length > 70 ? title.slice(0, 70) + "..." : title}</Title>
         </InfoWrapper>
       </Link>
-      <FavoritesBtn onClick={handleFavorite}>{isFavorite ? "💘" : "❤"}</FavoritesBtn>
+      <FavoritesBtn onClick={handleFavorite}>{isFav ? "❤️" : "🤍"}</FavoritesBtn>
     </StyledArticleListItem>
   );
 };

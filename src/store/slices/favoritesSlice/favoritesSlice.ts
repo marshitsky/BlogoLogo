@@ -14,7 +14,8 @@ const favoritesSlice = createSlice({
   initialState,
   reducers: {
     addToFavorite: (state, { payload }: PayloadAction<IBlogItem>) => {
-      state.results.push(payload);
+      const favoriteUnit = state.results.find((favorive) => favorive.id === payload.id);
+      !favoriteUnit && state.results.push(payload);
       localStorage.setItem("favorites", JSON.stringify(state.results));
     },
     removeFromFavorites: (state, { payload }: PayloadAction<IBlogItem>) => {

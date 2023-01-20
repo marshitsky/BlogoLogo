@@ -9,6 +9,7 @@ import {
 import React from "react";
 import { generatePath, Link } from "react-router-dom";
 import { ROUTE } from "router";
+import { getFavotites, useAppSelector } from "store";
 import { IBlogItem } from "types";
 
 interface IProps {
@@ -19,6 +20,8 @@ interface IProps {
 
 export const NewsListItem = ({ news, onClick, isFavorite }: IProps) => {
   const { imageUrl, publishedAt, title } = news;
+  const { results } = useAppSelector(getFavotites);
+  const isFav = results.map((fav) => fav.id).some((a) => a === news.id);
 
   const handleFavorite = () => {
     onClick(news);
@@ -40,7 +43,7 @@ export const NewsListItem = ({ news, onClick, isFavorite }: IProps) => {
         <PublishDate>{printDate}</PublishDate>
         <Title>{title.length > 70 ? title.slice(0, 70) + "..." : title}</Title>
       </Link>
-      <FavoritesBtn onClick={handleFavorite}>{isFavorite ? "💘" : "❤"}</FavoritesBtn>
+      <FavoritesBtn onClick={handleFavorite}>{isFav ? "❤️" : "🤍"}</FavoritesBtn>
     </StyledArticleListItem>
   );
 };
