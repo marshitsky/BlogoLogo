@@ -22,7 +22,7 @@ export const FavoritesPage = () => {
             return (
               <BlogListItem
                 key={result.id}
-                blog={result}
+                blogItem={result}
                 onClick={handleRemoveFromFavorites}
                 isFavorite
               />

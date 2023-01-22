@@ -9,10 +9,9 @@ import { SignInForm } from "./SignInForm/SignInForm";
 import { SignUpForm } from "./SignUpForm/SignUpForm";
 import { ThemeToggler } from "./ThemeToggler/ThemeToggler";
 import { UserAccount } from "./UserAccount/UserAccount";
-import { ArticleContent } from "./ArticleContent/ArticleContent";
+import { BlogContent } from "./BlogContent/BlogContent";
 import { Spinner } from "./Spinner/Spinner";
 import { Tabs } from "./Tabs/Tabs";
-import { NewsContent } from "./NewsContent/NewsContent";
 import { Pagination } from "./Pagination/Pagination";
 import { ResetForm } from "./ResetForm/ResetForm";
 import { RequireAuth } from "./RequireAuth/RequireAuth";
@@ -33,10 +32,9 @@ export {
   SignUpForm,
   ThemeToggler,
   UserAccount,
-  ArticleContent,
+  BlogContent,
   Spinner,
   Tabs,
-  NewsContent,
   Pagination,
   ResetForm,
   RequireAuth,
