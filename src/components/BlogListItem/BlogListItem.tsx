@@ -1,4 +1,4 @@
-import React from "react";
+import { format } from "fecha";
 import { generatePath, Link } from "react-router-dom";
 import { ROUTE } from "router";
 import { getFavotites, useAppSelector } from "store";
@@ -14,30 +14,29 @@ import {
 } from "./styles";
 
 interface IProps {
-  blog: IBlogItem;
-  onClick: (article: IBlogItem) => void;
+  blogItem: IBlogItem;
+  onClick: (blogItem: IBlogItem) => void;
   isFavorite?: boolean;
 }
 
-export const BlogListItem = ({ blog, onClick, isFavorite }: IProps) => {
-  const { imageUrl, publishedAt, title } = blog;
+export const BlogListItem = ({ blogItem, onClick, isFavorite }: IProps) => {
+  const { imageUrl, publishedAt, title, id } = blogItem;
   const { results } = useAppSelector(getFavotites);
-  const isFav = results.map((fav) => fav.id).some((a) => a === blog.id);
 
-  const handleFavorite = () => {
-    onClick(blog);
+  const isInFavorites = results.map((favorite) => favorite.id).some((favorite) => favorite === id);
+
+  const handleChangeFavorites = () => {
+    onClick(blogItem);
   };
 
-  const date = new Date(publishedAt);
-  const m = date.toLocaleString("en-us", { month: "long" });
-  const d = date.getDate();
-  const y = date.getFullYear();
-  const printDate =
-    m[0].toUpperCase() + m.slice(1, m.length) + " " + (d <= 9 ? "0" + d : d) + ", " + y;
+  const printDate = format(new Date(publishedAt), "MMMM D, YYYY");
 
   return (
     <StyledArticleListItem>
-      <Link to={generatePath(ROUTE.HOME + ROUTE.CONTENT, { id: `${blog.id}` })}>
+      <Link
+        to={generatePath(ROUTE.HOME + ROUTE.CONTENT, { id: id })}
+        state={{ blogItem: blogItem }}
+      >
         <ImageWrapper>
           <Image src={imageUrl} alt={title} />
         </ImageWrapper>
@@ -46,7 +45,7 @@ export const BlogListItem = ({ blog, onClick, isFavorite }: IProps) => {
           <Title>{title.length > 70 ? title.slice(0, 70) + "..." : title}</Title>
         </InfoWrapper>
       </Link>
-      <FavoritesBtn onClick={handleFavorite}>{isFav ? "❤️" : "🤍"}</FavoritesBtn>
+      <FavoritesBtn onClick={handleChangeFavorites}>{isInFavorites ? "❤️" : "🤍"}</FavoritesBtn>
     </StyledArticleListItem>
   );
 };
