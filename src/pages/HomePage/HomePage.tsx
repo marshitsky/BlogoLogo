@@ -1,21 +1,27 @@
-import { BlogList, CustomSelect, Pagination, Tabs } from "components";
+import { BlogList, CustomSelect, Modal, Pagination, Spinner, Tabs } from "components";
 import { StyledPagination } from "components/Pagination/styles";
 import { TabsBlock } from "components/Tabs/styles";
 import { options, TabsNames } from "config";
 import { useToggle } from "hooks";
 import { useEffect, useState } from "react";
 import { SingleValue } from "react-select";
-import { fetchArticles, fetchNews, useAppDispatch } from "store";
+import { fetchArticles, fetchNews, getAllArticles, useAppDispatch, useAppSelector } from "store";
 import { IOption } from "types";
 import { Title, HomePageWrapper, SortPanelWrapper, SortPanelBlock } from "./styles";
 
 export const HomePage = () => {
+  const [, setIsActive] = useState(false);
   const [isActiveTab, setIsActiveTab] = useToggle();
   const [tabValue, setTabValue] = useState<string>(TabsNames.ARTICLE_VALUE);
   const [option, setOption] = useState(options[0]);
   const [requestParams, setRequestParams] = useState({ page: 0, current: 1 });
+  const { articles, news, error, isLoading } = useAppSelector(getAllArticles);
 
   const dispatch = useAppDispatch();
+
+  const handleCloseModal = () => {
+    setIsActive(false);
+  };
 
   const handleActiveTab = (value: string) => {
     setTabValue(value);
@@ -91,8 +97,15 @@ export const HomePage = () => {
         </SortPanelWrapper>
       </SortPanelBlock>
 
-      {tabValue === TabsNames.ARTICLE_VALUE && <BlogList tab="articles" />}
-      {tabValue === TabsNames.NEWS_VALUE && <BlogList tab="blogs" />}
+      {isLoading ? (
+        <Spinner />
+      ) : error ? (
+        <Modal message={error} handleClick={handleCloseModal} />
+      ) : tabValue === TabsNames.ARTICLE_VALUE ? (
+        <BlogList list={articles} />
+      ) : (
+        <BlogList list={news} />
+      )}
 
       <StyledPagination>
         <Pagination

@@ -1,10 +1,6 @@
 import styled from "styled-components";
 import { Media } from "ui";
 
-const ErrorMessage = styled.span`
-  font-size: 35px;
-`;
-
 const StyledBlogList = styled.div`
   display: grid;
   place-items: center;
@@ -19,4 +15,4 @@ const StyledBlogList = styled.div`
   }
 `;
 
-export { StyledBlogList, ErrorMessage };
+export { StyledBlogList };
