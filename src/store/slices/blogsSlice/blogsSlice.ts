@@ -4,6 +4,7 @@ import { IBlogItem } from "types";
 
 interface IArticlesState {
   articles: IBlogItem[];
+  news: IBlogItem[];
   isLoading: boolean;
   error: null | string;
   searchParams: ISearchParams;
@@ -15,6 +16,7 @@ interface ISearchParams {
 
 const initialState: IArticlesState = {
   articles: [],
+  news: [],
   isLoading: false,
   error: null,
   searchParams: {
@@ -34,8 +36,20 @@ export const fetchArticles = createAsyncThunk<
   }
 });
 
-export const articlesSlice = createSlice({
-  name: "articles",
+export const fetchNews = createAsyncThunk<
+  IBlogItem[],
+  { page: number; value: string; word: string },
+  { rejectValue: string }
+>("news/fetchNews", async (params, { rejectWithValue }) => {
+  try {
+    return await spaceFlightNewsAPI.getAllBlogs(params.page, params.value, params.word, "blogs");
+  } catch (error) {
+    return rejectWithValue("Error");
+  }
+});
+
+export const blogsSlice = createSlice({
+  name: "blogs",
   initialState,
   reducers: {
     setSearchValue: (state, { payload }) => {
@@ -57,8 +71,23 @@ export const articlesSlice = createSlice({
         state.error = payload;
       }
     });
+
+    builder.addCase(fetchNews.pending, (state) => {
+      state.isLoading = true;
+      state.error = null;
+    });
+    builder.addCase(fetchNews.fulfilled, (state, { payload }) => {
+      state.isLoading = false;
+      state.news = payload;
+    });
+    builder.addCase(fetchNews.rejected, (state, { payload }) => {
+      if (payload) {
+        state.isLoading = false;
+        state.error = payload;
+      }
+    });
   },
 });
 
-export default articlesSlice.reducer;
-export const { setSearchValue } = articlesSlice.actions;
+export default blogsSlice.reducer;
+export const { setSearchValue } = blogsSlice.actions;

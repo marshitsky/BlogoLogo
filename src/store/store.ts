@@ -1,20 +1,16 @@
 import { configureStore } from "@reduxjs/toolkit";
 import userReducer from "./slices/usersSlice/usersSlice";
 import themeReducer from "./slices/themeSlice/themeSlice";
-import articlesReducer from "./slices/articlesSlice/articlesSlice";
-import singleArticleReducer from "./slices/singleArticleSlice/singleArticleSlice";
-import newsReducer from "./slices/newsSlice/newsSlice";
-import singleNewsReduser from "./slices/singleNewsSlice/singleNewsSlice";
+import blogsReducer from "./slices/blogsSlice/blogsSlice";
+import singleArticleReducer from "./slices/singleBlogItemSlice/singleBlogItemSlice";
 import favoritesReducer from "./slices/favoritesSlice/favoritesSlice";
 
 export const store = configureStore({
   reducer: {
     user: userReducer,
     theme: themeReducer,
-    articles: articlesReducer,
-    singleArticle: singleArticleReducer,
-    news: newsReducer,
-    singleNews: singleNewsReduser,
+    blogs: blogsReducer,
+    singleBlog: singleArticleReducer,
     favorites: favoritesReducer,
   },
 });
