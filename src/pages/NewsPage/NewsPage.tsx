@@ -1,20 +1,28 @@
-import { NewsContent, Spinner } from "components";
+import { BlogContent, Modal, Spinner } from "components";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { fetchSingleNews, getNewsById, useAppDispatch, useAppSelector } from "store";
+import { fetchNewsById, getArticleById, useAppDispatch, useAppSelector } from "store";
 
 export const NewsPage = () => {
-  const params = useParams();
-  const [details] = useState(`${params.id}`);
-  const { news, isLoading } = useAppSelector(getNewsById);
+  const [, setIsActive] = useState(false);
+  const { id = "" } = useParams();
+  const { news, isLoading, error } = useAppSelector(getArticleById);
   const dispatch = useAppDispatch();
+
+  const handleCloseModal = () => {
+    setIsActive(false);
+  };
+
   useEffect(() => {
-    dispatch(fetchSingleNews(details));
-  }, [dispatch, details]);
+    dispatch(fetchNewsById(id));
+  }, [dispatch, id]);
 
   if (isLoading) {
     return <Spinner />;
   }
+  if (error) {
+    return <Modal message={error} handleClick={handleCloseModal} />;
+  }
 
-  return <NewsContent news={news} />;
+  return <BlogContent blogItem={news} />;
 };
