@@ -4,6 +4,7 @@ import { Color, Media } from "ui";
 const StyledArticleListItem = styled.div`
   position: relative;
   max-width: 352px;
+  min-width: 250px;
   width: 100%;
   height: 388px;
   border-radius: 16px;
@@ -23,6 +24,10 @@ const StyledArticleListItem = styled.div`
   ${Media.SM} {
     width: 272px;
   }
+`;
+
+const CardWrapper = styled.div`
+  cursor: pointer;
 `;
 
 const ImageWrapper = styled.div`
@@ -72,6 +77,7 @@ const FavoritesBtn = styled.button`
 
 export {
   StyledArticleListItem,
+  CardWrapper,
   ImageWrapper,
   Image,
   Title,

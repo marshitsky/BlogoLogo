@@ -2,7 +2,7 @@ import { createBrowserRouter, createRoutesFromElements, Navigate, Route } from "
 import { MainTemplate, RequireAuth } from "components";
 import {
   AccountPage,
-  ArticlePage,
+  BlogPage,
   FavoritesPage,
   HomePage,
   NotFoundPage,
@@ -10,7 +10,6 @@ import {
   SearchPage,
   SignInPage,
   SignUpPage,
-  NewsPage,
 } from "pages";
 import { ROUTE } from "./routes";
 
@@ -18,8 +17,7 @@ export const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path={ROUTE.HOME} element={<MainTemplate />}>
       <Route index element={<HomePage />} />
-      <Route path={ROUTE.CONTENT} element={<ArticlePage />} />
-      <Route path={ROUTE.NEWS_CONTENT} element={<NewsPage />} />
+      <Route path={ROUTE.CONTENT} element={<BlogPage />} />
       <Route path={ROUTE.SEARCH} element={<SearchPage />} />
       <Route path={ROUTE.SIGN_IN} element={<SignInPage />} />
       <Route path={ROUTE.SIGN_UP} element={<SignUpPage />} />

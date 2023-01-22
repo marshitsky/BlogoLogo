@@ -1,13 +1,14 @@
 import { BlogContent, Modal, Spinner } from "components";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import { fetchArticleById, getArticleById, useAppDispatch, useAppSelector } from "store";
 
-export const ArticlePage = () => {
+export const BlogPage = () => {
   const [, setIsActive] = useState(false);
   const { id = "" } = useParams();
-  const { article, isLoading, error } = useAppSelector(getArticleById);
+  const { isLoading, error } = useAppSelector(getArticleById);
   const dispatch = useAppDispatch();
+  const location = useLocation();
 
   const handleCloseModal = () => {
     setIsActive(false);
@@ -24,5 +25,5 @@ export const ArticlePage = () => {
     return <Modal message={error} handleClick={handleCloseModal} />;
   }
 
-  return <BlogContent blogItem={article} />;
+  return <BlogContent blogItem={location.state.item} />;
 };

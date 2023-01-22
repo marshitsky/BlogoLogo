@@ -1,5 +1,5 @@
 import { AccountPage } from "./AccountPage/AccountPage";
-import { ArticlePage } from "./ArticlePage/ArticlePage";
+import { BlogPage } from "./BlogPage/BlogPage";
 import { FavoritesPage } from "./FavoritesPage/FavoritesPage";
 import { HomePage } from "./HomePage/HomePage";
 import { NotFoundPage } from "./NotFoundPage/NotFoundPage";
@@ -7,11 +7,10 @@ import { ResetPasswordPage } from "./ResetPasswordPage/ResetPasswordPage";
 import { SearchPage } from "./SearchPage/SearchPage";
 import { SignInPage } from "./SignInPage/SignInPage";
 import { SignUpPage } from "./SignUpPage/SignUpPage";
-import { NewsPage } from "./NewsPage/NewsPage";
 
 export {
   AccountPage,
-  ArticlePage,
+  BlogPage,
   FavoritesPage,
   HomePage,
   NotFoundPage,
@@ -19,5 +18,4 @@ export {
   SearchPage,
   SignInPage,
   SignUpPage,
-  NewsPage,
 };

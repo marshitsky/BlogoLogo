@@ -7,7 +7,7 @@ interface IProps {
 }
 
 export const BlogContent = ({ blogItem }: IProps) => {
-  const { id, imageUrl, title, summary, url, publishedAt } = blogItem;
+  const { id, imageUrl, title, summary, url } = blogItem;
   const navigate = useNavigate();
   const handleBackHome = () => {
     navigate(-1);
@@ -19,7 +19,6 @@ export const BlogContent = ({ blogItem }: IProps) => {
         Home <span> / Post {id}</span>
       </NavigationLink>
       <Title>{title}</Title>
-      <p>{publishedAt}</p>
       <Image src={imageUrl} alt={title} />
       <Text>{summary}</Text>
       <OuterLinkWrapper>
