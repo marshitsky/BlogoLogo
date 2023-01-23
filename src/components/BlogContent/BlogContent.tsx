@@ -24,7 +24,7 @@ export const BlogContent = ({ blogItem }: IProps) => {
       <Text>{summary}</Text>
       <OuterLinkWrapper>
         <OuterLink href={url} target="_blank">
-          Original source
+          Learn more
         </OuterLink>
       </OuterLinkWrapper>
     </Wrapper>

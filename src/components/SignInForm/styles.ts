@@ -15,9 +15,8 @@ const StyledSigningForm = styled.form`
     rgba(0, 0, 0, 0.09) 0px -3px 5px;
   ${Media.LG} {
     max-width: 624px;
-  }
-  ${Media.MD} {
-    width: 272px;
+    width: 100%;
+    padding: 40px 25px;
   }
 `;
 
@@ -38,6 +37,9 @@ const SignInButton = styled.button`
   color: ${Color.WHITE};
   background-color: ${Color.PRIMARY};
   border-radius: 4px;
+  ${Media.MD} {
+    font-size: 16px;
+  }
 `;
 
 const SignInText = styled.span`

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Color, H2, Media, S1 } from "ui";
+import { B2, Color, H2, Media, S1 } from "ui";
 
 const Wrapper = styled.div`
   display: flex;
@@ -7,6 +7,9 @@ const Wrapper = styled.div`
   max-width: 1110px;
   padding: 0 20px 36px 0;
   width: 100%;
+  ${Media.MD} {
+    padding: 0 15px 20px 0;
+  }
 `;
 
 const NavigationLink = styled.span`
@@ -16,11 +19,16 @@ const NavigationLink = styled.span`
 const Title = styled.h2`
   ${H2}
   padding: 32px 0 48px 0;
+  ${Media.MD} {
+    font-size: 22px;
+    line-height: 30px;
+    padding: 22px 0 26px 0;
+  }
 `;
 
 const Image = styled.img`
   width: 100%;
-  height: 500px;
+  max-height: 500px;
   border-radius: 15px;
   object-fit: cover;
   object-position: 50% 20%;
@@ -31,6 +39,9 @@ const Text = styled.p`
   padding-top: 48px;
   font-size: 18px;
   line-height: 32px;
+  ${Media.MD} {
+    padding-top: 26px;
+  }
 `;
 
 const OuterLinkWrapper = styled.p`
@@ -53,7 +64,8 @@ const OuterLink = styled.a`
   padding: 16px 32px;
   ${S1};
   ${Media.SM} {
-    width: 72px;
+    ${B2};
+    /* width: 72px; */
   }
 `;
 

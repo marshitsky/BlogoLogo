@@ -9,14 +9,14 @@ const StyledMainTemplate = styled.div`
 
 const OutletWrapper = styled.div`
   display: grid;
-  place-self: center;
+  align-items: center;
   justify-items: center;
   flex-grow: 1;
   width: 1110px;
   width: 100%;
   padding: 72px 0 30px 0;
   ${Media.XL} {
-    padding: 22px 22px;
+    padding: 32px 26px 22px 26px;
   }
 `;
 
