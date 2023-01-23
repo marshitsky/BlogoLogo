@@ -10,7 +10,7 @@ const StyledNav = styled(motion.nav)`
   gap: 1rem;
 
   ${Media.MD} {
-    position: absolute;
+    position: fixed;
     top: 100px;
     left: 0;
     z-index: 10;
