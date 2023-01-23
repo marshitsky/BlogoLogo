@@ -2,7 +2,7 @@ import React from "react";
 import { Search, UserAccount } from "components";
 import { Navigation, StyledFavoritesLink, StyledNavLink } from "./styles";
 import { ROUTE } from "router";
-import { Logo } from "assets/img";
+import { Logo } from "assets";
 import { useWindowSize } from "hooks";
 import { BurgerMenu } from "components/BurgerMenu/BurgerMenu";
 

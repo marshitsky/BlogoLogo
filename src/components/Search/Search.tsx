@@ -1,4 +1,4 @@
-import { SearchIcon } from "assets/icons";
+import { SearchIcon } from "assets";
 import { useDebounce, useInput } from "hooks";
 import { useOnClickOutside } from "hooks/useOnClickOutside";
 import { ChangeEvent, FormEvent, HTMLInputTypeAttribute, useEffect, useRef, useState } from "react";

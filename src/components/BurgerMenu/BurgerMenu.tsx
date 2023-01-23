@@ -1,4 +1,4 @@
-import { BurgerCloseIcon, BurgerOpenIcon } from "assets/icons";
+import { BurgerCloseIcon, BurgerOpenIcon } from "assets";
 import { useToggle } from "hooks";
 import { ROUTE } from "router";
 import { Favorites, Menu, StyledBurgerMenu, StyledSearch } from "./styles";

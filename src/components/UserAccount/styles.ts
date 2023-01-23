@@ -1,4 +1,4 @@
-import { SignInIcon } from "assets/icons";
+import { SignInIcon } from "assets";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Color } from "ui";

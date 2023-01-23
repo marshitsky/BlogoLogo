@@ -3,6 +3,7 @@ import { generatePath, useNavigate } from "react-router-dom";
 import { ROUTE } from "router";
 import { getFavotites, useAppSelector } from "store";
 import { IBlogItem } from "types";
+import { setNotFoundImg } from "utils";
 import {
   StyledArticleListItem,
   Image,
@@ -45,7 +46,7 @@ export const BlogListItem = ({ blogItem, onClick, isFavorite }: IProps) => {
     <StyledArticleListItem>
       <CardWrapper onClick={handlePassProps}>
         <ImageWrapper>
-          <Image src={imageUrl} alt={title} />
+          <Image src={imageUrl} alt={title} onError={setNotFoundImg} />
         </ImageWrapper>
         <InfoWrapper>
           <PublishDate>{printDate}</PublishDate>
