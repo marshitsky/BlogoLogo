@@ -1,15 +1,19 @@
 import styled from "styled-components";
-import { Color } from "../../ui";
+import { Color, Media } from "ui";
 
 const StyledFooter = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 91px;
-  width: clamp(320px, 1120px, 100%);
+  width: clamp(250px, 1120px, 100%);
   padding: 24px 11px;
   margin: 0 auto;
   border-top: 1px solid ${Color.WHITE_HEADER};
+  ${Media.XS} {
+    flex-direction: column;
+    column-gap: 15px;
+  }
 `;
 
 const CopyRight = styled.h3`
