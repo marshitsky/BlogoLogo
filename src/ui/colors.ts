@@ -14,4 +14,5 @@ export enum Color {
   BTN_COLOR = "var(--grey-btn)",
   FONT_COLOR = "var(--grey-font)",
   FOOTER_FONT_COLOR = "var(--grey-font-footer)",
+  NAV = "var(--navBar-menu)",
 }

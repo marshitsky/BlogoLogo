@@ -21,6 +21,8 @@ import { DateFilter } from "./DateFilter/DateFilter";
 import { ScrollUpButton } from "./ScrollUpButton/ScrollUpButton";
 import { Slider } from "./Slider/Slider";
 import { Slide } from "./Slide/Slide";
+import { NavBarMenu } from "./NavBarMenu/NavBarMenu";
+import { BurgerMenu } from "./BurgerMenu/BurgerMenu";
 
 export {
   BlogList,
@@ -46,4 +48,6 @@ export {
   ScrollUpButton,
   Slider,
   Slide,
+  NavBarMenu,
+  BurgerMenu,
 };

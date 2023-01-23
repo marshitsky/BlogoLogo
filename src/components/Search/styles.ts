@@ -2,8 +2,9 @@ import styled from "styled-components";
 import { Color } from "ui";
 
 const StyledForm = styled.form`
+  justify-self: center;
   height: 100%;
-  padding: 21px 0;
+  width: 100%;
 `;
 
 const InputWrapper = styled.div`
@@ -20,9 +21,6 @@ const StyledInput = styled.input`
   border-radius: 8px;
   color: ${Color.FOOTER_FONT_COLOR};
   background-color: ${Color.EXTRA_LIGHT};
-  &::-webkit-search-cancel-button {
-    color: #000;
-  }
 `;
 
 const SubmitButton = styled.button`

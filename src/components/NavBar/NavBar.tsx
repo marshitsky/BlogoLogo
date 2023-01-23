@@ -1,28 +1,22 @@
 import React from "react";
-import { Search, UserAccount } from "components";
-import { Navigation, StyledFavoritesLink, StyledNavLink } from "./styles";
+import { NavBarMenu, BurgerMenu } from "components";
+import { Navigation, StyledNavLink } from "./styles";
 import { ROUTE } from "router";
 import { Logo } from "assets";
-import { useWindowSize } from "hooks";
-import { BurgerMenu } from "components/BurgerMenu/BurgerMenu";
+import { useToggle, useWindowSize } from "hooks";
 
 export const NavBar = () => {
+  const [isActive, setIsActive] = useToggle();
   const { width = 0 } = useWindowSize();
+  const isMobile = width < 568;
 
   return (
     <Navigation>
       <StyledNavLink to={ROUTE.HOME}>
         <Logo />
       </StyledNavLink>
-      {width >= 568 ? (
-        <>
-          <Search placeholder="Search ..." type={"text"} />
-          <StyledFavoritesLink to={ROUTE.FAVORITES}>❤</StyledFavoritesLink>
-          <UserAccount />
-        </>
-      ) : (
-        <BurgerMenu />
-      )}
+      <NavBarMenu isOpen={isActive} isMobile={isMobile} handleClose={setIsActive} />
+      {isMobile && <BurgerMenu toggleMenu={setIsActive} isActive={isActive} />}
     </Navigation>
   );
 };

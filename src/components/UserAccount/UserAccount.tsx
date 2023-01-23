@@ -3,14 +3,18 @@ import { NavLink } from "react-router-dom";
 import { ROUTE } from "router";
 import { getUserInfo, useAppSelector } from "store";
 
-export const UserAccount = () => {
+interface IProps {
+  handleClose: () => void;
+}
+
+export const UserAccount = ({ handleClose }: IProps) => {
   const { isAuth, name } = useAppSelector(getUserInfo);
 
   return (
     <>
       {" "}
       {isAuth ? (
-        <UserInfo>
+        <UserInfo onClick={handleClose}>
           <StyledInitials>
             {name && name.split(" ").length > 1
               ? name
@@ -34,7 +38,7 @@ export const UserAccount = () => {
           </NavLink>
         </UserInfo>
       ) : (
-        <UserInfo>
+        <UserInfo onClick={handleClose}>
           <StyledIcon />
           <StyledNavLink to={ROUTE.SIGN_IN}>Sign In</StyledNavLink>
         </UserInfo>

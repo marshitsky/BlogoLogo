@@ -1,30 +1,15 @@
 import { BurgerCloseIcon, BurgerOpenIcon } from "assets";
-import { useToggle } from "hooks";
-import { ROUTE } from "router";
-import { Favorites, Menu, StyledBurgerMenu, StyledSearch } from "./styles";
+import { StyledBurgerMenu } from "./styles";
 
-export const BurgerMenu = () => {
-  const [isActive, setIsActive] = useToggle(false);
+interface IProps {
+  toggleMenu: () => void;
+  isActive: boolean;
+}
 
-  const handleBurgerMenu = () => {
-    setIsActive();
-  };
-
+export const BurgerMenu = ({ toggleMenu, isActive }: IProps) => {
   return (
-    <>
-      <StyledBurgerMenu onClick={handleBurgerMenu}>
-        {isActive ? <BurgerCloseIcon /> : <BurgerOpenIcon />}
-      </StyledBurgerMenu>
-      {isActive && (
-        <Menu>
-          <StyledSearch
-            placeholder="Search..."
-            type="search"
-            // onClick={() => handleBurgerMenu}
-          />
-          <Favorites to={`/${ROUTE.FAVORITES}`}>Favorites</Favorites>
-        </Menu>
-      )}
-    </>
+    <StyledBurgerMenu onClick={toggleMenu}>
+      {isActive ? <BurgerCloseIcon /> : <BurgerOpenIcon />}
+    </StyledBurgerMenu>
   );
 };

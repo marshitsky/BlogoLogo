@@ -6,6 +6,7 @@ const lightTheme = css`
   --grey-btn: #e0dfe0;
   --grey-font: #323537;
   --grey-font-footer: rgba(49, 48, 55, 0.5);
+  --navBar-menu: #e0dfe0;
 `;
 const darkTheme = css`
   --white: rgba(255, 255, 255, 0.1);
@@ -13,6 +14,7 @@ const darkTheme = css`
   --grey-btn: rgba(255, 255, 255, 0.1);
   --grey-font: #ffffff;
   --grey-font-footer: rgba(255, 255, 255, 0.5);
+  --navBar-menu: rgba(97, 95, 103);
 `;
 
 export { darkTheme, lightTheme };
