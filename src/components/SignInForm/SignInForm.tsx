@@ -26,7 +26,7 @@ export const SignInForm = () => {
   const navigate = useNavigate();
 
   const handleNavigate = () => {
-    navigate(`/${ROUTE.ACCOUNT}`);
+    navigate(ROUTE.HOME + ROUTE.ACCOUNT);
   };
 
   const handleCloseModal = () => {

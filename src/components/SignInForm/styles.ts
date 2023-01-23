@@ -14,6 +14,7 @@ const StyledSigningForm = styled.form`
     rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px,
     rgba(0, 0, 0, 0.09) 0px -3px 5px;
   ${Media.LG} {
+    place-self: center;
     max-width: 624px;
     width: 100%;
     padding: 40px 25px;

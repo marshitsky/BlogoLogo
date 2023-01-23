@@ -5,13 +5,14 @@ import { H1, H2, Media } from "ui";
 const StyledWrapper = styled.div`
   display: grid;
   place-items: center start;
-  ${Media.MD} {
+  ${Media.LG} {
+    max-width: 568px;
     width: 100%;
   }
 `;
 
 const SLink = styled(StyledLink)`
-  text-align: start !important;
+  text-align: start;
   ${Media.MD} {
     font-size: 14px;
   }
