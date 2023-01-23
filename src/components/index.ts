@@ -19,6 +19,8 @@ import { Portal } from "./Portal/Portal";
 import { Modal } from "./Modal/Modal";
 import { DateFilter } from "./DateFilter/DateFilter";
 import { ScrollUpButton } from "./ScrollUpButton/ScrollUpButton";
+import { Slider } from "./Slider/Slider";
+import { Slide } from "./Slide/Slide";
 
 export {
   BlogList,
@@ -42,4 +44,6 @@ export {
   Modal,
   DateFilter,
   ScrollUpButton,
+  Slider,
+  Slide,
 };

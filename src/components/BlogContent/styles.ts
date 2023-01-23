@@ -5,7 +5,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   max-width: 1110px;
-  padding: 0 20px;
+  padding: 0 20px 36px 0;
   width: 100%;
 `;
 
@@ -23,6 +23,7 @@ const Image = styled.img`
   height: 500px;
   border-radius: 15px;
   object-fit: cover;
+  object-position: 50% 20%;
   box-shadow: rgba(14, 30, 37, 0.9) 0px 2px 4px 0px, rgba(14, 30, 37, 0.9) 0px 2px 16px 0px;
 `;
 

@@ -41,6 +41,7 @@ const Image = styled.img`
   width: 100%;
   height: 208px;
   object-fit: cover;
+  object-position: 50% 20%;
   filter: grayscale(0.74);
   opacity: 0.84;
   transition: 0.4s ease-in-out;

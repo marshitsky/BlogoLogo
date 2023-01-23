@@ -14,7 +14,7 @@ const OutletWrapper = styled.div`
   flex-grow: 1;
   width: 1110px;
   width: 100%;
-  padding: 72px 0;
+  padding: 72px 0 30px 0;
   ${Media.XL} {
     padding: 22px 22px;
   }

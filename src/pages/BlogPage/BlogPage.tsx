@@ -1,7 +1,8 @@
-import { BlogContent, Modal, Spinner } from "components";
+import { BlogContent, Modal, Slider, Spinner } from "components";
 import { useEffect, useState } from "react";
 import { useParams, useLocation } from "react-router-dom";
 import { fetchArticleById, getArticleById, useAppDispatch, useAppSelector } from "store";
+import { RecommendationsTitle, SliderWrapper } from "./styles";
 
 export const BlogPage = () => {
   const [, setIsActive] = useState(false);
@@ -25,5 +26,13 @@ export const BlogPage = () => {
     return <Modal message={error} handleClick={handleCloseModal} />;
   }
 
-  return <BlogContent blogItem={location.state.item} />;
+  return (
+    <>
+      <BlogContent blogItem={location.state.item} />
+      <SliderWrapper>
+        <RecommendationsTitle>Recommendations</RecommendationsTitle>
+        <Slider />
+      </SliderWrapper>
+    </>
+  );
 };
