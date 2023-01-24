@@ -5,7 +5,7 @@ import { Search } from "components/Search/Search";
 
 const Navigation = styled.div`
   display: grid;
-  grid-template-columns: 1fr 5fr;
+  grid-template-columns: 167px auto;
   align-items: center;
   gap: 32px;
   height: 100%;

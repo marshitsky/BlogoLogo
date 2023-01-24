@@ -31,7 +31,7 @@ const StyledNav = styled(motion.nav)`
 
 const StyledFavoritesLink = styled(Link)`
   position: relative;
-  justify-self: end;
+  place-items: center;
   font-size: 16px;
   color: ${Color.FONT_COLOR} !important;
 `;

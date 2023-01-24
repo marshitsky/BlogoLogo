@@ -1,3 +1,4 @@
+import { FavoritesIcon } from "assets";
 import { Search, ThemeToggler } from "components";
 import { UserAccount } from "components";
 import React from "react";
@@ -29,7 +30,7 @@ export const NavBarMenu = ({ isMobile, isOpen, handleClose }: IProps) => {
         <Search placeholder="Search ..." type={"text"} onClick={handleClose} />
       )}
       <StyledFavoritesLink to={ROUTE.FAVORITES} onClick={handleClose}>
-        Favorites
+        {isMobile ? <span>Favorites</span> : <FavoritesIcon />}
       </StyledFavoritesLink>
       <UserAccount handleClose={handleClose} />
       {isMobile && <ThemeToggler />}
