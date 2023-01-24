@@ -7,6 +7,8 @@ interface IProps {
 }
 
 export const BurgerMenu = ({ toggleMenu, isActive }: IProps) => {
+  isActive ? (document.body.style.overflow = "hidden") : (document.body.style.overflow = "unset");
+
   return (
     <StyledBurgerMenu onClick={toggleMenu}>
       {isActive ? <BurgerCloseIcon /> : <BurgerOpenIcon />}

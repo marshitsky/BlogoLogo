@@ -21,14 +21,18 @@ export const NavBarMenu = ({ isMobile, isOpen, handleClose }: IProps) => {
 
   return (
     <StyledNav animate={currentVariant} variants={menuVariants} initial="idle">
-      {isMobile ? <SearchWrapper>
+      {isMobile ? (
+        <SearchWrapper>
+          <Search placeholder="Search ..." type={"text"} onClick={handleClose} />
+        </SearchWrapper>
+      ) : (
         <Search placeholder="Search ..." type={"text"} onClick={handleClose} />
-      </SearchWrapper> :  <Search placeholder="Search ..." type={"text"} onClick={handleClose} />}
+      )}
       <StyledFavoritesLink to={ROUTE.FAVORITES} onClick={handleClose}>
         Favorites
       </StyledFavoritesLink>
       <UserAccount handleClose={handleClose} />
-      {isMobile && <ThemeToggler/>}
+      {isMobile && <ThemeToggler />}
     </StyledNav>
   );
 };

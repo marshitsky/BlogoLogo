@@ -8,7 +8,6 @@ export const NavBar = () => {
   const [isActive, setIsActive] = useToggle();
   const { width = 0 } = useWindowSize();
   const isMobile = width < 568;
-  isActive ? (document.body.style.overflow = "hidden") : (document.body.style.overflow = "unset");
 
   return (
     <Navigation>
