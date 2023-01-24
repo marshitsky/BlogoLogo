@@ -42,30 +42,6 @@ export const HomePage = () => {
   };
 
   useEffect(() => {
-    dispatch(fetchArticles({ page: 0, value: "", word: "" }));
-  }, [dispatch]);
-
-  useEffect(() => {
-    dispatch(fetchNews({ page: 0, value: "", word: "" }));
-  }, [dispatch]);
-
-  useEffect(() => {
-    dispatch(fetchArticles({ page: 0, value: option.value, word: "" }));
-  }, [dispatch, option.value]);
-
-  useEffect(() => {
-    dispatch(fetchNews({ page: 0, value: option.value, word: "" }));
-  }, [dispatch, option.value]);
-
-  useEffect(() => {
-    dispatch(fetchArticles({ page: requestParams.page, value: "", word: "" }));
-  }, [dispatch, requestParams]);
-
-  useEffect(() => {
-    dispatch(fetchNews({ page: requestParams.page, value: "", word: "" }));
-  }, [dispatch, requestParams]);
-
-  useEffect(() => {
     dispatch(fetchArticles({ page: requestParams.page, value: option.value, word: "" }));
   }, [dispatch, option.value, requestParams.page]);
 
