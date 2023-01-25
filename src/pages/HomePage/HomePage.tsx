@@ -1,5 +1,7 @@
-import { BlogList, CustomSelect, Modal, Pagination, Spinner, Tabs } from "components";
+import { BlogList, CustomSelect, Modal, Pagination, Tabs } from "components";
+import { StyledBlogList } from "components/BlogList/styles";
 import { StyledPagination } from "components/Pagination/styles";
+import { SkeletonLoader } from "components";
 import { TabsBlock } from "components/Tabs/styles";
 import { options, TabsNames } from "config";
 import { useToggle } from "hooks";
@@ -10,7 +12,7 @@ import { IOption } from "types";
 import { Title, HomePageWrapper, SortPanelWrapper, SortPanelBlock } from "./styles";
 
 export const HomePage = () => {
-  const [, setIsActive] = useState(false);
+  const [isActiveModal, setIsActiveModal] = useState(false);
   const [isActiveTab, setIsActiveTab] = useToggle();
   const [tabValue, setTabValue] = useState<string>(TabsNames.ARTICLE_VALUE);
   const [option, setOption] = useState(options[0]);
@@ -20,7 +22,7 @@ export const HomePage = () => {
   const dispatch = useAppDispatch();
 
   const handleCloseModal = () => {
-    setIsActive(false);
+    setIsActiveModal(true);
   };
 
   const handleActiveTab = (value: string) => {
@@ -67,15 +69,18 @@ export const HomePage = () => {
           />
         </TabsBlock>
         <SortPanelWrapper>
-          {/* <DateFilter /> */}
           {tabValue === TabsNames.ARTICLE_VALUE && <CustomSelect handleSelect={handleSelect} />}
           {tabValue === TabsNames.NEWS_VALUE && <CustomSelect handleSelect={handleSelect} />}
         </SortPanelWrapper>
       </SortPanelBlock>
 
       {isLoading ? (
-        <Spinner />
-      ) : error ? (
+        <StyledBlogList>
+          {[...new Array(12)].map((_, i) => (
+            <SkeletonLoader key={i} />
+          ))}
+        </StyledBlogList>
+      ) : error && !isActiveModal ? (
         <Modal message={error} handleClick={handleCloseModal} />
       ) : tabValue === TabsNames.ARTICLE_VALUE ? (
         <BlogList list={articles} />

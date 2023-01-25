@@ -23,6 +23,7 @@ import { Slider } from "./Slider/Slider";
 import { Slide } from "./Slide/Slide";
 import { NavBarMenu } from "./NavBarMenu/NavBarMenu";
 import { BurgerMenu } from "./BurgerMenu/BurgerMenu";
+import { SkeletonLoader } from "./SkeletonLoader/SkeletonLoader";
 
 export {
   BlogList,
@@ -50,4 +51,5 @@ export {
   Slide,
   NavBarMenu,
   BurgerMenu,
+  SkeletonLoader,
 };
