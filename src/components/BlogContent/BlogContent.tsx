@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { useNavigate } from "react-router-dom";
 import { IBlogItem } from "types";
 import { setNotFoundImg } from "utils";
@@ -7,7 +8,7 @@ interface IProps {
   blogItem: IBlogItem;
 }
 
-export const BlogContent = ({ blogItem }: IProps) => {
+export const BlogContent = memo(({ blogItem }: IProps) => {
   const { id, imageUrl, title, summary, url } = blogItem;
   const navigate = useNavigate();
   const handleBackHome = () => {
@@ -29,4 +30,4 @@ export const BlogContent = ({ blogItem }: IProps) => {
       </OuterLinkWrapper>
     </Wrapper>
   );
-};
+});

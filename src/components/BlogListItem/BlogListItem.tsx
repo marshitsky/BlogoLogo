@@ -1,4 +1,5 @@
 import { format } from "fecha";
+import { memo } from "react";
 import { generatePath, useNavigate } from "react-router-dom";
 import { ROUTE } from "router";
 import { getFavotites, getUserInfo, useAppSelector } from "store";
@@ -21,7 +22,7 @@ interface IProps {
   isFavorite?: boolean;
 }
 
-export const BlogListItem = ({ blogItem, onClick, isFavorite }: IProps) => {
+export const BlogListItem = memo(({ blogItem, onClick, isFavorite }: IProps) => {
   const { imageUrl, publishedAt, title, id } = blogItem;
   const { results } = useAppSelector(getFavotites);
   const { isAuth } = useAppSelector(getUserInfo);
@@ -59,4 +60,4 @@ export const BlogListItem = ({ blogItem, onClick, isFavorite }: IProps) => {
       </FavoritesBtn>
     </StyledArticleListItem>
   );
-};
+});

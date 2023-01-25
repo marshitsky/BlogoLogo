@@ -1,7 +1,7 @@
 import { FavoritesIcon } from "assets";
 import { Search, ThemeToggler } from "components";
 import { UserAccount } from "components";
-import React from "react";
+import React, { memo } from "react";
 import { ROUTE } from "router";
 import { SearchWrapper, StyledFavoritesLink, StyledNav } from "./styles";
 
@@ -17,7 +17,7 @@ const menuVariants = {
   idle: {},
 };
 
-export const NavBarMenu = ({ isMobile, isOpen, handleClose }: IProps) => {
+export const NavBarMenu = memo(({ isMobile, isOpen, handleClose }: IProps) => {
   const currentVariant = isMobile ? (isOpen ? "open" : "closed") : "idle";
 
   return (
@@ -36,4 +36,4 @@ export const NavBarMenu = ({ isMobile, isOpen, handleClose }: IProps) => {
       {isMobile && <ThemeToggler />}
     </StyledNav>
   );
-};
+});

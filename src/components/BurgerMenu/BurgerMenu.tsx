@@ -1,4 +1,5 @@
 import { BurgerCloseIcon, BurgerOpenIcon } from "assets";
+import { memo } from "react";
 import { StyledBurgerMenu } from "./styles";
 
 interface IProps {
@@ -6,7 +7,7 @@ interface IProps {
   isActive: boolean;
 }
 
-export const BurgerMenu = ({ toggleMenu, isActive }: IProps) => {
+export const BurgerMenu = memo(({ toggleMenu, isActive }: IProps) => {
   isActive ? (document.body.style.overflow = "hidden") : (document.body.style.overflow = "unset");
 
   return (
@@ -14,4 +15,4 @@ export const BurgerMenu = ({ toggleMenu, isActive }: IProps) => {
       {isActive ? <BurgerCloseIcon /> : <BurgerOpenIcon />}
     </StyledBurgerMenu>
   );
-};
+});

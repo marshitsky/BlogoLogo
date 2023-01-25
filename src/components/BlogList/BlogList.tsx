@@ -1,4 +1,5 @@
 import { BlogListItem } from "components";
+import { memo } from "react";
 import { addToFavorite, useAppDispatch } from "store";
 import { IBlogItem } from "types";
 import { StyledBlogList } from "./styles";
@@ -7,7 +8,7 @@ interface IProps {
   list: IBlogItem[];
 }
 
-export const BlogList = ({ list }: IProps) => {
+export const BlogList = memo(({ list }: IProps) => {
   const dispatch = useAppDispatch();
 
   const handleAddToFavorites = (article: IBlogItem) => {
@@ -22,4 +23,4 @@ export const BlogList = ({ list }: IProps) => {
         ))}
     </StyledBlogList>
   );
-};
+});

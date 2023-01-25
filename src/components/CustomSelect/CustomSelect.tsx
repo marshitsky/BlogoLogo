@@ -1,4 +1,5 @@
 import { options } from "config";
+import { memo } from "react";
 import Select, { SingleValue } from "react-select";
 import { IOption } from "types";
 import { selectStyles } from "./styles";
@@ -7,7 +8,7 @@ interface IProps {
   handleSelect: (option: SingleValue<IOption | null | any>) => void;
 }
 
-export const CustomSelect = ({ handleSelect }: IProps) => {
+export const CustomSelect = memo(({ handleSelect }: IProps) => {
   return (
     <Select
       options={options}
@@ -18,4 +19,4 @@ export const CustomSelect = ({ handleSelect }: IProps) => {
       isSearchable={false}
     />
   );
-};
+});

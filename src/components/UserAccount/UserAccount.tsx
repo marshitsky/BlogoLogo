@@ -2,12 +2,13 @@ import { StyledIcon, StyledInitials, StyledNavLink, UserInfo } from "./styles";
 import { NavLink } from "react-router-dom";
 import { ROUTE } from "router";
 import { getUserInfo, useAppSelector } from "store";
+import { memo } from "react";
 
 interface IProps {
   handleClose: () => void;
 }
 
-export const UserAccount = ({ handleClose }: IProps) => {
+export const UserAccount = memo(({ handleClose }: IProps) => {
   const { isAuth, name } = useAppSelector(getUserInfo);
 
   return (
@@ -45,4 +46,4 @@ export const UserAccount = ({ handleClose }: IProps) => {
       )}
     </>
   );
-};
+});

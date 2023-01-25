@@ -1,7 +1,15 @@
 import { SearchIcon } from "assets";
 import { useDebounce, useInput } from "hooks";
 import { useOnClickOutside } from "hooks/useOnClickOutside";
-import { ChangeEvent, FormEvent, HTMLInputTypeAttribute, useEffect, useRef, useState } from "react";
+import {
+  ChangeEvent,
+  FormEvent,
+  HTMLInputTypeAttribute,
+  memo,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { ROUTE } from "router";
@@ -16,7 +24,7 @@ interface IProps {
   onClick?: () => void;
 }
 
-export const Search = (props: IProps) => {
+export const Search = memo((props: IProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const [isInputActive, setIsInputActive] = useState(false);
   useOnClickOutside(ref, () => setIsInputActive(false));
@@ -60,4 +68,4 @@ export const Search = (props: IProps) => {
       )}
     </>
   );
-};
+});

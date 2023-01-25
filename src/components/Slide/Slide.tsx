@@ -1,5 +1,6 @@
 import { ImageWrapper, InfoWrapper, PublishDate, Title } from "components/BlogListItem/styles";
 import { format } from "fecha";
+import { memo } from "react";
 import { generatePath, useNavigate } from "react-router-dom";
 import { ROUTE } from "router";
 import { IBlogItem } from "types";
@@ -10,7 +11,7 @@ interface IProps {
   blogItem: IBlogItem;
 }
 
-export const Slide = ({ blogItem }: IProps) => {
+export const Slide = memo(({ blogItem }: IProps) => {
   const { id, title, imageUrl, publishedAt } = blogItem;
   const navigate = useNavigate();
 
@@ -35,4 +36,4 @@ export const Slide = ({ blogItem }: IProps) => {
       </InfoWrapper>
     </StyledSlide>
   );
-};
+});

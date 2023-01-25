@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { memo, ReactNode } from "react";
 import { createPortal } from "react-dom";
 
 export enum PortalTarget {
@@ -11,7 +11,7 @@ interface IPortalProps {
   children: ReactNode;
 }
 
-export const Portal = ({ children, target }: IPortalProps) => {
+export const Portal = memo(({ children, target }: IPortalProps) => {
   const container = document.getElementById(target) as HTMLElement;
   return createPortal(children, container);
-};
+});

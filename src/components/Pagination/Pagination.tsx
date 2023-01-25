@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { PaginationButton } from "./styles";
 
 interface IProps {
@@ -5,10 +6,10 @@ interface IProps {
   requestParams: number;
 }
 
-export const Pagination = ({ handlePage, requestParams }: IProps) => {
+export const Pagination = memo(({ handlePage, requestParams }: IProps) => {
   return (
     <PaginationButton onClick={handlePage} current={requestParams}>
       {requestParams}
     </PaginationButton>
   );
-};
+});
