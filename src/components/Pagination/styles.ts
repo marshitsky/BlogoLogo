@@ -11,13 +11,14 @@ const StyledPagination = styled.div`
   align-items: end;
   column-gap: 30px;
   padding-top: 40px;
+  color: ${Color.FOOTER_FONT_COLOR};
 `;
 
 const PaginationButton = styled.button<setCurrent>`
   ${B1};
   padding: 5px;
   font-size: 18px !important;
-  color: ${Color.FONT_COLOR};
+  color: ${Color.FOOTER_FONT_COLOR};
   background-color: transparent;
   visibility: ${({ current }) => (current < 1 ? "hidden" : "visible")};
   cursor: pointer;

@@ -52,7 +52,13 @@ export const HomePage = () => {
   }, [dispatch, option.value, requestParams.page]);
 
   return (
-    <HomePageWrapper>
+    <HomePageWrapper
+      initial={{ x: -1920 }}
+      animate={{ x: 0 }}
+      transition={{
+        duration: 0.6,
+      }}
+    >
       <Title>Blog</Title>
 
       <SortPanelBlock>
@@ -90,21 +96,21 @@ export const HomePage = () => {
 
       <StyledPagination>
         <Pagination
-          handlePage={() => handlePage(-12, -1)}
+          handlePage={() => handlePage(-18, -1)}
           requestParams={requestParams.current - 1}
         />
         <Pagination handlePage={() => handlePage(0, 0)} requestParams={requestParams.current} />
         <Pagination
-          handlePage={() => handlePage(12, 1)}
+          handlePage={() => handlePage(18, 1)}
           requestParams={requestParams.current + 1}
         />
         <Pagination
-          handlePage={() => handlePage(12, 1)}
+          handlePage={() => handlePage(18, 1)}
           requestParams={requestParams.current + 2}
         />
         {"···"}
         <Pagination
-          handlePage={() => handlePage(12, 5)}
+          handlePage={() => handlePage(18, 5)}
           requestParams={requestParams.current + 5}
         />
       </StyledPagination>

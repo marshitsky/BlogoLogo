@@ -1,7 +1,8 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 import { H1, Media } from "ui";
 
-const HomePageWrapper = styled.main`
+const HomePageWrapper = styled(motion.main)`
   display: flex;
   flex-direction: column;
   max-width: 1110px;

@@ -1,7 +1,8 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 import { Color, Media } from "ui";
 
-const StyledArticleListItem = styled.div`
+const StyledArticleListItem = styled(motion.div)`
   position: relative;
   max-width: 352px;
   min-width: 250px;

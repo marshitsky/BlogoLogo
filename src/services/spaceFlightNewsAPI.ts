@@ -14,7 +14,7 @@ class SpaceFlightNewsAPI {
   public async getAllBlogs(page: number, value: string, word: string, endpoint: string) {
     const params = {
       _start: page,
-      _limit: 12,
+      _limit: 18,
       _sort: value,
       _title_contains: word,
     };

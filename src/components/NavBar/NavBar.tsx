@@ -7,7 +7,7 @@ import { useToggle, useWindowSize } from "hooks";
 export const NavBar = () => {
   const [isActive, setIsActive] = useToggle();
   const { width = 0 } = useWindowSize();
-  const isMobile = width < 568;
+  const isMobile = width <= 568;
 
   return (
     <Navigation>

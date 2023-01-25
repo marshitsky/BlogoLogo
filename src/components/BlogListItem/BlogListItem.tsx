@@ -45,7 +45,12 @@ export const BlogListItem = memo(({ blogItem, onClick, isFavorite }: IProps) => 
   const printDate = format(new Date(publishedAt), "MMMM D, YYYY");
 
   return (
-    <StyledArticleListItem>
+    <StyledArticleListItem
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: false }}
+      whileHover={{ scale: 1.07 }}
+    >
       <CardWrapper onClick={handlePassProps}>
         <ImageWrapper>
           <Image src={imageUrl} alt={title} onError={setNotFoundImg} />
@@ -55,9 +60,13 @@ export const BlogListItem = memo(({ blogItem, onClick, isFavorite }: IProps) => 
           <Title>{title.length > 70 ? title.slice(0, 70) + "..." : title}</Title>
         </InfoWrapper>
       </CardWrapper>
-      <FavoritesBtn onClick={handleChangeFavorites}>
-        {isAuth && isInFavorites ? "❤️" : "🤍"}
-      </FavoritesBtn>
+      {isAuth ? (
+        <FavoritesBtn onClick={handleChangeFavorites}>
+          {isAuth && isInFavorites ? "❤️" : "🤍"}
+        </FavoritesBtn>
+      ) : (
+        <FavoritesBtn>🤍</FavoritesBtn>
+      )}
     </StyledArticleListItem>
   );
 });
