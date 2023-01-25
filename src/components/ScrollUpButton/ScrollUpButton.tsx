@@ -1,5 +1,6 @@
 import { Button } from "./styles";
 import React, { useState } from "react";
+import { ScrollUpArrow } from "assets";
 
 export const ScrollUpButton = () => {
   const [visible, setVisible] = useState(false);
@@ -24,7 +25,7 @@ export const ScrollUpButton = () => {
 
   return (
     <Button onClick={scrollToTop} style={{ display: visible ? "inline" : "none" }}>
-      ⬆
+      <ScrollUpArrow />
     </Button>
   );
 };
