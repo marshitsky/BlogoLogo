@@ -21,7 +21,7 @@ export interface ISignInFormTypes {
 
 export const SignInForm = () => {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
-  const [isActive, setIsActive] = useState(false);
+  const [isActiveModal, setIsActiveModal] = useState(false);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
@@ -30,7 +30,7 @@ export const SignInForm = () => {
   };
 
   const handleCloseModal = () => {
-    setIsActive(false);
+    setIsActiveModal(false);
   };
 
   const {
@@ -57,7 +57,7 @@ export const SignInForm = () => {
         reset();
       })
       .then(() => {
-        setIsActive(true);
+        setIsActiveModal(true);
       });
   };
 
@@ -83,8 +83,12 @@ export const SignInForm = () => {
         Don’t have an account?{" "}
         <StyledLink to={generatePath("/:path", { path: ROUTE.SIGN_UP })}>Sign Up</StyledLink>
       </SignInText>
-      {isActive && !errorMessage && <Modal message="Successful" handleClick={handleNavigate} />}
-      {isActive && errorMessage && <Modal message={errorMessage} handleClick={handleCloseModal} />}
+      {isActiveModal && !errorMessage && (
+        <Modal message="Successful" handleClick={handleNavigate} />
+      )}
+      {isActiveModal && errorMessage && (
+        <Modal message={errorMessage} handleClick={handleCloseModal} />
+      )}
     </StyledSigningForm>
   );
 };
