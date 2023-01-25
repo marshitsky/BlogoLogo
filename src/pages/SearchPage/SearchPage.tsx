@@ -1,10 +1,10 @@
 import { BlogList, Modal, Spinner } from "components";
 import { useEffect, useState } from "react";
 import { fetchArticles, fetchNews, getAllArticles, useAppDispatch, useAppSelector } from "store";
-import { SearchResultsInfo } from "./styles";
+import { SearchPageWrapper, SearchResultsInfo } from "./styles";
 
 export const SearchPage = () => {
-  const [, setIsActive] = useState(false);
+  const [isActiveModal, setIsActiveModal] = useState(false);
   const {
     searchParams: { searchValue },
   } = useAppSelector(getAllArticles);
@@ -12,7 +12,7 @@ export const SearchPage = () => {
   const { articles, news, error, isLoading } = useAppSelector(getAllArticles);
 
   const handleCloseModal = () => {
-    setIsActive(false);
+    setIsActiveModal(true);
   };
 
   useEffect(() => {
@@ -38,13 +38,13 @@ export const SearchPage = () => {
   }, [dispatch, searchValue]);
 
   return (
-    <>
+    <SearchPageWrapper>
       <SearchResultsInfo>
         "{searchValue ? searchValue : " "}" search results for Articles
       </SearchResultsInfo>
       {isLoading ? (
         <Spinner />
-      ) : error ? (
+      ) : error && !isActiveModal ? (
         <Modal message={error} handleClick={handleCloseModal} />
       ) : (
         <BlogList list={articles} />
@@ -54,11 +54,11 @@ export const SearchPage = () => {
       </SearchResultsInfo>
       {isLoading ? (
         <Spinner />
-      ) : error ? (
+      ) : error && !isActiveModal ? (
         <Modal message={error} handleClick={handleCloseModal} />
       ) : (
         <BlogList list={news} />
       )}
-    </>
+    </SearchPageWrapper>
   );
 };

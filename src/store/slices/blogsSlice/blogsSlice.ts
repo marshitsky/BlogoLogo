@@ -1,6 +1,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { spaceFlightNewsAPI } from "services";
 import { IBlogItem } from "types";
+import { AxiosError } from "axios";
+import { TabsNames } from "config";
 
 interface IArticlesState {
   articles: IBlogItem[];
@@ -30,9 +32,15 @@ export const fetchArticles = createAsyncThunk<
   { rejectValue: string }
 >("articles/fetchArticles", async (params, { rejectWithValue }) => {
   try {
-    return await spaceFlightNewsAPI.getAllBlogs(params.page, params.value, params.word, "articles");
+    return await spaceFlightNewsAPI.getAllBlogs(
+      params.page,
+      params.value,
+      params.word,
+      TabsNames.ARTICLE_VALUE,
+    );
   } catch (error) {
-    return rejectWithValue("Error");
+    const errorMessage = error as AxiosError;
+    return rejectWithValue(errorMessage.message);
   }
 });
 
@@ -42,9 +50,15 @@ export const fetchNews = createAsyncThunk<
   { rejectValue: string }
 >("news/fetchNews", async (params, { rejectWithValue }) => {
   try {
-    return await spaceFlightNewsAPI.getAllBlogs(params.page, params.value, params.word, "blogs");
+    return await spaceFlightNewsAPI.getAllBlogs(
+      params.page,
+      params.value,
+      params.word,
+      TabsNames.NEWS_VALUE,
+    );
   } catch (error) {
-    return rejectWithValue("Error");
+    const errorMessage = error as AxiosError;
+    return rejectWithValue(errorMessage.message);
   }
 });
 

@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { AxiosError } from "axios";
 import { spaceFlightNewsAPI } from "services";
 import { IBlogItem } from "types";
 
@@ -22,7 +23,8 @@ export const fetchArticleById = createAsyncThunk<IBlogItem, string, { rejectValu
     try {
       return await spaceFlightNewsAPI.getArticleById(params);
     } catch (error) {
-      return rejectWithValue("Error");
+      const errorMessage = error as AxiosError;
+      return rejectWithValue(errorMessage.message);
     }
   },
 );
@@ -33,7 +35,8 @@ export const fetchNewsById = createAsyncThunk<IBlogItem, string, { rejectValue: 
     try {
       return await spaceFlightNewsAPI.getNewsById(params);
     } catch (error) {
-      return rejectWithValue("Error");
+      const errorMessage = error as AxiosError;
+      return rejectWithValue(errorMessage.message);
     }
   },
 );
