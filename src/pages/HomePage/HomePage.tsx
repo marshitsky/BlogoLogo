@@ -14,6 +14,7 @@ import { Title, HomePageWrapper, SortPanelWrapper, SortPanelBlock } from "./styl
 export const HomePage = () => {
   const [isActiveModal, setIsActiveModal] = useState(false);
   const [isActiveTab, setIsActiveTab] = useToggle();
+  const [isActivePagination, setIsActivePagination] = useState(true);
   const [tabValue, setTabValue] = useState<string>(TabsNames.ARTICLE_VALUE);
   const [option, setOption] = useState(options[0]);
   const [requestParams, setRequestParams] = useState({ page: 0, current: 1 });
@@ -41,6 +42,7 @@ export const HomePage = () => {
       page: requestParams.page + cardsQuanity,
       current: requestParams.current + pageNumber,
     });
+    setIsActivePagination(true);
   };
 
   useEffect(() => {
@@ -98,20 +100,23 @@ export const HomePage = () => {
         <Pagination
           handlePage={() => handlePage(-18, -1)}
           requestParams={requestParams.current - 1}
+          isActive={!isActivePagination}
         />
-        <Pagination handlePage={() => handlePage(0, 0)} requestParams={requestParams.current} />
+        <Pagination
+          handlePage={() => handlePage(0, 0)}
+          requestParams={requestParams.current}
+          isActive={isActivePagination}
+        />
         <Pagination
           handlePage={() => handlePage(18, 1)}
           requestParams={requestParams.current + 1}
-        />
-        <Pagination
-          handlePage={() => handlePage(18, 1)}
-          requestParams={requestParams.current + 2}
+          isActive={!isActivePagination}
         />
         {"···"}
         <Pagination
           handlePage={() => handlePage(18, 5)}
           requestParams={requestParams.current + 5}
+          isActive={!isActivePagination}
         />
       </StyledPagination>
     </HomePageWrapper>

@@ -1,8 +1,9 @@
 import styled from "styled-components";
-import { Color, B1 } from "ui";
+import { Color } from "ui";
 
 interface setCurrent {
   current: number;
+  $isActive: boolean;
 }
 
 const StyledPagination = styled.div`
@@ -15,15 +16,19 @@ const StyledPagination = styled.div`
 `;
 
 const PaginationButton = styled.button<setCurrent>`
-  ${B1};
   padding: 5px;
-  font-size: 18px !important;
+  font-size: ${({ $isActive }) => ($isActive ? "20px !important" : "18px !important")};
+  font-weight: ${({ $isActive }) => ($isActive ? "600" : "400")};
   color: ${Color.FOOTER_FONT_COLOR};
   background-color: transparent;
+  border: ${({ $isActive }) =>
+    $isActive ? `1px solid ${Color.FOOTER_FONT_COLOR}` : "transparent"};
+  border-radius: ${({ $isActive }) => ($isActive ? "4px" : "0")};
   visibility: ${({ current }) => (current < 1 ? "hidden" : "visible")};
+  transition: 0.5s;
   cursor: pointer;
   &:hover {
-    color: ${Color.PRIMARY_LIGHT};
+    color: #000;
   }
 `;
 
