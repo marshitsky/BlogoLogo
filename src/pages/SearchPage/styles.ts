@@ -1,8 +1,15 @@
 import styled from "styled-components";
 import { H2 } from "ui";
 
-const SearchResultsInfo = styled.h2`
-  ${H2}
+const SearchPageWrapper = styled.div`
+  display: grid;
+  align-self: flex-start;
+  place-items: start center;
 `;
 
-export { SearchResultsInfo };
+const SearchResultsInfo = styled.h2`
+  ${H2}
+  padding-top: 40px
+`;
+
+export { SearchPageWrapper, SearchResultsInfo };

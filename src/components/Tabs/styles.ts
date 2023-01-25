@@ -20,6 +20,10 @@ const TabButton = styled(NavLink)<{ $isActive: boolean }>`
   :hover {
     color: ${Color.PRIMARY_LIGHT};
   }
+  ${Media.MD} {
+    width: 50%;
+    text-align: center;
+  }
 `;
 
 export { TabsBlock, TabButton };

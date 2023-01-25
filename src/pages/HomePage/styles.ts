@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { H1, H2, Media } from "ui";
+import { H1, Media } from "ui";
 
 const HomePageWrapper = styled.main`
   display: flex;
@@ -12,8 +12,8 @@ const HomePageWrapper = styled.main`
 const Title = styled.h1`
   ${H1};
   text-align: start;
-  ${Media.SM} {
-    ${H2}
+  ${Media.MD} {
+    font-size: 42px;
   }
 `;
 

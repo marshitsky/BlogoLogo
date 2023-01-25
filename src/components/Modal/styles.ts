@@ -8,6 +8,7 @@ const Container = styled.div`
   right: 0;
   bottom: 0;
   left: 0;
+  z-index: 10;
   display: grid;
   place-items: center;
   padding: 2rem;
@@ -29,6 +30,7 @@ const ModalInformation = styled.div`
 
 const AuthText = styled.p`
   ${H2}
+  color: ${Color.ERROR};
 `;
 
 const Button = styled(SignInButton)``;

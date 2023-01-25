@@ -4,7 +4,7 @@ import { Color } from "ui";
 export const selectStyles: StylesConfig = {
   control: () => ({
     display: "flex",
-    width: "256px",
+    minWidth: "272px",
     padding: "10px",
     backgroundColor: Color.WHITE_HEADER,
     borderRadius: "4px",
