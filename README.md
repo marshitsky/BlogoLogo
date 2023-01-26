@@ -4,11 +4,12 @@
 <br />
 <div align="center">
 
-# BlogoLogo App
+<h1 style="font-size: 40px; font-weight: 600">BlogoLogo App</h1>
 
   <p align="center">
 
-[View Demo](https://marshitsky.github.io/BlogoLogo/)
+[View Demo](https://marshitsky.github.io/BlogoLogo/) ·
+[Create issue](https://github.com/marshitsky/BlogoLogo/issues)
 
 #
 
@@ -26,23 +27,23 @@
     </li>
     <li><a href="#contact">Contact</a></li>
   </ol>
-</details><br />
+</details>
+
+#
 
 ## About The Project
 
-#### A news and information portal that tells the latest news from the world of space, rocket science, deep space research, discoveries and breakthroughs in astronomy.
-
-#### There are two main sections on the portal - articles and news, each of which has something interesting for everyone.
-
-#### This portal provides for user registration with possibility of password reset and sending information letter to user's e-mail.
-
-#### Registered users can add their favorite articles to the list of favorites, which provides quick access to them at any time.
-
-#### Also, the portal has a separate search by article and news titles.
-
-#### For users' convenience, the display theme mode switch is located on each page of the application.
-
-#### The application features adaptive layout for all screen resolutions (desktop-first).
+<p style="
+font-size: 18px;
+">
+A news and information portal that tells the latest news from the world of space, rocket science, deep space research, discoveries and breakthroughs in astronomy.
+There are two main sections on the portal - articles and news, each of which has something interesting for everyone.
+This portal provides for user registration with possibility of password reset and sending information letter to user's e-mail.
+Registered users can add their favorite articles to the list of favorites, which provides quick access to them at any time.
+Also, the portal has a separate search by article and news titles.
+For users' convenience, the display theme mode switch is located on each page of the application.
+The application features adaptive layout for all screen resolutions (desktop-first).
+</p>
 
 #
 
