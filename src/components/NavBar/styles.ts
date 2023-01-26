@@ -8,7 +8,7 @@ const Navigation = styled.div`
   grid-template-columns: 167px auto;
   align-items: center;
   gap: 32px;
-  height: 100%;
+  max-height: 100px;
   width: 100%;
   padding: 0 32px;
   background-color: ${Color.WHITE_HEADER};
