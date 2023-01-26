@@ -36,9 +36,9 @@
 <p style="
 font-size: 18px;
 ">
-A news and information portal that tells the latest news from the world of space, rocket science, deep space research, discoveries and breakthroughs in astronomy.<br/>
+A news and information portal that spreads the latest news from the world of space, rocket science, deep space research, discoveries and breakthroughs in astronomy.<br/>
 There are two main sections on the portal - articles and news, each of which has something interesting for everyone.<br/>
-This portal provides for user registration with possibility of password reset and sending information letter to user's e-mail.<br/>
+This portal provides for user registration with possibility of password reset and sending information letter to user's email.<br/>
 Registered users can add their favorite articles to the list of favorites, which provides quick access to them at any time.<br/>
 Also, the portal has a separate search by article and news titles.<br/>
 For users' convenience, the display theme mode switch is located on each page of the application.<br/>
