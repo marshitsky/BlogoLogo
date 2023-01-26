@@ -17,6 +17,7 @@ import { logOut } from "./slices/usersSlice/usersSlice";
 import { addToFavorite } from "./slices/favoritesSlice/favoritesSlice";
 import { removeFromFavorites } from "./slices/favoritesSlice/favoritesSlice";
 import { getFavotites } from "./selectors/favoritesSelector";
+import { resetPassword } from "./slices/usersSlice/usersSlice";
 
 export {
   store,
@@ -39,4 +40,5 @@ export {
   addToFavorite,
   removeFromFavorites,
   getFavotites,
+  resetPassword,
 };

@@ -1,15 +1,19 @@
-import { BlogList, CustomSelect, Modal, Pagination, Tabs } from "components";
-import { StyledBlogList } from "components/BlogList/styles";
-import { StyledPagination } from "components/Pagination/styles";
-import { SkeletonLoader } from "components";
-import { TabsBlock } from "components/Tabs/styles";
+import { BlogList, CustomSelect, Modal, Pagination, Tabs, SkeletonLoader } from "components";
 import { options, TabsNames } from "config";
 import { useToggle } from "hooks";
 import { useEffect, useState } from "react";
 import { SingleValue } from "react-select";
 import { fetchArticles, fetchNews, getAllArticles, useAppDispatch, useAppSelector } from "store";
 import { IOption } from "types";
-import { Title, HomePageWrapper, SortPanelWrapper, SortPanelBlock } from "./styles";
+import {
+  Title,
+  HomePageWrapper,
+  SortPanelWrapper,
+  SortPanelBlock,
+  StyledItemsList,
+  PaginationWrapper,
+  TabsWrapper
+} from "./styles";
 
 export const HomePage = () => {
   const [isActiveModal, setIsActiveModal] = useState(false);
@@ -64,7 +68,7 @@ export const HomePage = () => {
       <Title>Blog</Title>
 
       <SortPanelBlock>
-        <TabsBlock>
+        <TabsWrapper>
           <Tabs
             tabName={TabsNames.ARTICLE_LABEL}
             setTab={() => handleActiveTab(TabsNames.ARTICLE_VALUE)}
@@ -75,7 +79,7 @@ export const HomePage = () => {
             setTab={() => handleActiveTab(TabsNames.NEWS_VALUE)}
             isActive={isActiveTab}
           />
-        </TabsBlock>
+        </TabsWrapper>
         <SortPanelWrapper>
           {tabValue === TabsNames.ARTICLE_VALUE && <CustomSelect handleSelect={handleSelect} />}
           {tabValue === TabsNames.NEWS_VALUE && <CustomSelect handleSelect={handleSelect} />}
@@ -83,11 +87,11 @@ export const HomePage = () => {
       </SortPanelBlock>
 
       {isLoading ? (
-        <StyledBlogList>
+        <StyledItemsList>
           {[...new Array(12)].map((_, i) => (
             <SkeletonLoader key={i} />
           ))}
-        </StyledBlogList>
+        </StyledItemsList>
       ) : error && !isActiveModal ? (
         <Modal message={error} handleClick={handleCloseModal} />
       ) : tabValue === TabsNames.ARTICLE_VALUE ? (
@@ -96,7 +100,7 @@ export const HomePage = () => {
         <BlogList list={news} />
       )}
 
-      <StyledPagination>
+      <PaginationWrapper>
         <Pagination
           handlePage={() => handlePage(-18, -1)}
           requestParams={requestParams.current - 1}
@@ -118,7 +122,7 @@ export const HomePage = () => {
           requestParams={requestParams.current + 5}
           isActive={!isActivePagination}
         />
-      </StyledPagination>
+      </PaginationWrapper>
     </HomePageWrapper>
   );
 };

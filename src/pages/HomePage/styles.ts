@@ -1,6 +1,9 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { H1, Media } from "ui";
+import { StyledBlogList } from "components/BlogList/styles";
+import { StyledPagination } from "components/Pagination/styles";
+import { TabsBlock } from "components/Tabs/styles";
 
 const HomePageWrapper = styled(motion.main)`
   display: flex;
@@ -45,4 +48,16 @@ const SortPanelWrapper = styled.div`
   }
 `;
 
-export { Title, HomePageWrapper, SortPanelBlock, SortPanelWrapper };
+const TabsWrapper = styled(TabsBlock)``;
+const StyledItemsList = styled(StyledBlogList)``;
+const PaginationWrapper = styled(StyledPagination)``;
+
+export {
+  Title,
+  HomePageWrapper,
+  SortPanelBlock,
+  SortPanelWrapper,
+  TabsWrapper,
+  StyledItemsList,
+  PaginationWrapper,
+};

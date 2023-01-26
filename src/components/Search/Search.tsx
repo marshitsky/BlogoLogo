@@ -1,6 +1,5 @@
 import { SearchIcon } from "assets";
-import { useDebounce, useInput } from "hooks";
-import { useOnClickOutside } from "hooks/useOnClickOutside";
+import { useDebounce, useInput, useOnClickOutside } from "hooks";
 import {
   ChangeEvent,
   FormEvent,

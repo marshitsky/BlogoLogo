@@ -4,7 +4,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { ROUTE } from "router";
 import { getUserInfo, useAppDispatch, useAppSelector } from "store";
-import { resetPassword } from "store/slices/usersSlice/usersSlice";
+import { resetPassword } from "store";
 import { validateEmail } from "utils";
 import { StyledResetForm, ResetLabel, ResetInput, ResetButton } from "./styles";
 

@@ -1,4 +1,3 @@
-import React from "react";
 import { SpinnerWrapper, StyledSpinner } from "./styles";
 
 export const Spinner = () => {

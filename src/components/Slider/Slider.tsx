@@ -1,11 +1,11 @@
 import { FreeMode } from "swiper";
+import { SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import { getAllArticles, useAppSelector } from "store";
 import { StyledSwiper } from "./styles";
 import { Slide } from "components";
-import { SwiperSlide } from "swiper/react";
 import { IBlogItem } from "types";
 
 interface SliderProps {
