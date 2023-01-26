@@ -44,6 +44,14 @@ const Text = styled.p`
   }
 `;
 
+const LinksWrapper = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 15px;
+  padding-top: 20px;
+`;
+
 const OuterLinkWrapper = styled.p`
   display: grid;
   justify-items: center;
@@ -60,13 +68,40 @@ const OuterLinkWrapper = styled.p`
   }
 `;
 
+const FavoritesButton = styled.button`
+  ${S1};
+  padding: 16px 32px;
+  background-color: ${Color.BTN_COLOR};
+  border-radius: 12px;
+  transition: 0.5s;
+  &:hover {
+    background-color: ${Color.LIGHT};
+  }
+  &:active {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+      rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  }
+  ${Media.SM} {
+    ${B2}
+  }
+`;
+
 const OuterLink = styled.a`
   padding: 16px 32px;
   ${S1};
   ${Media.SM} {
     ${B2};
-    /* width: 72px; */
   }
 `;
 
-export { Wrapper, NavigationLink, Title, Image, Text, OuterLink, OuterLinkWrapper };
+export {
+  Wrapper,
+  NavigationLink,
+  Title,
+  Image,
+  Text,
+  OuterLink,
+  OuterLinkWrapper,
+  FavoritesButton,
+  LinksWrapper,
+};

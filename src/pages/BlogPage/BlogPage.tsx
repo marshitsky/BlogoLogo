@@ -1,7 +1,14 @@
 import { BlogContent, Modal, Slider, Spinner } from "components";
 import { useEffect, useState } from "react";
 import { useParams, useLocation } from "react-router-dom";
-import { fetchArticleById, getArticleById, useAppDispatch, useAppSelector } from "store";
+import {
+  addToFavorite,
+  fetchArticleById,
+  getArticleById,
+  useAppDispatch,
+  useAppSelector,
+} from "store";
+import { IBlogItem } from "types";
 import { RecommendationsTitle, SliderWrapper } from "./styles";
 
 export const BlogPage = () => {
@@ -13,6 +20,9 @@ export const BlogPage = () => {
 
   const handleCloseModal = () => {
     setIsActive(false);
+  };
+  const handleAddToFavorites = (article: IBlogItem) => {
+    dispatch(addToFavorite(article));
   };
 
   useEffect(() => {
@@ -28,7 +38,7 @@ export const BlogPage = () => {
 
   return (
     <>
-      <BlogContent blogItem={location.state.item} />
+      <BlogContent blogItem={location.state.item} onClick={handleAddToFavorites} />
       <SliderWrapper>
         <RecommendationsTitle>Recommendations</RecommendationsTitle>
         <Slider />
