@@ -7,6 +7,7 @@ import {
   SignInButton,
   StyledSigningForm,
   StyledLink,
+  ErrorMessage,
 } from "./styles";
 import { ROUTE } from "router";
 import { fetchSignInUser, useAppDispatch } from "store";
@@ -65,7 +66,7 @@ export const SignInForm = () => {
     <StyledSigningForm onSubmit={handleSubmit(onSubmit)}>
       <SignInLabel>Email</SignInLabel>
       <SignInInput type="email" placeholder="Your email" {...register("email", validateEmail())} />
-      {errors.email && <p>{errors.email.message}</p>}
+      {errors.email && <ErrorMessage>{errors.email.message}</ErrorMessage>}
 
       <SignInLabel>Password</SignInLabel>
       <SignInInput
@@ -73,7 +74,7 @@ export const SignInForm = () => {
         placeholder="Your password"
         {...register("password", validatePassword())}
       />
-      {errors.password && <p>{errors.password.message}</p>}
+      {errors.password && <ErrorMessage>{errors.password.message}</ErrorMessage>}
 
       <StyledLink to={generatePath("/:path", { path: ROUTE.RESET_PASSWORD })}>
         Forgot password?

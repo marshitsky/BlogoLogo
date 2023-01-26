@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { Color, Media } from "ui";
+import { Color, Media, S1 } from "ui";
 
 const StyledSigningForm = styled.form`
   display: flex;
@@ -8,6 +8,7 @@ const StyledSigningForm = styled.form`
   gap: 20px;
   width: 688px;
   padding: 40px;
+  margin-bottom: 35px;
   background-color: ${Color.WHITE_BACKGROUND};
   border-radius: 16px;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px,
@@ -58,4 +59,17 @@ const StyledLink = styled(Link)`
   }
 `;
 
-export { StyledSigningForm, SignInLabel, SignInInput, SignInButton, SignInText, StyledLink };
+const ErrorMessage = styled.span`
+  ${S1}
+  color: ${Color.ERROR};
+`;
+
+export {
+  StyledSigningForm,
+  SignInLabel,
+  SignInInput,
+  SignInButton,
+  SignInText,
+  StyledLink,
+  ErrorMessage,
+};

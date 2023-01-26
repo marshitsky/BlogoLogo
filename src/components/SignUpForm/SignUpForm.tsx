@@ -1,4 +1,5 @@
 import { Modal } from "components";
+import { ErrorMessage } from "components/SignInForm/styles";
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
@@ -18,6 +19,7 @@ export interface ISignInFormTypes {
   email: string;
   password: string;
   userName: string;
+  confirmPassword: string;
 }
 
 export interface IUserInfoToLS {
@@ -44,6 +46,8 @@ export const SignUpForm = () => {
     register,
     handleSubmit,
     formState: { errors },
+    watch,
+    getValues,
     reset,
   } = useForm<ISignInFormTypes>();
 
@@ -65,6 +69,7 @@ export const SignUpForm = () => {
       .catch((error) => {
         setErrorMessage(error);
         reset();
+        watch(error);
       })
       .then(() => {
         setIsActive(true);
@@ -75,11 +80,11 @@ export const SignUpForm = () => {
     <StyledSigningUpForm onSubmit={handleSubmit(onSubmit)}>
       <SignUpLabel>Name</SignUpLabel>
       <SignUpInput type="name" placeholder="Your name" {...register("userName", validateName())} />
-      {errors.userName && <p>{errors.userName.message}</p>}
+      {errors.userName && <ErrorMessage>{errors.userName.message}</ErrorMessage>}
 
       <SignUpLabel>Email</SignUpLabel>
       <SignUpInput type="email" placeholder="Your email" {...register("email", validateEmail())} />
-      {errors.email && <p>{errors.email.message}</p>}
+      {errors.email && <ErrorMessage>{errors.email.message}</ErrorMessage>}
 
       <SignUpLabel>Password</SignUpLabel>
       <SignUpInput
@@ -87,7 +92,18 @@ export const SignUpForm = () => {
         placeholder="Your password"
         {...register("password", validatePassword())}
       />
-      {errors.password && <p>{errors.password.message}</p>}
+      {errors.password && <ErrorMessage>{errors.password.message}</ErrorMessage>}
+
+      <SignUpLabel>Confirm assword</SignUpLabel>
+      <SignUpInput
+        type="password"
+        placeholder="Confirm password"
+        {...register("confirmPassword", { required: true })}
+      />
+      {watch("confirmPassword") !== watch("password") && getValues("confirmPassword") ? (
+        <ErrorMessage>*password not match</ErrorMessage>
+      ) : null}
+      {errors.password && <ErrorMessage>{errors.password.message}</ErrorMessage>}
 
       <SignUpButton type="submit">Sign Up</SignUpButton>
       <SignUpText>
