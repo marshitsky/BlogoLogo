@@ -1,4 +1,6 @@
 <a name="readme-top"></a>
+![GitHub Repo stars](https://img.shields.io/github/stars/marshitsky/BlogoLogo?style=for-the-badge)
+![GitHub forks](https://img.shields.io/github/forks/marshitsky/BlogoLogo?style=for-the-badge)
 
 <!-- PROJECT LOGO -->
 <br />
