@@ -118,7 +118,7 @@ npm install
 
 ![Favotites](/readme/favorites-desktop.png)
 
-- To get acquainted with many other features of the service you can during the use of the application.
+- To get acquainted with many other features of the service you can during the usage of the application.
 
 #
 
