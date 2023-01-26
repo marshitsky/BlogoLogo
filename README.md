@@ -4,7 +4,9 @@
 <br />
 <div align="center">
 
-<h1 style="font-size: 40px; font-weight: 600">BlogoLogo App</h1>
+![Main logo](/src/assets/img/logo.svg)
+
+<h1 style="font-size: 40px; font-weight: 600">Blogologo App</h1>
 
   <p align="center">
 
