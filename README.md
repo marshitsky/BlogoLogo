@@ -98,6 +98,28 @@ npm install
 
 ## Usage
 
+- The home page will plunge you into a world of amazing and exciting space news.
+  Here you have the ability to switch between the Articles and News tabs, and filter by date and title.
+
+<br>
+
+![Screen](/readme/main-desktop.png)
+
+- You can also easily search for an article or news on any page of the app
+
+<br>
+
+![Search](/readme/search-desktop.png)
+![Search](/readme/search-results.png)
+
+- For registered users it is possible to add articles to Favorites on any page of the application
+
+<br/>
+
+![Favotites](/readme/favorites-desktop.png)
+
+- To get acquainted with many other features of the service you can during the use of the application.
+
 #
 
 ## Contacts
