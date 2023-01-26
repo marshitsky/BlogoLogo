@@ -19,7 +19,12 @@ export const BlogList = memo(({ list }: IProps) => {
     <StyledBlogList>
       {Array.isArray(list) &&
         list.map((blogItem) => (
-          <BlogListItem blogItem={blogItem} key={blogItem.id} onClick={handleAddToFavorites} />
+          <BlogListItem
+            blogItem={blogItem}
+            key={blogItem.id}
+            onClick={handleAddToFavorites}
+            list={list}
+          />
         ))}
     </StyledBlogList>
   );

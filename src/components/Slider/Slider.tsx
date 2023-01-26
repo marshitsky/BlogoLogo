@@ -6,8 +6,13 @@ import { StyledSwiper } from "./styles";
 import { Slide } from "components";
 import { SwiperSlide } from "swiper/react";
 import { useWindowSize } from "hooks";
+import { IBlogItem } from "types";
 
-export const Slider = () => {
+interface SliderProps {
+  blogItem: IBlogItem;
+}
+
+export const Slider = ({ blogItem }: SliderProps) => {
   const { news } = useAppSelector(getAllArticles);
   const { width = 0 } = useWindowSize();
   const setSlidesQuantity = () => {
@@ -28,8 +33,15 @@ export const Slider = () => {
         modules={[FreeMode, Pagination]}
         className="mySwiper"
       >
-        {Array.isArray(news) &&
-          news.map((blogItem) => {
+        {Array.isArray(blogItem)
+          ? blogItem.map((blogItem) => {
+            return (
+              <SwiperSlide key={blogItem.id} style={{ borderRadius: 16 }}>
+                <Slide blogItem={blogItem} />
+              </SwiperSlide>
+            );
+          })
+          : news.map((blogItem) => {
             return (
               <SwiperSlide key={blogItem.id} style={{ borderRadius: 16 }}>
                 <Slide blogItem={blogItem} />

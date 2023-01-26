@@ -20,9 +20,10 @@ interface IProps {
   blogItem: IBlogItem;
   onClick: (blogItem: IBlogItem) => void;
   isFavorite?: boolean;
+  list: IBlogItem[];
 }
 
-export const BlogListItem = memo(({ blogItem, onClick, isFavorite }: IProps) => {
+export const BlogListItem = memo(({ blogItem, onClick, isFavorite, list }: IProps) => {
   const { imageUrl, publishedAt, title, id } = blogItem;
   const { results } = useAppSelector(getFavotites);
   const { isAuth } = useAppSelector(getUserInfo);
@@ -38,6 +39,7 @@ export const BlogListItem = memo(({ blogItem, onClick, isFavorite }: IProps) => 
     navigate(generatePath(ROUTE.HOME + ROUTE.CONTENT, { id: id }), {
       state: {
         item: blogItem,
+        items: list,
       },
     });
   };

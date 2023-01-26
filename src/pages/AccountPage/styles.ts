@@ -1,6 +1,6 @@
 import { SignInButton } from "components/SignInForm/styles";
 import styled from "styled-components";
-import { H2, H3, Media, S1 } from "ui";
+import { Media } from "ui";
 
 const AccountPageWrapper = styled.div`
   place-self: center;

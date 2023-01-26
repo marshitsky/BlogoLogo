@@ -34,6 +34,7 @@ export const FavoritesPage = () => {
                 blogItem={result}
                 onClick={handleRemoveFromFavorites}
                 isFavorite
+                list={results}
               />
             );
           })}
