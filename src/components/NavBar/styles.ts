@@ -14,6 +14,10 @@ const Navigation = styled.div`
   background-color: ${Color.WHITE_HEADER};
   ${Media.MD} {
     grid-template-columns: 1fr 1fr;
+    padding: 0 22px;
+  }
+  ${Media.XS} {
+    padding: 0 12px;
   }
 `;
 

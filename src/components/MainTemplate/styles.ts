@@ -19,7 +19,7 @@ const OutletWrapper = styled.div`
     padding: 32px 26px 22px 26px;
   }
   ${Media.XS} {
-    padding: 22px 4px 12px 4px;
+    padding: 22px 12px 12px 12px;
   }
 `;
 
