@@ -1,7 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import { ROUTE } from "router";
 import { useAppDispatch, logOut } from "store";
-import { AccountPageTitle, AccountPageWrapper, LogOutButton, Subtitle } from "./styles";
+import {
+  AccountPageTitle,
+  AccountPageWrapper,
+  LogOutButton,
+  LogOutButtonWrapper,
+  Subtitle,
+} from "./styles";
 
 export const AccountPage = () => {
   const userName = JSON.parse(localStorage.getItem("userInfo")!);
@@ -21,7 +27,7 @@ export const AccountPage = () => {
 
   return (
     <AccountPageWrapper>
-      <AccountPageTitle>User Account Info</AccountPageTitle>
+      <AccountPageTitle>Account Info:</AccountPageTitle>
       <Subtitle>
         Username:{" "}
         {userName !== null &&
@@ -31,7 +37,9 @@ export const AccountPage = () => {
             .join(" ")}
       </Subtitle>
       <Subtitle>Email: {userName !== null && userName.email}</Subtitle>
-      <LogOutButton onClick={handleLogOut}>Log Out</LogOutButton>
+      <LogOutButtonWrapper>
+        <LogOutButton onClick={handleLogOut}>Log Out</LogOutButton>
+      </LogOutButtonWrapper>
     </AccountPageWrapper>
   );
 };

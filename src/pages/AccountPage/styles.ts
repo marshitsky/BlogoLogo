@@ -1,36 +1,39 @@
 import { SignInButton } from "components/SignInForm/styles";
 import styled from "styled-components";
-import { H2, Media, S1 } from "ui";
+import { H2, H3, Media, S1 } from "ui";
 
 const AccountPageWrapper = styled.div`
   place-self: center;
-  padding: 35px;
-  text-align: center;
+  padding: 45px;
+  text-align: start;
   border-radius: 16px;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px,
     rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px,
     rgba(0, 0, 0, 0.09) 0px -3px 5px;
 
   ${Media.MD} {
-    padding: 15px;
+    padding: 25px;
   }
 `;
 const AccountPageTitle = styled.h1`
-  ${H2}
-  padding-bottom: 20px;
-  font-size: 42px !important;
-  text-decoration: underline;
+  padding-bottom: 15px;
+  font-size: 36px;
   ${Media.MD} {
-    font-size: 26px !important;
+    font-size: 26px;
   }
 `;
 const Subtitle = styled.h3`
-  ${H2}
-  padding: 20px 0;
+  padding: 12px 0;
+  font-size: 26px;
   ${Media.MD} {
-    ${S1}
     padding: 5px 0;
+    font-size: 20px;
   }
+`;
+
+const LogOutButtonWrapper = styled.div`
+  display: grid;
+  place-items: center;
 `;
 
 const LogOutButton = styled(SignInButton)`
@@ -39,4 +42,4 @@ const LogOutButton = styled(SignInButton)`
     font-size: 14px;
   }
 `;
-export { AccountPageWrapper, AccountPageTitle, Subtitle, LogOutButton };
+export { AccountPageWrapper, AccountPageTitle, Subtitle, LogOutButtonWrapper, LogOutButton };
