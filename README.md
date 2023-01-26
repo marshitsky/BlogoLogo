@@ -3,10 +3,15 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-   <h3 align="center">BlogoLogo App (React/TypeScript)</h3>
+
+# BlogoLogo App
 
   <p align="center">
-    <a href="https://marshitsky.github.io/BlogoLogo">View Demo</a>
+
+[View Demo](https://marshitsky.github.io/BlogoLogo/)
+
+#
+
   </p>
 </div>
 
@@ -25,40 +30,25 @@
 
 ## About The Project
 
-<br />
+#### A news and information portal that tells the latest news from the world of space, rocket science, deep space research, discoveries and breakthroughs in astronomy.
 
-<div style="text-align: center;">
+#### There are two main sections on the portal - articles and news, each of which has something interesting for everyone.
 
-### A news and information portal that tells the latest news from the world of space, rocket science, deep space research, discoveries and breakthroughs in astronomy.
+#### This portal provides for user registration with possibility of password reset and sending information letter to user's e-mail.
 
-### There are two main sections on the portal - articles and news, each of which has something interesting for everyone.
+#### Registered users can add their favorite articles to the list of favorites, which provides quick access to them at any time.
 
-### This portal provides for user registration with possibility of password reset and sending information letter to user's e-mail.
+#### Also, the portal has a separate search by article and news titles.
 
-### Registered users can add their favorite articles to the list of favorites, which provides quick access to them at any time.
+#### For users' convenience, the display theme mode switch is located on each page of the application.
 
-### Also, the portal has a separate search by article and news titles.
+#### The application features adaptive layout for all screen resolutions (desktop-first).
 
-### For users' convenience, the display theme mode switch is located on each page of the application.
+#
 
-### The application features adaptive layout for all screen resolutions (desktop-first).
+### Screenshots:
 
-</div>
-
-<p style="
-font-size: 18px
-"><br/> 
-</p>
-
-<h3>Screenshots:</h3><br />
-<div style="
-display: flex;
-gap: 5px;
-">
-<!-- <img src="./readme/screenshot.png" width=35% height=95%>
-<img src="./readme/screenshotFilled.png" width=35% height=100%> -->
-<!-- ![Tips Calculator Screenshot ](./readme/screenshot.png) -->
-</div><br/>
+#
 
 ### Built With
 
@@ -74,9 +64,9 @@ gap: 5px;
 - ![Firebase](https://img.shields.io/badge/firebase-%23039BE5.svg?style=for-the-badge&logo=firebase)
 - ![Framer Motion][framer.com]
 
-<br>
+#
 
-## Contact
+## Contacts
 
 Miroslav - tg: [@MirMar](https://t.me/MirMar) | email: marshitsky@gmail.com
 
