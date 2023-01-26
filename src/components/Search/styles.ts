@@ -24,7 +24,7 @@ const StyledInput = styled.input`
 `;
 
 const SubmitButton = styled.button`
-  display: none;
+  visibility: hidden;
 `;
 
 export { StyledForm, StyledInput, InputWrapper, SubmitButton };

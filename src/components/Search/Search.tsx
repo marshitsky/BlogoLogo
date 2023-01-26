@@ -59,7 +59,6 @@ export const Search = memo((props: IProps) => {
           <InputWrapper ref={ref}>
             <StyledInput type="search" placeholder="Search ..." name="search" {...searchValue} />
             <SubmitButton type="submit" onClick={props.onClick}>
-              Search
             </SubmitButton>
           </InputWrapper>
         </StyledForm>
