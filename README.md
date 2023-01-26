@@ -53,6 +53,11 @@ The application features adaptive layout for all screen resolutions (desktop-fir
 
 ### Screenshots:
 
+![Screen](/readme/main-desktop.png)
+![Screen](/readme/favorites-desktop.png)
+
+<!-- ![Screen](/readme/sign-in-desktop.png)-->
+
 #
 
 ### Built With
@@ -68,6 +73,30 @@ The application features adaptive layout for all screen resolutions (desktop-fir
 - ![Redux Toolkit][redux-toolkit.js.org]
 - ![Firebase](https://img.shields.io/badge/firebase-%23039BE5.svg?style=for-the-badge&logo=firebase)
 - ![Framer Motion][framer.com]
+
+#
+
+## Getting started
+
+## Installation
+
+### To get local copy:
+
+- Clone the repo
+
+```
+git clone https://github.com/marshitsky/BlogoLogo.git
+```
+
+- Install the packages
+
+```
+npm install
+```
+
+#
+
+## Usage
 
 #
 
