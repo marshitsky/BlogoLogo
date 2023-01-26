@@ -2,13 +2,13 @@ import styled from "styled-components";
 import { B2, Color, H2, Media, S1 } from "ui";
 
 const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  max-width: 1110px;
-  padding: 0 20px 36px 0;
+  display: grid;
+  grid-template-rows: auto;
   width: 100%;
+  max-width: 1110px;
+  padding-bottom: 36px;
   ${Media.MD} {
-    padding: 0 15px 20px 0;
+    padding-bottom: 20px;
   }
 `;
 
