@@ -10,7 +10,7 @@ import {
   useAppSelector,
 } from "store";
 import { IBlogItem } from "types";
-import { RecommendationsTitle, SliderWrapper } from "./styles";
+import { BlogContentWrapper, RecommendationsTitle, SliderWrapper } from "./styles";
 
 export const BlogPage = () => {
   const [isActiveModal, setIsActiveModal] = useState(false);
@@ -42,12 +42,12 @@ export const BlogPage = () => {
   }
 
   return (
-    <>
+    <BlogContentWrapper>
       <BlogContent blogItem={location.state.item} onClick={handleAddToFavorites} />
       <SliderWrapper>
         <RecommendationsTitle>Recommendations</RecommendationsTitle>
         <Slider blogItem={location.state.items} />
       </SliderWrapper>
-    </>
+    </BlogContentWrapper>
   );
 };

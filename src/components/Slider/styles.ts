@@ -7,11 +7,14 @@ const StyledSwiper = styled(Swiper)`
   ${Media.XL} {
     max-width: 720px;
   }
+  ${Media.LG} {
+    max-width: 520px;
+  }
   ${Media.MD} {
-    max-width: 340px;
+    max-width: 320px;
   }
   ${Media.XS} {
-    max-width: 290px;
+    max-width: 270px;
   }
 `;
 

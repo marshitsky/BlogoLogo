@@ -6,7 +6,6 @@ const StyledSlide = styled.div`
   flex-direction: column;
   max-width: 352px;
   min-width: 250px;
-  width: 100%;
   height: 388px;
   background-color: ${Color.WHITE_HEADER};
   border-radius: 16px;
