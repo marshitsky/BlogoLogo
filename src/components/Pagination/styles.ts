@@ -17,7 +17,7 @@ const StyledPagination = styled.div`
 
 const PaginationButton = styled.button<setCurrent>`
   padding: 5px;
-  font-size: ${({ $isActive }) => ($isActive ? "20px !important" : "18px !important")};
+  font-size: ${({ $isActive }) => ($isActive ? "20px" : "18px")};
   font-weight: ${({ $isActive }) => ($isActive ? "600" : "400")};
   color: ${Color.FOOTER_FONT_COLOR};
   background-color: transparent;
