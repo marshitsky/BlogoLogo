@@ -1,5 +1,5 @@
 import { SubmitHandler, useForm } from "react-hook-form";
-import { generatePath, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {
   SignInInput,
   SignInLabel,
@@ -76,13 +76,10 @@ export const SignInForm = () => {
       />
       {errors.password && <ErrorMessage>{errors.password.message}</ErrorMessage>}
 
-      <StyledLink to={generatePath("/:path", { path: ROUTE.RESET_PASSWORD })}>
-        Forgot password?
-      </StyledLink>
+      <StyledLink to={ROUTE.HOME + ROUTE.RESET_PASSWORD}>Forgot password?</StyledLink>
       <SignInButton type="submit">Sign in</SignInButton>
       <SignInText>
-        Don’t have an account?{" "}
-        <StyledLink to={generatePath("/:path", { path: ROUTE.SIGN_UP })}>Sign Up</StyledLink>
+        Don’t have an account? <StyledLink to={ROUTE.HOME + ROUTE.SIGN_UP}>Sign Up</StyledLink>
       </SignInText>
       {isActiveModal && !errorMessage && (
         <Modal message="Successful" handleClick={handleNavigate} />

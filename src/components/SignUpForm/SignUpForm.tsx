@@ -36,7 +36,7 @@ export const SignUpForm = () => {
 
   const navigate = useNavigate();
   const handleNavigate = () => {
-    navigate(`/${ROUTE.ACCOUNT}`);
+    navigate(ROUTE.HOME + ROUTE.ACCOUNT);
   };
   const handleCloseModal = () => {
     setIsActive(false);
@@ -107,7 +107,8 @@ export const SignUpForm = () => {
 
       <SignUpButton type="submit">Sign Up</SignUpButton>
       <SignUpText>
-        Have an account already? <SignUpNavLink to={`/${ROUTE.SIGN_IN}`}>Sign In</SignUpNavLink>
+        Have an account already?{" "}
+        <SignUpNavLink to={ROUTE.HOME + ROUTE.SIGN_IN}>Sign In</SignUpNavLink>
       </SignUpText>
       {isActive && !errorMessage && (
         <Modal message="Authorization successful" handleClick={handleNavigate} />
