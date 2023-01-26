@@ -21,7 +21,7 @@ const Title = styled.h1`
 const SortPanelBlock = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: end;
+  align-items: flex-end;
   row-gap: 20px;
   padding-top: 50px;
   ${Media.LG} {
