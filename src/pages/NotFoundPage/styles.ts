@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
+import { SLink } from "pages/SignInPage/styles";
 import styled from "styled-components";
-import { H1, H2, S1 } from "ui";
+import { H1, H2 } from "ui";
 
 const NotFoundWrapper = styled.div`
   display: flex;
@@ -18,9 +18,11 @@ const NotFoundSubTitle = styled.h2`
   ${H2}
 `;
 
-const StyledLink = styled(Link)`
-  ${S1};
-  text-decoration: underline;
+const StyledLink = styled(SLink)`
+  width: 100%;
+  text-align: center;
 `;
 
-export { NotFoundWrapper, NotFoundTitle, NotFoundSubTitle, StyledLink };
+const Image = styled.img``;
+
+export { NotFoundWrapper, NotFoundTitle, NotFoundSubTitle, StyledLink, Image };
