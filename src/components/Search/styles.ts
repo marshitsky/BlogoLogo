@@ -17,10 +17,10 @@ const StyledInput = styled.input`
   height: 100%;
   padding: 0 32px;
   font-size: 16px;
-  border: 1px solid rgb(15, 44, 148, 0.1);
-  border-radius: 8px;
   color: ${Color.FOOTER_FONT_COLOR};
   background-color: ${Color.EXTRA_LIGHT};
+  border: 1px solid rgb(15, 44, 148, 0.1);
+  border-radius: 8px;
 `;
 
 const SubmitButton = styled.button`

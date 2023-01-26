@@ -20,9 +20,9 @@ const Title = styled.h2`
   ${H2}
   padding: 32px 0 48px 0;
   ${Media.MD} {
+    padding: 22px 0 26px 0;
     font-size: 22px;
     line-height: 30px;
-    padding: 22px 0 26px 0;
   }
 `;
 

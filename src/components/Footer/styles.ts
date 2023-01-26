@@ -23,11 +23,11 @@ const CopyRight = styled.h3`
 `;
 
 const ThemeToggle = styled.button`
-  background: ${Color.PRIMARY};
   color: ${Color.WHITE};
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
+  background-color: ${Color.PRIMARY};
 `;
 
 export { StyledFooter, ThemeToggle, CopyRight };

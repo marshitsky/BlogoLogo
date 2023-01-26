@@ -4,38 +4,38 @@ import { Color } from "ui";
 
 export const CustomSwitch = styled(Switch)({
   "& .MuiSwitch-thumb": {
-    marginTop: 3,
-    marginLeft: 4,
     width: 16,
     height: 16,
+    marginTop: 3,
+    marginLeft: 4,
     boxSizing: "border-box",
   },
   "& .MuiButtonBase.Mui-checked": {
-    background: Color.SECONDARY,
+    backgroundColor: Color.SECONDARY,
   },
   "& .MuiSwitch-track": {
-    marginTop: -2,
     width: 32,
     height: 20,
-    borderRadius: 10,
+    marginTop: -2,
     backgroundColor: Color.PRIMARY,
+    borderRadius: 10,
   },
   "& .MuiSwitch-switchBase": {
     "&:hover": {
-      background: "transparent",
+      backgroundColor: "transparent",
     },
     "&:active": {
-      background: "transparent",
+      backgroundColor: "transparent",
     },
   },
   "& .MuiSwitch-switchBase.Mui-checked": {
     transform: "translateX(14px)",
     color: Color.WHITE,
     "&:hover": {
-      background: "transparent",
+      backgroundColor: "transparent",
     },
     "&:active": {
-      background: "transparent",
+      backgroundColor: "transparent",
     },
   },
   "& .MuiSwitch-switchBase.Mui-checked+.MuiSwitch-track": {
