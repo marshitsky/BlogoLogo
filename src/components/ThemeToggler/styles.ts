@@ -18,7 +18,7 @@ export const CustomSwitch = styled(Switch)({
     width: 32,
     height: 20,
     borderRadius: 10,
-    backgroundColor: Color.LIGHT,
+    backgroundColor: Color.PRIMARY,
   },
   "& .MuiSwitch-switchBase": {
     "&:hover": {
@@ -49,8 +49,5 @@ export const CustomSwitch = styled(Switch)({
       top: 1,
       right: 2,
     },
-  },
-  "&. MuiTypography-root": {
-    color: "#6528",
   },
 });
