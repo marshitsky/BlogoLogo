@@ -1,9 +1,10 @@
 import { StyledBlogList } from "components/BlogList/styles";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Color, H1, H2, H3, Media } from "ui";
 
-const FavoritesWrapper = styled.div`
+const FavoritesWrapper = styled(motion.div)`
   place-self: start center;
   text-align: center;
 `;

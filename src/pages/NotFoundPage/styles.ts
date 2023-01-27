@@ -1,8 +1,9 @@
+import { motion } from "framer-motion";
 import { SLink } from "pages/SignInPage/styles";
 import styled from "styled-components";
 import { H1, H2 } from "ui";
 
-const NotFoundWrapper = styled.div`
+const NotFoundWrapper = styled(motion.div)`
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -1,7 +1,8 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 import { H2 } from "ui";
 
-const SearchPageWrapper = styled.div`
+const SearchPageWrapper = styled(motion.div)`
   display: grid;
   align-self: flex-start;
   place-items: start center;

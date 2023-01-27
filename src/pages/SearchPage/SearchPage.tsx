@@ -38,7 +38,13 @@ export const SearchPage = () => {
   }, [dispatch, searchValue]);
 
   return (
-    <SearchPageWrapper>
+    <SearchPageWrapper initial={{ x: -1920 }}
+      animate={{ x: 0 }}
+      transition={{
+        type: "spring",
+        stiffness: 300,
+        damping: 15
+      }}>
       <SearchResultsInfo>
         "{searchValue ? searchValue : " "}" search results for Articles
       </SearchResultsInfo>

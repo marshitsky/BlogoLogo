@@ -13,8 +13,13 @@ export const FavoritesPage = () => {
   };
 
   return (
-    <FavoritesWrapper>
-      {" "}
+    <FavoritesWrapper initial={{ x: -1920 }}
+      animate={{ x: 0 }}
+      transition={{
+        type: "spring",
+        stiffness: 300,
+        damping: 15
+      }}>
       <Heading>Favorites</Heading>
       {results.length === 0 && (
         <>

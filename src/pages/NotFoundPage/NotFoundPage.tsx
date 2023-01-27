@@ -4,7 +4,13 @@ import { NotFoundTitle, NotFoundWrapper, NotFoundSubTitle, StyledLink, Image } f
 
 export const NotFoundPage = () => {
   return (
-    <NotFoundWrapper>
+    <NotFoundWrapper initial={{ x: -1920 }}
+      animate={{ x: 0 }}
+      transition={{
+        type: "spring",
+        stiffness: 300,
+        damping: 15
+      }}>
       <NotFoundTitle>Whooops!</NotFoundTitle>
       <NotFoundSubTitle>Looks like this page went on vocation.</NotFoundSubTitle>
       <Image src={notFoundPageImg} alt="notFoundLogo" />

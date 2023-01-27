@@ -42,7 +42,13 @@ export const BlogPage = () => {
   }
 
   return (
-    <BlogContentWrapper>
+    <BlogContentWrapper initial={{ x: -1920 }}
+      animate={{ x: 0 }}
+      transition={{
+        type: "spring",
+        stiffness: 300,
+        damping: 15
+      }}>
       <BlogContent blogItem={location.state.item} onClick={handleAddToFavorites} />
       <SliderWrapper>
         <RecommendationsTitle>Recommendations</RecommendationsTitle>
