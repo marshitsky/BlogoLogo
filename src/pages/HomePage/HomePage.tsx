@@ -62,7 +62,9 @@ export const HomePage = () => {
       initial={{ x: -1920 }}
       animate={{ x: 0 }}
       transition={{
-        duration: 0.6,
+        type: "spring",
+        stiffness: 300,
+        damping: 15
       }}
     >
       <Title>Blog</Title>

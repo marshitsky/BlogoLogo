@@ -1,8 +1,9 @@
 import { SignInButton } from "components/SignInForm/styles";
+import { motion } from "framer-motion";
 import styled from "styled-components";
 import { Media } from "ui";
 
-const AccountPageWrapper = styled.div`
+const AccountPageWrapper = styled(motion.div)`
   place-self: center;
   padding: 45px;
   text-align: start;

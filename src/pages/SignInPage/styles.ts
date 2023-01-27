@@ -1,8 +1,9 @@
+import { motion } from "framer-motion";
 import { StyledLink } from "pages/SignUpPage/styles";
 import styled from "styled-components";
 import { H1, H2, Media } from "ui";
 
-const StyledWrapper = styled.div`
+const StyledWrapper = styled(motion.div)`
   display: grid;
   place-items: center start;
   ${Media.LG} {

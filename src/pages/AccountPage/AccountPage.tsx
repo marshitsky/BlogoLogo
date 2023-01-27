@@ -26,7 +26,13 @@ export const AccountPage = () => {
   };
 
   return (
-    <AccountPageWrapper>
+    <AccountPageWrapper initial={{ x: -1920 }}
+      animate={{ x: 0 }}
+      transition={{
+        type: "spring",
+        stiffness: 300,
+        damping: 15
+      }}>
       <AccountPageTitle>Account Info:</AccountPageTitle>
       <Subtitle>
         Username:{" "}
