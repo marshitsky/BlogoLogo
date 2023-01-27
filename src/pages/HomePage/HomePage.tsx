@@ -104,7 +104,7 @@ export const HomePage = () => {
 
       <PaginationWrapper>
         <Pagination
-          handlePage={() => handlePage(-18, -1)}
+          handlePage={() => handlePage(-12, -1)}
           requestParams={requestParams.current - 1}
           isActive={!isActivePagination}
         />
@@ -114,13 +114,13 @@ export const HomePage = () => {
           isActive={isActivePagination}
         />
         <Pagination
-          handlePage={() => handlePage(18, 1)}
+          handlePage={() => handlePage(12, 1)}
           requestParams={requestParams.current + 1}
           isActive={!isActivePagination}
         />
         {"···"}
         <Pagination
-          handlePage={() => handlePage(18, 5)}
+          handlePage={() => handlePage(12, 5)}
           requestParams={requestParams.current + 5}
           isActive={!isActivePagination}
         />
