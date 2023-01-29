@@ -1,6 +1,6 @@
 import { SignInButton } from "components/SignInForm/styles";
 import styled from "styled-components";
-import { Color, H2 } from "ui";
+import { Color, H2, Media } from "ui";
 
 const Container = styled.div`
   position: fixed;
@@ -17,10 +17,10 @@ const Container = styled.div`
 
 const ModalInformation = styled.div`
   display: grid;
-  place-items: center;
+  place-items: center center;
   max-width: 600px;
-  height: 250px;
-  padding: 20px;
+  max-height: 400px;
+  padding: 2rem;
   background-color: ${Color.WHITE_BACKGROUND};
   border-radius: 12px;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px,
@@ -30,7 +30,13 @@ const ModalInformation = styled.div`
 
 const AuthText = styled.p`
   ${H2}
-  color: ${Color.ERROR};
+  padding-bottom: 20px;
+  color: ${Color.FONT_COLOR};
+  text-align: center;
+  ${Media.MD} {
+    font-size: 20px !important;
+    line-height: 120%;
+  }
 `;
 
 const Button = styled(SignInButton)``;
