@@ -67,7 +67,7 @@ export const BlogListItem = memo(({ blogItem, onClick, isFavorite, list }: IProp
           {isAuth && isInFavorites ? "❤️" : "🤍"}
         </FavoritesBtn>
       ) : (
-        <FavoritesBtn>🤍</FavoritesBtn>
+        <FavoritesBtn></FavoritesBtn>
       )}
     </StyledArticleListItem>
   );
