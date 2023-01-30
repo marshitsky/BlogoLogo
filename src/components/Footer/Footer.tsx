@@ -5,7 +5,7 @@ import { StyledFooter, CopyRight } from "./styles";
 export const Footer = () => {
   return (
     <StyledFooter>
-      <CopyRight>©2022 Blogologo</CopyRight>
+      <CopyRight>©2023 Blogologo</CopyRight>
       <ThemeToggler />
     </StyledFooter>
   );
