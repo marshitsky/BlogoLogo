@@ -38,6 +38,7 @@ export const AccountPage = () => {
         Username:{" "}
         {userName !== null &&
           userName.name
+            .replace(/  +/g, " ")
             .split(" ")
             .map((n: string) => n[0].toUpperCase() + n.slice(1))
             .join(" ")}
