@@ -3,18 +3,9 @@ import { Swiper } from "swiper/react";
 import { Media } from "ui";
 
 const StyledSwiper = styled(Swiper)`
-  max-width: 1110px;
+  width: 100%;
   ${Media.XL} {
-    max-width: 720px;
-  }
-  ${Media.LG} {
-    max-width: 520px;
-  }
-  ${Media.MD} {
-    max-width: 320px;
-  }
-  ${Media.XS} {
-    max-width: 270px;
+    width: 89vw;
   }
 `;
 
