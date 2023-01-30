@@ -30,6 +30,7 @@ export const UserAccount = memo(({ handleClose }: IProps) => {
           <NavLink to={ROUTE.ACCOUNT}>
             {name && name.split(" ").length > 1
               ? name
+                .replace(/  +/g, " ")
                 .split(" ")
                 .map((n: string) => n[0].toUpperCase() + n.slice(1))
                 .join(" ")
