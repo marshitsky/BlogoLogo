@@ -29,6 +29,7 @@ const SignInLabel = styled.h1`
 const SignInInput = styled.input`
   height: 56px;
   padding-left: 20px;
+  color: ${Color.FONT_COLOR};
   background-color: ${Color.WHITE_HEADER};
   border-radius: 4px;
 `;

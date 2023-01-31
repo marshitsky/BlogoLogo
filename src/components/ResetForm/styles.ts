@@ -11,6 +11,7 @@ const ResetLabel = styled.h2`
 const ResetInput = styled.input`
   height: 56px;
   padding: 20px;
+  color: ${Color.FONT_COLOR};
   background-color: ${Color.WHITE_HEADER};
   border-radius: 4px;
 `;
