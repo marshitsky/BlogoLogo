@@ -12,7 +12,7 @@ const validateEmail = () => {
   return {
     required: "* email is required",
     maxLength: { value: 35, message: "* max 35 characters" },
-    pattern: { value: /^(.+)@(.+)$/, message: "Enter a valid email" },
+    pattern: { value: /^[\w-\\.]+@([\w-]+\.)+[\w-]{2,4}$/g, message: "Enter a valid email" },
   };
 };
 
